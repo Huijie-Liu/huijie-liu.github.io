@@ -2,57 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Jay Tech</title>
-    <link>https://github.com/Huijie-Liu/huijie-liu.github.io/</link>
+    <link>/</link>
     <description>Recent content on Jay Tech</description>
     <image>
       <title>Jay Tech</title>
-      <url>https://github.com/Huijie-Liu/huijie-liu.github.io/images/papermod-cover.png</url>
-      <link>https://github.com/Huijie-Liu/huijie-liu.github.io/images/papermod-cover.png</link>
+      <url>/images/papermod-cover.png</url>
+      <link>/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <atom:link href="https://github.com/Huijie-Liu/huijie-liu.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title></title>
-      <link>https://github.com/Huijie-Liu/huijie-liu.github.io/posts/cv/%E4%B8%AA%E4%BA%BA-fd4efc88bd2f45f5b3af76353a598a64/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/Huijie-Liu/huijie-liu.github.io/posts/cv/%E4%B8%AA%E4%BA%BA-fd4efc88bd2f45f5b3af76353a598a64/</guid>
-      <description>个人 个人简历 基本信息 姓名 刘慧杰 年龄 23 性别 男 电话 15596666588 邮箱 mailto:1627158922@qq.commailto:llhhjj6588@gmail.commailto:huijieliu@buaa.edu.cn 教育经历 时间 学校 学院 专业 学历 获奖 GPA 2019年9月～2023年6月 北京交通大学 软件学院 软件工程 本科 学习优秀奖学金，社会实践优秀奖学金 3.52/4.0 2023年9月～至今 北京航空航天大学 软件学院 软件工程 硕士 研究生二等学业奖学金 3.59/4.0 在校经历 项目经历 时间 项目 角色 技术框架 项目简介 个人贡献 STAR 含金量 难易度 2021.05~2022.05 全国大学生创新创业大赛——人脸佛像识别系统 算法工程师 深度学习模型基于dlib库，开发语言为Python和C++，使用深度卷积神经网络（CNN）进行特征提取和分类，实现人脸和佛像的识别。 参与全国大学生创新创业大赛，提交作品“基于深度学习的人脸佛像识别系统”，获得校级奖项。项目旨在通过深度学习技术实现对人脸和佛像的准确识别。 1. 担任项目主要算法工程师，负责深度学习模型的设计与实现。 2. 熟练掌握Python和C++编程语言，有效进行算法开发与优化。 3. 深入理解机器学习整体概念，掌握计算机视觉相关知识。 业务背景： 随着深度学习技术的发展，人脸识别技术已广泛应用于各个领域，佛像识别作为一种特殊的图像识别任务，对于文物保护和研究具有重要意义。 业务目标： 开发一个基于深度学习的人脸佛像识别系统，实现对人脸和佛像的准确识别。 具体工作： 使用Python和C++进行算法开发和优化。 进行模型训练和测试，优化识别准确率。 个人贡献： 作为项目的主要算法工程师，负责深度学习模型的设计与实现，成功将模型应用于人脸和佛像的识别任务中，提高了识别准确率。 | ⭐️⭐️ | ⭐️⭐️ | | 2022.</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://github.com/Huijie-Liu/huijie-liu.github.io/posts/cv/%E4%B8%AA%E4%BA%BA-fd4efc88bd2f45f5b3af76353a598a64/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86-64f237f8b75b43388698b37dd56b8504/deeplang-9f3b98ed5c474e318f6f65fe3f066507/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/Huijie-Liu/huijie-liu.github.io/posts/cv/%E4%B8%AA%E4%BA%BA-fd4efc88bd2f45f5b3af76353a598a64/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86-64f237f8b75b43388698b37dd56b8504/deeplang-9f3b98ed5c474e318f6f65fe3f066507/</guid>
-      <description>DeepLang Tags: 实习, 开发 岗位: 大数据开发实习生 日期: 03/08/2024 16:00 (GMT+8) → 16:30 自我评价: ⭐️⭐️⭐️⭐️ 面试体验: ⭐️⭐️⭐️⭐️ 面试结果: Refuse
-💡 目前最顺利的一场面试！终于做出来题目了。 项目 算法 </description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://github.com/Huijie-Liu/huijie-liu.github.io/posts/cv/%E4%B8%AA%E4%BA%BA-fd4efc88bd2f45f5b3af76353a598a64/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86-64f237f8b75b43388698b37dd56b8504/momenta-4b72bee4ea424dafbf5dc30d463d79be/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/Huijie-Liu/huijie-liu.github.io/posts/cv/%E4%B8%AA%E4%BA%BA-fd4efc88bd2f45f5b3af76353a598a64/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86-64f237f8b75b43388698b37dd56b8504/momenta-4b72bee4ea424dafbf5dc30d463d79be/</guid>
-      <description>Momenta Tags: 实习, 开发 岗位: 后端实习生 日期: 03/08/2024 14:45 (GMT+8) → 15:15 自我评价: ⭐️⭐️⭐️ 面试体验: ⭐️⭐️⭐️⭐️ 面试结果: Waiting
-💡 整体还算不错，可依旧是败在了算法。 项目 Question Answer Review python的requests库异常处理 没怎么接触大型项目完整的异常处理，一般都是用try except捕获异常后忽略该异常 异常处理 Mysql平时是怎么用的 在一些web应用程序中使用，例如用户注册，租车软件信息存储 Docker有用过吗，Dockfile有没有写过 没有在大型项目中用过，自己平时会用到。Docker文件需要对容器的一些配置项进行配置，例如拉取的镜像。 算法 计算两矩形相交面积</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://github.com/Huijie-Liu/huijie-liu.github.io/posts/cv/%E4%B8%AA%E4%BA%BA-fd4efc88bd2f45f5b3af76353a598a64/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86-64f237f8b75b43388698b37dd56b8504/%E4%B8%AD%E5%9B%BD%E7%A7%91%E5%AD%A6%E9%99%A2%E8%BD%AF%E4%BB%B6%E7%A0%94%E7%A9%B6%E6%89%80-fffad65e77424ed5a15f013863802b78/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/Huijie-Liu/huijie-liu.github.io/posts/cv/%E4%B8%AA%E4%BA%BA-fd4efc88bd2f45f5b3af76353a598a64/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86-64f237f8b75b43388698b37dd56b8504/%E4%B8%AD%E5%9B%BD%E7%A7%91%E5%AD%A6%E9%99%A2%E8%BD%AF%E4%BB%B6%E7%A0%94%E7%A9%B6%E6%89%80-fffad65e77424ed5a15f013863802b78/</guid>
-      <description>中国科学院软件研究所 Tags: 实习, 开发 岗位: Python实习生 日期: 03/03/2024 18:00 (GMT+8) → 18:35 自我评价: ⭐️⭐️ 面试体验: ⭐️⭐️⭐️⭐️ 面试结果: Accept
-💡 摘要：本次面试没有考察手撕算法，各种基础知识等等，面试官的问题主要集中在简历里的**项目经历**，很看重项目有没有**落地以及实际意义**，需要和对方实验室的方向尽量契合（比如他们的实验室正在做自然语言处理，所以才主要抓着我的毕设项目来问）。整体面试氛围比较轻松，老师也会介绍他们实验室的情况。后面简单问了两个Python语言相关的问题。 主要问题出在对简历以及做过的项目不够熟悉，只能回答上来一点皮毛，没办法细致描述某个功能具体是怎么实现的！（例如，用python的pandas进行数据预处理的具体步骤？） 总结：熟悉简历，巩固基础知识。
-Question Answer Review 统计建模大赛里都爬取了哪些网站？ 美国波音公司官网的数据，具体是哪个网站记不太清楚了。 可能是考察工作量。 爬虫获取的是列表类数据还是新闻类数据？ 主要是列表类数据，有数字类型以及字符串类型。 列表类数据获取难度较低，应该主要是想看爬虫有没有数据提取的功能。 数据处理时归一化是怎么做的？ （含糊不清，忘记归一化是什么了）取数据的平均值之类的。 基础不扎实，对简历不熟悉。简历上明明写了有做归一化自己却没准备。 讲一下你毕设里知识图谱的内容。 知识图谱这块是其他同学负责的，我负责的部分是算法管理。 面试官看了我的毕设题目以为我懂知识图谱，可惜我不懂。 没懂你的毕设内容具体要实现的效果？如何展示出来？ 输入一个句子，输出对应自然语言处理算法的结果。并将结果提供给其他模块。 其实只是简单调用了算法接口，没什么难度。 你的模块会和其他模块交互吗？还是说这是独立的一个系统？ 我的是独立的，后面会交付给企业那边由企业完成系统之间的交互。 我负责的系统是独立的，无法与其他系统交互。这样看下来工作量还是太少，太简单。 研究生项目里的短信功能你是怎么实现的？ 没有使用短信接口，因为需要收费。使用的是Google的firebase cloud message（FCM），好处是免费。（面试的时候忘记FCM这个词了，也没说清楚原理） 问题在于我的研究生项目其实不是一个完整的项目，只做了一半，甚至没有用户。 FCM是设备安装了该程序之后，可以申请订阅FCM通知，然后检测到摔倒之后，Google的firebase平台就会向所有订阅了该FCM的设备直接发送通知。 你的研究生项目有没有实际应用？你完成了里面的哪些部分？ 没有，全部都是自己完成的。 解释一下Python的浅拷贝和深拷贝。 浅拷贝只拷贝饮用，深拷贝连数值一起拷贝。 差不多，但实际上自己并不是特别清楚。 平时在爬取数据时正则表达式是怎么使用的？match和search的区别？ （完全忘了match和search，还以为是贪婪匹配）不记得这个具体是什么了，不过我记得应该是带不带问号的区别。 。。。完全不是一回事，还好面试官人好，没怎么深究。 </description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://github.com/Huijie-Liu/huijie-liu.github.io/posts/cv/%E4%B8%AA%E4%BA%BA-fd4efc88bd2f45f5b3af76353a598a64/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86-64f237f8b75b43388698b37dd56b8504/%E5%8C%97%E4%BA%AC%E6%99%BA%E8%B0%B1%E5%8D%8E%E7%AB%A0%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8-f7acedc114544906a2c178e4fd5e170f/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/Huijie-Liu/huijie-liu.github.io/posts/cv/%E4%B8%AA%E4%BA%BA-fd4efc88bd2f45f5b3af76353a598a64/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86-64f237f8b75b43388698b37dd56b8504/%E5%8C%97%E4%BA%AC%E6%99%BA%E8%B0%B1%E5%8D%8E%E7%AB%A0%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8-f7acedc114544906a2c178e4fd5e170f/</guid>
-      <description>北京智谱华章科技有限公司 Tags: 实习, 开发 岗位: 后端实习生 日期: 03/07/2024 14:00 (GMT+8) → 14:30 自我评价: ⭐️ 面试体验: ⭐️⭐️⭐️ 面试结果: Reject
-💡 自我介绍+算法题。直接被秒了 好好刷算法题！基础不好不可能会有人要的！
-项目 Question Answer Review 介绍一下本科毕设这个知识图谱的项目 主要做的前后端，算法不是我做的 几乎都很看重算法部分，可惜我没做。 算法 https://leetcode.cn/problems/er-cha-shu-de-jing-xiang-lcof/description/
-一个简简单单的反转二叉树做了20分钟…面试官直接结束。还是基础太差了</description>
-    </item>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
