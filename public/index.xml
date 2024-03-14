@@ -6,6 +6,7 @@
     <description>Recent content on Jay Tech</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+<<<<<<< HEAD
     <lastBuildDate>Wed, 13 Mar 2024 15:25:58 +0800</lastBuildDate>
     <atom:link href="//localhost:64118/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -22,5 +23,9 @@
       <guid>//localhost:64118/posts/first/</guid>
       <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
     </item>
+=======
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+>>>>>>> 1c198f6 (Init deep learning)
   </channel>
 </rss>

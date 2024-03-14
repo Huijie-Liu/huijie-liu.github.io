@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+<<<<<<< HEAD
     <loc>//localhost:64118/</loc>
     <lastmod>2024-03-13T15:25:58+08:00</lastmod>
   </url><url>
@@ -43,5 +44,18 @@
   </url><url>
     <loc>//localhost:64118/series/themes-guide/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+=======
+    <loc>/</loc>
+    <lastmod>2024-03-14T10:53:27+08:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2024-03-14T10:53:27+08:00</lastmod>
+  </url><url>
+    <loc>/categories/</loc>
+  </url><url>
+    <loc>/series/</loc>
+  </url><url>
+    <loc>/tags/</loc>
+>>>>>>> 1c198f6 (Init deep learning)
   </url>
 </urlset>

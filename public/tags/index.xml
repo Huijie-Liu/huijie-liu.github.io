@@ -6,6 +6,7 @@
     <description>Recent content in Tags on Jay Tech</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+<<<<<<< HEAD
     <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="//localhost:64118/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -36,5 +37,8 @@
       <guid>//localhost:64118/tags/themes/</guid>
       <description></description>
     </item>
+=======
+    <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+>>>>>>> 1c198f6 (Init deep learning)
   </channel>
 </rss>

@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Deep Learning | Jay Tech</title>
+<meta name="keywords" content="">
+<meta name="description" content="第一章 引言 一些前置概念：
+深度学习（deep learning）：让计算机从经验中学习，根据层次化的概念体系理解世界。深度学习通过其他较简单的表示来表达复杂表示，解决了表示学习中的核心问题。
+知识库（knowledge base）：将知识用形式化的语言进行硬编码，使用逻辑推理规则来自动地理解这些形式化语言的声明。
+机器学习（machine learning）：AI系统需要具备自己获取知识的能力，即从原始数据中提取模式的能力。
+表示学习（represnetation learning）：使用机器学习来发掘表示本身，而不仅仅把标识映射到输出。
+变差因素（factors of variation）：“因素”仅指代影响的不同来源，这些因素通常是不能被直接观测到的量，可以被看作数据的概念或者抽象。如，分析语音时，变差因素包括说话者的年龄、性别、口音和正在说的词语；分析汽车图像时，变差因素包括汽车的位置、颜色、太阳的角度和亮度。
+多层感知机（multilayer perceptron, MLP）：是一个将一组输入值映射到输出值的数学函数。该函数由许多较简单的函数复合而成。
+深度学习模型示意图 深度学习韦恩图 第二章 机器学习基础 学习算法 机器学习算法是一种能够从数据中学习的算法。“对于某类任务T和性能度量P，一个计算机程序被认为可以从经验E中学习是指，通过经验E改进后，它在任务T上由性能度量P衡量的性能有所提升。”
+任务T 通常机器学习任务定义为机器学习系统应该如何处理样本 （example）。样本是指我们从某些希望机器学习系统处理的对象或事件中收集到的已经量化的特征 （feature）的集合。常见的机器学习任务如下：分类、输入缺失分类、回归、转录、机器翻译、结构化输出、异常检测、合成和采样、缺失值填补、去噪、密度估计
+性能度量P “通常性能度量P是特定于系统执行的任务T而言的。”
+经验E “机器学习算法可以大致分类为无监督 （unsupervised）算法和监督 （supervised）算法。
+无监督学习算法 （unsupervised learning algorithm）训练含有很多特征的数据集，然后学习出这个数据集上有用的结构性质。在深度学习中，我们通常要学习生成数据集的整个概率分布，显式地，比如密度估计，或是隐式地，比如合成或去噪。还有一些其他类型的无监督学习任务，例如聚类，将数据集分成相似样本的集合。
+监督学习算法 （supervised learning algorithm）训练含有很多特征的数据集，不过数据集中的样本都有一个标签 （label）或目标 （target）。例如，Iris数据集注明了每个鸢尾花卉样本属于什么品种。监督学习算法通过研究Iris数据集，学习如何根据测量结果将样本划分为3个不同品种。”
+容量、过拟合和欠拟合 在先前未观测到的输入上表现良好的能力被称为泛化 （generalization）。欠拟合是指模型不能在训练集上获得足够低的误差，而过拟合是指训练误差和测试误差之间的差距太大。模型的容量是指其拟合各种函数的能力。容量低的模型可能很难拟合训练集。容量高的模型可能会过拟合。
+正则化 正则化是指修改学习算法，使其降低泛化误差而非训练误差。正则化是机器学习领域的中心问题之一，只有优化能够与其重要性相提并论。
+超参数和验证集 大多数机器学习算法都有超参数，可以设置来控制算法行为。超参数的值不是通过学习算法本身学习出来的。
+交叉验证 当数据集太小时，最常见的是k-折交叉验证过程，将数据集分成k个不重合的子集。测试误差可以估计为k次计算后的平均测试误差。在第i次测试时，数据的第i个子集用于测试集，其他的数据用于训练集。
+估计、偏差和方差 点估计 为一些感兴趣的量提供单个“最优”预测。点估计也可以指输入和目标变量之间关系的估计，我们将这种类型的点估计称为函数估计。
+偏差 估计的偏差被定义为
+方差和标准差 期望的变化程度是多少。
+监督学习算法 监督学习算法是给定一组输入x和输出y的训练集，学习如何关联输入和输出
+无监督学习算法 无监督算法只处理“特征”，不操作监督信号。监督和无监督算法之间的区别没有规范严格的定义，因为没有客观的判断来区分监督者提供的值是特征还是目标。通俗地说，无监督学习的大多数尝试是指从不需要人为注释的样本的分布中抽取信息。
+第三章 深度前馈网络 介绍 深度前馈网络（deep feedforward network），也叫作前馈神经网络（feedforward neural net-work）或者多层感知机（multilayer perceptron，MLP）。“这种模型被称为前向（feedforward）的，是因为信息流过x的函数，流经用于定义f的中间计算过程，最终到达输出y。在模型的输出和模型本身之间没有反馈（feedback）连接。当前馈神经网络被扩展成包含反馈连接时，它们被称为循环神经网络。">
+<meta name="author" content="Huijie Liu">
+<link rel="canonical" href="//localhost:1313/posts/deep-learning/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="//localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="//localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="//localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="//localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="//localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="//localhost:1313/posts/deep-learning/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Deep Learning" />
+<meta property="og:description" content="第一章 引言 一些前置概念：
+深度学习（deep learning）：让计算机从经验中学习，根据层次化的概念体系理解世界。深度学习通过其他较简单的表示来表达复杂表示，解决了表示学习中的核心问题。
+知识库（knowledge base）：将知识用形式化的语言进行硬编码，使用逻辑推理规则来自动地理解这些形式化语言的声明。
+机器学习（machine learning）：AI系统需要具备自己获取知识的能力，即从原始数据中提取模式的能力。
+表示学习（represnetation learning）：使用机器学习来发掘表示本身，而不仅仅把标识映射到输出。
+变差因素（factors of variation）：“因素”仅指代影响的不同来源，这些因素通常是不能被直接观测到的量，可以被看作数据的概念或者抽象。如，分析语音时，变差因素包括说话者的年龄、性别、口音和正在说的词语；分析汽车图像时，变差因素包括汽车的位置、颜色、太阳的角度和亮度。
+多层感知机（multilayer perceptron, MLP）：是一个将一组输入值映射到输出值的数学函数。该函数由许多较简单的函数复合而成。
+深度学习模型示意图 深度学习韦恩图 第二章 机器学习基础 学习算法 机器学习算法是一种能够从数据中学习的算法。“对于某类任务T和性能度量P，一个计算机程序被认为可以从经验E中学习是指，通过经验E改进后，它在任务T上由性能度量P衡量的性能有所提升。”
+任务T 通常机器学习任务定义为机器学习系统应该如何处理样本 （example）。样本是指我们从某些希望机器学习系统处理的对象或事件中收集到的已经量化的特征 （feature）的集合。常见的机器学习任务如下：分类、输入缺失分类、回归、转录、机器翻译、结构化输出、异常检测、合成和采样、缺失值填补、去噪、密度估计
+性能度量P “通常性能度量P是特定于系统执行的任务T而言的。”
+经验E “机器学习算法可以大致分类为无监督 （unsupervised）算法和监督 （supervised）算法。
+无监督学习算法 （unsupervised learning algorithm）训练含有很多特征的数据集，然后学习出这个数据集上有用的结构性质。在深度学习中，我们通常要学习生成数据集的整个概率分布，显式地，比如密度估计，或是隐式地，比如合成或去噪。还有一些其他类型的无监督学习任务，例如聚类，将数据集分成相似样本的集合。
+监督学习算法 （supervised learning algorithm）训练含有很多特征的数据集，不过数据集中的样本都有一个标签 （label）或目标 （target）。例如，Iris数据集注明了每个鸢尾花卉样本属于什么品种。监督学习算法通过研究Iris数据集，学习如何根据测量结果将样本划分为3个不同品种。”
+容量、过拟合和欠拟合 在先前未观测到的输入上表现良好的能力被称为泛化 （generalization）。欠拟合是指模型不能在训练集上获得足够低的误差，而过拟合是指训练误差和测试误差之间的差距太大。模型的容量是指其拟合各种函数的能力。容量低的模型可能很难拟合训练集。容量高的模型可能会过拟合。
+正则化 正则化是指修改学习算法，使其降低泛化误差而非训练误差。正则化是机器学习领域的中心问题之一，只有优化能够与其重要性相提并论。
+超参数和验证集 大多数机器学习算法都有超参数，可以设置来控制算法行为。超参数的值不是通过学习算法本身学习出来的。
+交叉验证 当数据集太小时，最常见的是k-折交叉验证过程，将数据集分成k个不重合的子集。测试误差可以估计为k次计算后的平均测试误差。在第i次测试时，数据的第i个子集用于测试集，其他的数据用于训练集。
+估计、偏差和方差 点估计 为一些感兴趣的量提供单个“最优”预测。点估计也可以指输入和目标变量之间关系的估计，我们将这种类型的点估计称为函数估计。
+偏差 估计的偏差被定义为
+方差和标准差 期望的变化程度是多少。
+监督学习算法 监督学习算法是给定一组输入x和输出y的训练集，学习如何关联输入和输出
+无监督学习算法 无监督算法只处理“特征”，不操作监督信号。监督和无监督算法之间的区别没有规范严格的定义，因为没有客观的判断来区分监督者提供的值是特征还是目标。通俗地说，无监督学习的大多数尝试是指从不需要人为注释的样本的分布中抽取信息。
+第三章 深度前馈网络 介绍 深度前馈网络（deep feedforward network），也叫作前馈神经网络（feedforward neural net-work）或者多层感知机（multilayer perceptron，MLP）。“这种模型被称为前向（feedforward）的，是因为信息流过x的函数，流经用于定义f的中间计算过程，最终到达输出y。在模型的输出和模型本身之间没有反馈（feedback）连接。当前馈神经网络被扩展成包含反馈连接时，它们被称为循环神经网络。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="//localhost:1313/posts/deep-learning/" />
+<meta property="og:image" content="//localhost:1313/images/papermod-cover.png" />
+<meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-14T10:53:27+08:00" />
+<meta property="article:modified_time" content="2024-03-14T10:53:27+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="//localhost:1313/images/papermod-cover.png" />
+<meta name="twitter:title" content="Deep Learning"/>
+<meta name="twitter:description" content="第一章 引言 一些前置概念：
+深度学习（deep learning）：让计算机从经验中学习，根据层次化的概念体系理解世界。深度学习通过其他较简单的表示来表达复杂表示，解决了表示学习中的核心问题。
+知识库（knowledge base）：将知识用形式化的语言进行硬编码，使用逻辑推理规则来自动地理解这些形式化语言的声明。
+机器学习（machine learning）：AI系统需要具备自己获取知识的能力，即从原始数据中提取模式的能力。
+表示学习（represnetation learning）：使用机器学习来发掘表示本身，而不仅仅把标识映射到输出。
+变差因素（factors of variation）：“因素”仅指代影响的不同来源，这些因素通常是不能被直接观测到的量，可以被看作数据的概念或者抽象。如，分析语音时，变差因素包括说话者的年龄、性别、口音和正在说的词语；分析汽车图像时，变差因素包括汽车的位置、颜色、太阳的角度和亮度。
+多层感知机（multilayer perceptron, MLP）：是一个将一组输入值映射到输出值的数学函数。该函数由许多较简单的函数复合而成。
+深度学习模型示意图 深度学习韦恩图 第二章 机器学习基础 学习算法 机器学习算法是一种能够从数据中学习的算法。“对于某类任务T和性能度量P，一个计算机程序被认为可以从经验E中学习是指，通过经验E改进后，它在任务T上由性能度量P衡量的性能有所提升。”
+任务T 通常机器学习任务定义为机器学习系统应该如何处理样本 （example）。样本是指我们从某些希望机器学习系统处理的对象或事件中收集到的已经量化的特征 （feature）的集合。常见的机器学习任务如下：分类、输入缺失分类、回归、转录、机器翻译、结构化输出、异常检测、合成和采样、缺失值填补、去噪、密度估计
+性能度量P “通常性能度量P是特定于系统执行的任务T而言的。”
+经验E “机器学习算法可以大致分类为无监督 （unsupervised）算法和监督 （supervised）算法。
+无监督学习算法 （unsupervised learning algorithm）训练含有很多特征的数据集，然后学习出这个数据集上有用的结构性质。在深度学习中，我们通常要学习生成数据集的整个概率分布，显式地，比如密度估计，或是隐式地，比如合成或去噪。还有一些其他类型的无监督学习任务，例如聚类，将数据集分成相似样本的集合。
+监督学习算法 （supervised learning algorithm）训练含有很多特征的数据集，不过数据集中的样本都有一个标签 （label）或目标 （target）。例如，Iris数据集注明了每个鸢尾花卉样本属于什么品种。监督学习算法通过研究Iris数据集，学习如何根据测量结果将样本划分为3个不同品种。”
+容量、过拟合和欠拟合 在先前未观测到的输入上表现良好的能力被称为泛化 （generalization）。欠拟合是指模型不能在训练集上获得足够低的误差，而过拟合是指训练误差和测试误差之间的差距太大。模型的容量是指其拟合各种函数的能力。容量低的模型可能很难拟合训练集。容量高的模型可能会过拟合。
+正则化 正则化是指修改学习算法，使其降低泛化误差而非训练误差。正则化是机器学习领域的中心问题之一，只有优化能够与其重要性相提并论。
+超参数和验证集 大多数机器学习算法都有超参数，可以设置来控制算法行为。超参数的值不是通过学习算法本身学习出来的。
+交叉验证 当数据集太小时，最常见的是k-折交叉验证过程，将数据集分成k个不重合的子集。测试误差可以估计为k次计算后的平均测试误差。在第i次测试时，数据的第i个子集用于测试集，其他的数据用于训练集。
+估计、偏差和方差 点估计 为一些感兴趣的量提供单个“最优”预测。点估计也可以指输入和目标变量之间关系的估计，我们将这种类型的点估计称为函数估计。
+偏差 估计的偏差被定义为
+方差和标准差 期望的变化程度是多少。
+监督学习算法 监督学习算法是给定一组输入x和输出y的训练集，学习如何关联输入和输出
+无监督学习算法 无监督算法只处理“特征”，不操作监督信号。监督和无监督算法之间的区别没有规范严格的定义，因为没有客观的判断来区分监督者提供的值是特征还是目标。通俗地说，无监督学习的大多数尝试是指从不需要人为注释的样本的分布中抽取信息。
+第三章 深度前馈网络 介绍 深度前馈网络（deep feedforward network），也叫作前馈神经网络（feedforward neural net-work）或者多层感知机（multilayer perceptron，MLP）。“这种模型被称为前向（feedforward）的，是因为信息流过x的函数，流经用于定义f的中间计算过程，最终到达输出y。在模型的输出和模型本身之间没有反馈（feedback）连接。当前馈神经网络被扩展成包含反馈连接时，它们被称为循环神经网络。"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "//localhost:1313/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Deep Learning",
+      "item": "//localhost:1313/posts/deep-learning/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Deep Learning",
+  "name": "Deep Learning",
+  "description": "第一章 引言 一些前置概念：\n深度学习（deep learning）：让计算机从经验中学习，根据层次化的概念体系理解世界。深度学习通过其他较简单的表示来表达复杂表示，解决了表示学习中的核心问题。\n知识库（knowledge base）：将知识用形式化的语言进行硬编码，使用逻辑推理规则来自动地理解这些形式化语言的声明。\n机器学习（machine learning）：AI系统需要具备自己获取知识的能力，即从原始数据中提取模式的能力。\n表示学习（represnetation learning）：使用机器学习来发掘表示本身，而不仅仅把标识映射到输出。\n变差因素（factors of variation）：“因素”仅指代影响的不同来源，这些因素通常是不能被直接观测到的量，可以被看作数据的概念或者抽象。如，分析语音时，变差因素包括说话者的年龄、性别、口音和正在说的词语；分析汽车图像时，变差因素包括汽车的位置、颜色、太阳的角度和亮度。\n多层感知机（multilayer perceptron, MLP）：是一个将一组输入值映射到输出值的数学函数。该函数由许多较简单的函数复合而成。\n深度学习模型示意图 深度学习韦恩图 第二章 机器学习基础 学习算法 机器学习算法是一种能够从数据中学习的算法。“对于某类任务T和性能度量P，一个计算机程序被认为可以从经验E中学习是指，通过经验E改进后，它在任务T上由性能度量P衡量的性能有所提升。”\n任务T 通常机器学习任务定义为机器学习系统应该如何处理样本 （example）。样本是指我们从某些希望机器学习系统处理的对象或事件中收集到的已经量化的特征 （feature）的集合。常见的机器学习任务如下：分类、输入缺失分类、回归、转录、机器翻译、结构化输出、异常检测、合成和采样、缺失值填补、去噪、密度估计\n性能度量P “通常性能度量P是特定于系统执行的任务T而言的。”\n经验E “机器学习算法可以大致分类为无监督 （unsupervised）算法和监督 （supervised）算法。\n无监督学习算法 （unsupervised learning algorithm）训练含有很多特征的数据集，然后学习出这个数据集上有用的结构性质。在深度学习中，我们通常要学习生成数据集的整个概率分布，显式地，比如密度估计，或是隐式地，比如合成或去噪。还有一些其他类型的无监督学习任务，例如聚类，将数据集分成相似样本的集合。\n监督学习算法 （supervised learning algorithm）训练含有很多特征的数据集，不过数据集中的样本都有一个标签 （label）或目标 （target）。例如，Iris数据集注明了每个鸢尾花卉样本属于什么品种。监督学习算法通过研究Iris数据集，学习如何根据测量结果将样本划分为3个不同品种。”\n容量、过拟合和欠拟合 在先前未观测到的输入上表现良好的能力被称为泛化 （generalization）。欠拟合是指模型不能在训练集上获得足够低的误差，而过拟合是指训练误差和测试误差之间的差距太大。模型的容量是指其拟合各种函数的能力。容量低的模型可能很难拟合训练集。容量高的模型可能会过拟合。\n正则化 正则化是指修改学习算法，使其降低泛化误差而非训练误差。正则化是机器学习领域的中心问题之一，只有优化能够与其重要性相提并论。\n超参数和验证集 大多数机器学习算法都有超参数，可以设置来控制算法行为。超参数的值不是通过学习算法本身学习出来的。\n交叉验证 当数据集太小时，最常见的是k-折交叉验证过程，将数据集分成k个不重合的子集。测试误差可以估计为k次计算后的平均测试误差。在第i次测试时，数据的第i个子集用于测试集，其他的数据用于训练集。\n估计、偏差和方差 点估计 为一些感兴趣的量提供单个“最优”预测。点估计也可以指输入和目标变量之间关系的估计，我们将这种类型的点估计称为函数估计。\n偏差 估计的偏差被定义为\n方差和标准差 期望的变化程度是多少。\n监督学习算法 监督学习算法是给定一组输入x和输出y的训练集，学习如何关联输入和输出\n无监督学习算法 无监督算法只处理“特征”，不操作监督信号。监督和无监督算法之间的区别没有规范严格的定义，因为没有客观的判断来区分监督者提供的值是特征还是目标。通俗地说，无监督学习的大多数尝试是指从不需要人为注释的样本的分布中抽取信息。\n第三章 深度前馈网络 介绍 深度前馈网络（deep feedforward network），也叫作前馈神经网络（feedforward neural net-work）或者多层感知机（multilayer perceptron，MLP）。“这种模型被称为前向（feedforward）的，是因为信息流过x的函数，流经用于定义f的中间计算过程，最终到达输出y。在模型的输出和模型本身之间没有反馈（feedback）连接。当前馈神经网络被扩展成包含反馈连接时，它们被称为循环神经网络。",
+  "keywords": [
+    
+  ],
+  "articleBody": "第一章 引言 一些前置概念：\n深度学习（deep learning）：让计算机从经验中学习，根据层次化的概念体系理解世界。深度学习通过其他较简单的表示来表达复杂表示，解决了表示学习中的核心问题。\n知识库（knowledge base）：将知识用形式化的语言进行硬编码，使用逻辑推理规则来自动地理解这些形式化语言的声明。\n机器学习（machine learning）：AI系统需要具备自己获取知识的能力，即从原始数据中提取模式的能力。\n表示学习（represnetation learning）：使用机器学习来发掘表示本身，而不仅仅把标识映射到输出。\n变差因素（factors of variation）：“因素”仅指代影响的不同来源，这些因素通常是不能被直接观测到的量，可以被看作数据的概念或者抽象。如，分析语音时，变差因素包括说话者的年龄、性别、口音和正在说的词语；分析汽车图像时，变差因素包括汽车的位置、颜色、太阳的角度和亮度。\n多层感知机（multilayer perceptron, MLP）：是一个将一组输入值映射到输出值的数学函数。该函数由许多较简单的函数复合而成。\n深度学习模型示意图 深度学习韦恩图 第二章 机器学习基础 学习算法 机器学习算法是一种能够从数据中学习的算法。“对于某类任务T和性能度量P，一个计算机程序被认为可以从经验E中学习是指，通过经验E改进后，它在任务T上由性能度量P衡量的性能有所提升。”\n任务T 通常机器学习任务定义为机器学习系统应该如何处理样本 （example）。样本是指我们从某些希望机器学习系统处理的对象或事件中收集到的已经量化的特征 （feature）的集合。常见的机器学习任务如下：分类、输入缺失分类、回归、转录、机器翻译、结构化输出、异常检测、合成和采样、缺失值填补、去噪、密度估计\n性能度量P “通常性能度量P是特定于系统执行的任务T而言的。”\n经验E “机器学习算法可以大致分类为无监督 （unsupervised）算法和监督 （supervised）算法。\n无监督学习算法 （unsupervised learning algorithm）训练含有很多特征的数据集，然后学习出这个数据集上有用的结构性质。在深度学习中，我们通常要学习生成数据集的整个概率分布，显式地，比如密度估计，或是隐式地，比如合成或去噪。还有一些其他类型的无监督学习任务，例如聚类，将数据集分成相似样本的集合。\n监督学习算法 （supervised learning algorithm）训练含有很多特征的数据集，不过数据集中的样本都有一个标签 （label）或目标 （target）。例如，Iris数据集注明了每个鸢尾花卉样本属于什么品种。监督学习算法通过研究Iris数据集，学习如何根据测量结果将样本划分为3个不同品种。”\n容量、过拟合和欠拟合 在先前未观测到的输入上表现良好的能力被称为泛化 （generalization）。欠拟合是指模型不能在训练集上获得足够低的误差，而过拟合是指训练误差和测试误差之间的差距太大。模型的容量是指其拟合各种函数的能力。容量低的模型可能很难拟合训练集。容量高的模型可能会过拟合。\n正则化 正则化是指修改学习算法，使其降低泛化误差而非训练误差。正则化是机器学习领域的中心问题之一，只有优化能够与其重要性相提并论。\n超参数和验证集 大多数机器学习算法都有超参数，可以设置来控制算法行为。超参数的值不是通过学习算法本身学习出来的。\n交叉验证 当数据集太小时，最常见的是k-折交叉验证过程，将数据集分成k个不重合的子集。测试误差可以估计为k次计算后的平均测试误差。在第i次测试时，数据的第i个子集用于测试集，其他的数据用于训练集。\n估计、偏差和方差 点估计 为一些感兴趣的量提供单个“最优”预测。点估计也可以指输入和目标变量之间关系的估计，我们将这种类型的点估计称为函数估计。\n偏差 估计的偏差被定义为\n方差和标准差 期望的变化程度是多少。\n监督学习算法 监督学习算法是给定一组输入x和输出y的训练集，学习如何关联输入和输出\n无监督学习算法 无监督算法只处理“特征”，不操作监督信号。监督和无监督算法之间的区别没有规范严格的定义，因为没有客观的判断来区分监督者提供的值是特征还是目标。通俗地说，无监督学习的大多数尝试是指从不需要人为注释的样本的分布中抽取信息。\n第三章 深度前馈网络 介绍 深度前馈网络（deep feedforward network），也叫作前馈神经网络（feedforward neural net-work）或者多层感知机（multilayer perceptron，MLP）。“这种模型被称为前向（feedforward）的，是因为信息流过x的函数，流经用于定义f的中间计算过程，最终到达输出y。在模型的输出和模型本身之间没有反馈（feedback）连接。当前馈神经网络被扩展成包含反馈连接时，它们被称为循环神经网络。\n前馈神经网络用许多不同函数复合在一起来表示。该模型与一个有向无环图相关联，而图描述了函数是如何复合在一起的。多个函数连接在一个链上称为链式结构，这些链式结构是神经网络中最常用的结构。链的全长被称为深度。最后一层被称为输出层。\n在神经网络训练过程中，训练数据直接指明了输出层在每一点x上必须做什么，但是训练数据并没有说每个单独的层应该做什么，所以这些层被称为隐藏层。\n基于梯度的学习 在于神经网络的非线性导致大多数我们感兴趣的代价函数都变得非凸。这意味着神经网络的训练通常使用迭代的、基于梯度的优化，仅仅使得代价函数达到一个非常小的值。\n代价函数 神经网络的代价函数或多或少是和其他的参数模型（例如线性模型的代价函数）相同的。\n输出单元 代价函数的选择与输出单元的选择紧密相关。任何可用作输出的神经网络单元，也可以被用作隐藏单元。\n隐藏单元 架构设计 更深层的网络通常能够对每一层使用更少的单元数和更少的参数，并且经常容易泛化到测试集，但是通常也更难以优化。\n万能近似定理表明，一个前馈神经网络如果具有线性输出层和至少一层具有任何一种“挤压”性质的激活函数（例如logistic sigmoid激活函数）的隐藏层，只要给予网络足够数量的隐藏单元，它可以以任意的精度来近似任何从一个有限维空间到另一个有限维空间的Borel可测函数。\n反向传播和其他的微分算法 第四章 正则化 第五章 优化 第六章 卷积网络 第七章 循环网络 第八章 实践 ",
+  "wordCount" : "96",
+  "inLanguage": "en",
+  "image": "//localhost:1313/images/papermod-cover.png""datePublished": "2024-03-14T10:53:27+08:00",
+  "dateModified": "2024-03-14T10:53:27+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Huijie Liu"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "//localhost:1313/posts/deep-learning/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Jay Tech",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "//localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="//localhost:1313/" accesskey="h" title="Jay Tech (Alt + H)">Jay Tech</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="//localhost:1313/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="//localhost:1313/search/" title="Search">
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="//localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/adityatelange/hugo-PaperMod/wiki/" title="WiKi">
+                    <span>WiKi</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="//localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="//localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Deep Learning
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
+    </h1>
+    <div class="post-meta"><span title='2024-03-14 10:53:27 +0800 CST'>March 14, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Huijie Liu&nbsp;|&nbsp;<a href="https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite/content/posts/deep-learning.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e7%ac%ac%e4%b8%80%e7%ab%a0-%e5%bc%95%e8%a8%80" aria-label="第一章 引言">第一章 引言</a></li>
+                <li>
+                    <a href="#%e7%ac%ac%e4%ba%8c%e7%ab%a0-%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e5%9f%ba%e7%a1%80" aria-label="第二章 机器学习基础">第二章 机器学习基础</a><ul>
+                        
+                <li>
+                    <a href="#%e5%ad%a6%e4%b9%a0%e7%ae%97%e6%b3%95" aria-label="学习算法">学习算法</a><ul>
+                        
+                <li>
+                    <a href="#%e4%bb%bb%e5%8a%a1t" aria-label="任务T">任务T</a></li>
+                <li>
+                    <a href="#%e6%80%a7%e8%83%bd%e5%ba%a6%e9%87%8fp" aria-label="性能度量P">性能度量P</a></li>
+                <li>
+                    <a href="#%e7%bb%8f%e9%aa%8ce" aria-label="经验E">经验E</a><ul>
+                        
+                <li>
+                    <a href="#%e6%97%a0%e7%9b%91%e7%9d%a3%e5%ad%a6%e4%b9%a0%e7%ae%97%e6%b3%95" aria-label="无监督学习算法">无监督学习算法</a></li>
+                <li>
+                    <a href="#%e7%9b%91%e7%9d%a3%e5%ad%a6%e4%b9%a0%e7%ae%97%e6%b3%95" aria-label="监督学习算法">监督学习算法</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%ae%b9%e9%87%8f%e8%bf%87%e6%8b%9f%e5%90%88%e5%92%8c%e6%ac%a0%e6%8b%9f%e5%90%88" aria-label="容量、过拟合和欠拟合">容量、过拟合和欠拟合</a><ul>
+                        
+                <li>
+                    <a href="#%e6%ad%a3%e5%88%99%e5%8c%96" aria-label="正则化">正则化</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e8%b6%85%e5%8f%82%e6%95%b0%e5%92%8c%e9%aa%8c%e8%af%81%e9%9b%86" aria-label="超参数和验证集">超参数和验证集</a><ul>
+                        
+                <li>
+                    <a href="#%e4%ba%a4%e5%8f%89%e9%aa%8c%e8%af%81" aria-label="交叉验证">交叉验证</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%bc%b0%e8%ae%a1%e5%81%8f%e5%b7%ae%e5%92%8c%e6%96%b9%e5%b7%ae" aria-label="估计、偏差和方差">估计、偏差和方差</a><ul>
+                        
+                <li>
+                    <a href="#%e7%82%b9%e4%bc%b0%e8%ae%a1" aria-label="点估计">点估计</a></li>
+                <li>
+                    <a href="#%e5%81%8f%e5%b7%ae" aria-label="偏差">偏差</a></li>
+                <li>
+                    <a href="#%e6%96%b9%e5%b7%ae%e5%92%8c%e6%a0%87%e5%87%86%e5%b7%ae" aria-label="方差和标准差">方差和标准差</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%9b%91%e7%9d%a3%e5%ad%a6%e4%b9%a0%e7%ae%97%e6%b3%95-1" aria-label="监督学习算法">监督学习算法</a></li>
+                <li>
+                    <a href="#%e6%97%a0%e7%9b%91%e7%9d%a3%e5%ad%a6%e4%b9%a0%e7%ae%97%e6%b3%95-1" aria-label="无监督学习算法">无监督学习算法</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%ac%ac%e4%b8%89%e7%ab%a0-%e6%b7%b1%e5%ba%a6%e5%89%8d%e9%a6%88%e7%bd%91%e7%bb%9c" aria-label="第三章 深度前馈网络">第三章 深度前馈网络</a><ul>
+                        
+                <li>
+                    <a href="#%e4%bb%8b%e7%bb%8d" aria-label="介绍">介绍</a></li>
+                <li>
+                    <a href="#%e5%9f%ba%e4%ba%8e%e6%a2%af%e5%ba%a6%e7%9a%84%e5%ad%a6%e4%b9%a0" aria-label="基于梯度的学习">基于梯度的学习</a><ul>
+                        
+                <li>
+                    <a href="#%e4%bb%a3%e4%bb%b7%e5%87%bd%e6%95%b0" aria-label="代价函数">代价函数</a></li>
+                <li>
+                    <a href="#%e8%be%93%e5%87%ba%e5%8d%95%e5%85%83" aria-label="输出单元">输出单元</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e9%9a%90%e8%97%8f%e5%8d%95%e5%85%83" aria-label="隐藏单元">隐藏单元</a></li>
+                <li>
+                    <a href="#%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1" aria-label="架构设计">架构设计</a></li>
+                <li>
+                    <a href="#%e5%8f%8d%e5%90%91%e4%bc%a0%e6%92%ad%e5%92%8c%e5%85%b6%e4%bb%96%e7%9a%84%e5%be%ae%e5%88%86%e7%ae%97%e6%b3%95" aria-label="反向传播和其他的微分算法">反向传播和其他的微分算法</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%ac%ac%e5%9b%9b%e7%ab%a0-%e6%ad%a3%e5%88%99%e5%8c%96" aria-label="第四章 正则化">第四章 正则化</a></li>
+                <li>
+                    <a href="#%e7%ac%ac%e4%ba%94%e7%ab%a0-%e4%bc%98%e5%8c%96" aria-label="第五章 优化">第五章 优化</a></li>
+                <li>
+                    <a href="#%e7%ac%ac%e5%85%ad%e7%ab%a0-%e5%8d%b7%e7%a7%af%e7%bd%91%e7%bb%9c" aria-label="第六章 卷积网络">第六章 卷积网络</a></li>
+                <li>
+                    <a href="#%e7%ac%ac%e4%b8%83%e7%ab%a0-%e5%be%aa%e7%8e%af%e7%bd%91%e7%bb%9c" aria-label="第七章 循环网络">第七章 循环网络</a></li>
+                <li>
+                    <a href="#%e7%ac%ac%e5%85%ab%e7%ab%a0-%e5%ae%9e%e8%b7%b5" aria-label="第八章 实践">第八章 实践</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="第一章-引言">第一章 引言<a hidden class="anchor" aria-hidden="true" href="#第一章-引言">#</a></h1>
+<p>一些前置概念：</p>
+<ul>
+<li>
+<p>深度学习（deep learning）：让计算机从<strong>经验</strong>中学习，根据<strong>层次化</strong>的概念体系理解世界。深度学习通过其他较简单的表示来表达复杂表示，解决了表示学习中的核心问题。</p>
+</li>
+<li>
+<p>知识库（knowledge base）：将知识用形式化的语言进行硬编码，使用逻辑推理规则来自动地理解这些形式化语言的声明。</p>
+</li>
+<li>
+<p>机器学习（machine learning）：AI系统需要具备自己获取知识的能力，即<strong>从原始数据中提取模式的能力。</strong></p>
+</li>
+<li>
+<p>表示学习（represnetation learning）：使用<strong>机器学习</strong>来<strong>发掘表示本身</strong>，而不仅仅把标识映射到输出。</p>
+</li>
+<li>
+<p>变差因素（factors of variation）：“因素”仅指代影响的不同来源，这些因素通常是不能被直接观测到的量，可以被看作<strong>数据的概念或者抽象</strong>。如，分析语音时，变差因素包括说话者的年龄、性别、口音和正在说的词语；分析汽车图像时，变差因素包括汽车的位置、颜色、太阳的角度和亮度。</p>
+</li>
+<li>
+<p>多层感知机（multilayer perceptron, MLP）：是一个将一组输入值映射到输出值的数学函数。该函数由许多较简单的函数复合而成。</p>
+<img src="https://p.ipic.vip/um9m2r.png" alt="image-20230502160406053" style="zoom:50%;" />
+<div align = "center">深度学习模型示意图</div>
+<img src="https://p.ipic.vip/iswd3l.png" alt="image-20230502164426861" style="zoom: 33%;" />
+<div align = "center">深度学习韦恩图</div>
+</li>
+</ul>
+<h1 id="第二章-机器学习基础">第二章 机器学习基础<a hidden class="anchor" aria-hidden="true" href="#第二章-机器学习基础">#</a></h1>
+<h2 id="学习算法">学习算法<a hidden class="anchor" aria-hidden="true" href="#学习算法">#</a></h2>
+<p>机器学习算法是一种能够从数据中学习的算法。“对于某类任务T和性能度量P，一个计算机程序被认为可以从经验E中学习是指，通过经验E改进后，它在任务T上由性能度量P衡量的性能有所提升。”</p>
+<h3 id="任务t">任务T<a hidden class="anchor" aria-hidden="true" href="#任务t">#</a></h3>
+<p>通常机器学习任务定义为机器学习系统应该如何处理样本 （example）。样本是指我们从某些希望机器学习系统处理的对象或事件中收集到的已经量化的特征 （feature）的集合。常见的机器学习任务如下：<strong>分类、输入缺失分类、回归、转录、机器翻译、结构化输出、异常检测、合成和采样、缺失值填补、去噪、密度估计</strong></p>
+<h3 id="性能度量p">性能度量P<a hidden class="anchor" aria-hidden="true" href="#性能度量p">#</a></h3>
+<p>“通常性能度量P是特定于系统执行的任务T而言的。”</p>
+<h3 id="经验e">经验E<a hidden class="anchor" aria-hidden="true" href="#经验e">#</a></h3>
+<p>“机器学习算法可以大致分类为无监督 （unsupervised）算法和监督 （supervised）算法。</p>
+<h4 id="无监督学习算法">无监督学习算法<a hidden class="anchor" aria-hidden="true" href="#无监督学习算法">#</a></h4>
+<p>（unsupervised learning algorithm）训练含有很多特征的数据集，然后学习出这个数据集上有用的结构性质。在深度学习中，我们通常要学习生成数据集的整个概率分布，显式地，比如密度估计，或是隐式地，比如合成或去噪。还有一些其他类型的无监督学习任务，例如聚类，将数据集分成相似样本的集合。</p>
+<h4 id="监督学习算法">监督学习算法<a hidden class="anchor" aria-hidden="true" href="#监督学习算法">#</a></h4>
+<p>（supervised learning algorithm）训练含有很多特征的数据集，不过数据集中的样本都有一个标签 （label）或目标 （target）。例如，Iris数据集注明了每个鸢尾花卉样本属于什么品种。监督学习算法通过研究Iris数据集，学习如何根据测量结果将样本划分为3个不同品种。”</p>
+<h2 id="容量过拟合和欠拟合">容量、过拟合和欠拟合<a hidden class="anchor" aria-hidden="true" href="#容量过拟合和欠拟合">#</a></h2>
+<p>在先前未观测到的输入上表现良好的能力被称为<strong>泛化</strong> （generalization）。<strong>欠拟合</strong>是指模型不能在训练集上获得足够低的误差，而<strong>过拟合</strong>是指训练误差和测试误差之间的差距太大。模型的<strong>容量</strong>是指其拟合各种函数的能力。容量低的模型可能很难拟合训练集。容量高的模型可能会过拟合。</p>
+<p><img loading="lazy" src="https://p.ipic.vip/jq47vd.png" alt="image-20230628234605792"  />
+</p>
+<h3 id="正则化">正则化<a hidden class="anchor" aria-hidden="true" href="#正则化">#</a></h3>
+<p>正则化是指修改学习算法，使其<strong>降低泛化误差</strong>而非训练误差。正则化是机器学习领域的中心问题之一，只有优化能够与其重要性相提并论。</p>
+<h2 id="超参数和验证集">超参数和验证集<a hidden class="anchor" aria-hidden="true" href="#超参数和验证集">#</a></h2>
+<p>大多数机器学习算法都有超参数，可以设置来<strong>控制算法行为</strong>。超参数的值不是通过学习算法本身学习出来的。</p>
+<h3 id="交叉验证">交叉验证<a hidden class="anchor" aria-hidden="true" href="#交叉验证">#</a></h3>
+<p>当数据集太小时，最常见的是k-折交叉验证过程，将数据集分成k个不重合的子集。测试误差可以估计为k次计算后的平均测试误差。在第i次测试时，数据的第i个子集用于测试集，其他的数据用于训练集。</p>
+<h2 id="估计偏差和方差">估计、偏差和方差<a hidden class="anchor" aria-hidden="true" href="#估计偏差和方差">#</a></h2>
+<h3 id="点估计">点估计<a hidden class="anchor" aria-hidden="true" href="#点估计">#</a></h3>
+<p>为一些感兴趣的量提供单个“最优”预测。点估计也可以指输入和目标变量之间关系的估计，我们将这种类型的点估计称为<strong>函数估计</strong>。</p>
+<h3 id="偏差">偏差<a hidden class="anchor" aria-hidden="true" href="#偏差">#</a></h3>
+<p>估计的偏差被定义为</p>
+<p><img loading="lazy" src="https://p.ipic.vip/z1t2nb.png" alt="image-20230629204506339"  />
+</p>
+<h3 id="方差和标准差">方差和标准差<a hidden class="anchor" aria-hidden="true" href="#方差和标准差">#</a></h3>
+<p>期望的变化程度是多少。</p>
+<h2 id="监督学习算法-1">监督学习算法<a hidden class="anchor" aria-hidden="true" href="#监督学习算法-1">#</a></h2>
+<p>监督学习算法是给定一组输入x和输出y的训练集，学习如何关联输入和输出</p>
+<h2 id="无监督学习算法-1">无监督学习算法<a hidden class="anchor" aria-hidden="true" href="#无监督学习算法-1">#</a></h2>
+<p>无监督算法只处理“特征”，不操作监督信号。监督和无监督算法之间的区别没有规范严格的定义，因为没有客观的判断来区分监督者提供的值是特征还是目标。通俗地说，无监督学习的大多数尝试是指从不需要人为注释的样本的分布中抽取信息。</p>
+<h1 id="第三章-深度前馈网络">第三章 深度前馈网络<a hidden class="anchor" aria-hidden="true" href="#第三章-深度前馈网络">#</a></h1>
+<h2 id="介绍">介绍<a hidden class="anchor" aria-hidden="true" href="#介绍">#</a></h2>
+<p><strong>深度前馈网络</strong>（deep feedforward network），也叫作<strong>前馈神经网络</strong>（feedforward neural net-work）或者<strong>多层感知机</strong>（multilayer perceptron，MLP）。“这种模型被称为<strong>前向</strong>（feedforward）的，是因为信息流过x的函数，流经用于定义f的中间计算过程，最终到达输出y。在模型的输出和模型本身之间没有<strong>反馈</strong>（feedback）连接。当前馈神经网络被扩展成<strong>包含反馈连接</strong>时，它们被称为<strong>循环神经网络</strong>。</p>
+<p>前馈神经网络用许多不同函数复合在一起来表示。该模型与一个有向无环图相关联，而图描述了函数是如何复合在一起的。多个函数连接在一个链上称为<strong>链式结构</strong>，这些链式结构是神经网络中最常用的结构。链的全长被称为<strong>深度</strong>。最后一层被称为<strong>输出层</strong>。</p>
+<p>在神经网络训练过程中，训练数据直接指明了输出层在每一点x上必须做什么，但是训练数据并没有说每个单独的层应该做什么，所以这些层被称为<strong>隐藏层</strong>。</p>
+<h2 id="基于梯度的学习">基于梯度的学习<a hidden class="anchor" aria-hidden="true" href="#基于梯度的学习">#</a></h2>
+<p>在于神经网络的非线性导致大多数我们感兴趣的代价函数都变得非凸。这意味着神经网络的训练通常使用迭代的、基于梯度的优化，仅仅使得代价函数达到一个非常小的值。</p>
+<h3 id="代价函数">代价函数<a hidden class="anchor" aria-hidden="true" href="#代价函数">#</a></h3>
+<p>神经网络的代价函数或多或少是和其他的参数模型（例如线性模型的代价函数）相同的。</p>
+<h3 id="输出单元">输出单元<a hidden class="anchor" aria-hidden="true" href="#输出单元">#</a></h3>
+<p>代价函数的选择与输出单元的选择紧密相关。任何可用作输出的神经网络单元，也可以被用作隐藏单元。</p>
+<h2 id="隐藏单元">隐藏单元<a hidden class="anchor" aria-hidden="true" href="#隐藏单元">#</a></h2>
+<h2 id="架构设计">架构设计<a hidden class="anchor" aria-hidden="true" href="#架构设计">#</a></h2>
+<p>更深层的网络通常能够对每一层使用更少的单元数和更少的参数，并且经常容易泛化到测试集，但是通常也更难以优化。</p>
+<p><strong>万能近似定理</strong>表明，一个前馈神经网络如果具有线性输出层和至少一层具有任何一种“挤压”性质的激活函数（例如logistic sigmoid激活函数）的隐藏层，只要给予网络足够数量的隐藏单元，它可以以任意的精度来近似任何从一个有限维空间到另一个有限维空间的Borel可测函数。</p>
+<h2 id="反向传播和其他的微分算法">反向传播和其他的微分算法<a hidden class="anchor" aria-hidden="true" href="#反向传播和其他的微分算法">#</a></h2>
+<h1 id="第四章-正则化">第四章 正则化<a hidden class="anchor" aria-hidden="true" href="#第四章-正则化">#</a></h1>
+<h1 id="第五章-优化">第五章 优化<a hidden class="anchor" aria-hidden="true" href="#第五章-优化">#</a></h1>
+<h1 id="第六章-卷积网络">第六章 卷积网络<a hidden class="anchor" aria-hidden="true" href="#第六章-卷积网络">#</a></h1>
+<h1 id="第七章-循环网络">第七章 循环网络<a hidden class="anchor" aria-hidden="true" href="#第七章-循环网络">#</a></h1>
+<h1 id="第八章-实践">第八章 实践<a hidden class="anchor" aria-hidden="true" href="#第八章-实践">#</a></h1>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Deep Learning on x"
+            href="https://x.com/intent/tweet/?text=Deep%20Learning&amp;url=%2f%2flocalhost%3a1313%2fposts%2fdeep-learning%2f&amp;hashtags=">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Deep Learning on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f%2flocalhost%3a1313%2fposts%2fdeep-learning%2f&amp;title=Deep%20Learning&amp;summary=Deep%20Learning&amp;source=%2f%2flocalhost%3a1313%2fposts%2fdeep-learning%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Deep Learning on reddit"
+            href="https://reddit.com/submit?url=%2f%2flocalhost%3a1313%2fposts%2fdeep-learning%2f&title=Deep%20Learning">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Deep Learning on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=%2f%2flocalhost%3a1313%2fposts%2fdeep-learning%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Deep Learning on whatsapp"
+            href="https://api.whatsapp.com/send?text=Deep%20Learning%20-%20%2f%2flocalhost%3a1313%2fposts%2fdeep-learning%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Deep Learning on telegram"
+            href="https://telegram.me/share/url?text=Deep%20Learning&amp;url=%2f%2flocalhost%3a1313%2fposts%2fdeep-learning%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Deep Learning on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=Deep%20Learning&u=%2f%2flocalhost%3a1313%2fposts%2fdeep-learning%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="//localhost:1313/">Jay Tech</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
