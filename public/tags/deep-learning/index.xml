@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Deep Learning on Jay Tech</title>
-    <link>//localhost:1313/tags/deep-learning/</link>
+    <link>/tags/deep-learning/</link>
     <description>Recent content in Deep Learning on Jay Tech</description>
     <image>
       <title>Jay Tech</title>
-      <url>//localhost:1313/assets/images/profile.png</url>
-      <link>//localhost:1313/assets/images/profile.png</link>
+      <url>/assets/images/profile.png</url>
+      <link>/assets/images/profile.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 10 Mar 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Deep Learning</title>
-      <link>//localhost:1313/posts/deep-learning/</link>
+      <link>/posts/deep-learning/</link>
       <pubDate>Sun, 10 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/deep-learning/</guid>
+      <guid>/posts/deep-learning/</guid>
       <description>第一章 引言 一些前置概念：
 深度学习（deep learning）：让计算机从经验中学习，根据层次化的概念体系理解世界。深度学习通过其他较简单的表示来表达复杂表示，解决了表示学习中的核心问题。
 知识库（knowledge base）：将知识用形式化的语言进行硬编码，使用逻辑推理规则来自动地理解这些形式化语言的声明。

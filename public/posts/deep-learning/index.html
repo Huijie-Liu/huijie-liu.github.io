@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -31,16 +31,16 @@
 无监督学习算法 无监督算法只处理“特征”，不操作监督信号。监督和无监督算法之间的区别没有规范严格的定义，因为没有客观的判断来区分监督者提供的值是特征还是目标。通俗地说，无监督学习的大多数尝试是指从不需要人为注释的样本的分布中抽取信息。
 第三章 深度前馈网络 介绍 深度前馈网络（deep feedforward network），也叫作前馈神经网络（feedforward neural net-work）或者多层感知机（multilayer perceptron，MLP）。“这种模型被称为前向（feedforward）的，是因为信息流过x的函数，流经用于定义f的中间计算过程，最终到达输出y。在模型的输出和模型本身之间没有反馈（feedback）连接。当前馈神经网络被扩展成包含反馈连接时，它们被称为循环神经网络。">
 <meta name="author" content="Huijie Liu">
-<link rel="canonical" href="//localhost:1313/posts/deep-learning/">
+<link rel="canonical" href="/posts/deep-learning/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
-<link rel="icon" href="//localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="//localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="//localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="//localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="//localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="//localhost:1313/posts/deep-learning/">
+<link rel="alternate" hreflang="en" href="/posts/deep-learning/">
 <noscript>
     <style>
         #theme-toggle,
@@ -102,8 +102,8 @@
 无监督学习算法 无监督算法只处理“特征”，不操作监督信号。监督和无监督算法之间的区别没有规范严格的定义，因为没有客观的判断来区分监督者提供的值是特征还是目标。通俗地说，无监督学习的大多数尝试是指从不需要人为注释的样本的分布中抽取信息。
 第三章 深度前馈网络 介绍 深度前馈网络（deep feedforward network），也叫作前馈神经网络（feedforward neural net-work）或者多层感知机（multilayer perceptron，MLP）。“这种模型被称为前向（feedforward）的，是因为信息流过x的函数，流经用于定义f的中间计算过程，最终到达输出y。在模型的输出和模型本身之间没有反馈（feedback）连接。当前馈神经网络被扩展成包含反馈连接时，它们被称为循环神经网络。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="//localhost:1313/posts/deep-learning/" />
-<meta property="og:image" content="//localhost:1313/assets/images/profile.png" />
+<meta property="og:url" content="/posts/deep-learning/" />
+<meta property="og:image" content="/assets/images/profile.png" />
 <meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-03-10T00:00:00+00:00" />
 <meta property="article:modified_time" content="2024-03-10T00:00:00+00:00" />
@@ -111,7 +111,7 @@
 
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="//localhost:1313/assets/images/profile.png" />
+<meta name="twitter:image" content="/assets/images/profile.png" />
 <meta name="twitter:title" content="Deep Learning"/>
 <meta name="twitter:description" content="第一章 引言 一些前置概念：
 深度学习（deep learning）：让计算机从经验中学习，根据层次化的概念体系理解世界。深度学习通过其他较简单的表示来表达复杂表示，解决了表示学习中的核心问题。
@@ -147,13 +147,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "//localhost:1313/posts/"
-    }, 
+      "item": "/posts/"
+    }
     {
       "@type": "ListItem",
-      "position":  2 ,
+      "position":  1 ,
       "name": "Deep Learning",
-      "item": "//localhost:1313/posts/deep-learning/"
+      "item": "/posts/deep-learning/"
     }
   ]
 }
@@ -171,7 +171,7 @@
   "articleBody": "第一章 引言 一些前置概念：\n深度学习（deep learning）：让计算机从经验中学习，根据层次化的概念体系理解世界。深度学习通过其他较简单的表示来表达复杂表示，解决了表示学习中的核心问题。\n知识库（knowledge base）：将知识用形式化的语言进行硬编码，使用逻辑推理规则来自动地理解这些形式化语言的声明。\n机器学习（machine learning）：AI系统需要具备自己获取知识的能力，即从原始数据中提取模式的能力。\n表示学习（represnetation learning）：使用机器学习来发掘表示本身，而不仅仅把标识映射到输出。\n变差因素（factors of variation）：“因素”仅指代影响的不同来源，这些因素通常是不能被直接观测到的量，可以被看作数据的概念或者抽象。如，分析语音时，变差因素包括说话者的年龄、性别、口音和正在说的词语；分析汽车图像时，变差因素包括汽车的位置、颜色、太阳的角度和亮度。\n多层感知机（multilayer perceptron, MLP）：是一个将一组输入值映射到输出值的数学函数。该函数由许多较简单的函数复合而成。\n深度学习模型示意图 深度学习韦恩图 第二章 机器学习基础 学习算法 机器学习算法是一种能够从数据中学习的算法。“对于某类任务T和性能度量P，一个计算机程序被认为可以从经验E中学习是指，通过经验E改进后，它在任务T上由性能度量P衡量的性能有所提升。”\n任务T 通常机器学习任务定义为机器学习系统应该如何处理样本 （example）。样本是指我们从某些希望机器学习系统处理的对象或事件中收集到的已经量化的特征 （feature）的集合。常见的机器学习任务如下：分类、输入缺失分类、回归、转录、机器翻译、结构化输出、异常检测、合成和采样、缺失值填补、去噪、密度估计\n性能度量P “通常性能度量P是特定于系统执行的任务T而言的。”\n经验E “机器学习算法可以大致分类为无监督 （unsupervised）算法和监督 （supervised）算法。\n无监督学习算法 （unsupervised learning algorithm）训练含有很多特征的数据集，然后学习出这个数据集上有用的结构性质。在深度学习中，我们通常要学习生成数据集的整个概率分布，显式地，比如密度估计，或是隐式地，比如合成或去噪。还有一些其他类型的无监督学习任务，例如聚类，将数据集分成相似样本的集合。\n监督学习算法 （supervised learning algorithm）训练含有很多特征的数据集，不过数据集中的样本都有一个标签 （label）或目标 （target）。例如，Iris数据集注明了每个鸢尾花卉样本属于什么品种。监督学习算法通过研究Iris数据集，学习如何根据测量结果将样本划分为3个不同品种。”\n容量、过拟合和欠拟合 在先前未观测到的输入上表现良好的能力被称为泛化 （generalization）。欠拟合是指模型不能在训练集上获得足够低的误差，而过拟合是指训练误差和测试误差之间的差距太大。模型的容量是指其拟合各种函数的能力。容量低的模型可能很难拟合训练集。容量高的模型可能会过拟合。\n正则化 正则化是指修改学习算法，使其降低泛化误差而非训练误差。正则化是机器学习领域的中心问题之一，只有优化能够与其重要性相提并论。\n超参数和验证集 大多数机器学习算法都有超参数，可以设置来控制算法行为。超参数的值不是通过学习算法本身学习出来的。\n交叉验证 当数据集太小时，最常见的是k-折交叉验证过程，将数据集分成k个不重合的子集。测试误差可以估计为k次计算后的平均测试误差。在第i次测试时，数据的第i个子集用于测试集，其他的数据用于训练集。\n估计、偏差和方差 点估计 为一些感兴趣的量提供单个“最优”预测。点估计也可以指输入和目标变量之间关系的估计，我们将这种类型的点估计称为函数估计。\n偏差 估计的偏差被定义为\n方差和标准差 期望的变化程度是多少。\n监督学习算法 监督学习算法是给定一组输入x和输出y的训练集，学习如何关联输入和输出\n无监督学习算法 无监督算法只处理“特征”，不操作监督信号。监督和无监督算法之间的区别没有规范严格的定义，因为没有客观的判断来区分监督者提供的值是特征还是目标。通俗地说，无监督学习的大多数尝试是指从不需要人为注释的样本的分布中抽取信息。\n第三章 深度前馈网络 介绍 深度前馈网络（deep feedforward network），也叫作前馈神经网络（feedforward neural net-work）或者多层感知机（multilayer perceptron，MLP）。“这种模型被称为前向（feedforward）的，是因为信息流过x的函数，流经用于定义f的中间计算过程，最终到达输出y。在模型的输出和模型本身之间没有反馈（feedback）连接。当前馈神经网络被扩展成包含反馈连接时，它们被称为循环神经网络。\n前馈神经网络用许多不同函数复合在一起来表示。该模型与一个有向无环图相关联，而图描述了函数是如何复合在一起的。多个函数连接在一个链上称为链式结构，这些链式结构是神经网络中最常用的结构。链的全长被称为深度。最后一层被称为输出层。\n在神经网络训练过程中，训练数据直接指明了输出层在每一点x上必须做什么，但是训练数据并没有说每个单独的层应该做什么，所以这些层被称为隐藏层。\n基于梯度的学习 在于神经网络的非线性导致大多数我们感兴趣的代价函数都变得非凸。这意味着神经网络的训练通常使用迭代的、基于梯度的优化，仅仅使得代价函数达到一个非常小的值。\n代价函数 神经网络的代价函数或多或少是和其他的参数模型（例如线性模型的代价函数）相同的。\n输出单元 代价函数的选择与输出单元的选择紧密相关。任何可用作输出的神经网络单元，也可以被用作隐藏单元。\n隐藏单元 架构设计 更深层的网络通常能够对每一层使用更少的单元数和更少的参数，并且经常容易泛化到测试集，但是通常也更难以优化。\n万能近似定理表明，一个前馈神经网络如果具有线性输出层和至少一层具有任何一种“挤压”性质的激活函数（例如logistic sigmoid激活函数）的隐藏层，只要给予网络足够数量的隐藏单元，它可以以任意的精度来近似任何从一个有限维空间到另一个有限维空间的Borel可测函数。\n反向传播和其他的微分算法 第四章 正则化 第五章 优化 第六章 卷积网络 第七章 循环网络 第八章 实践 ",
   "wordCount" : "96",
   "inLanguage": "en",
-  "image": "//localhost:1313/assets/images/profile.png""datePublished": "2024-03-10T00:00:00Z",
+  "image": "/assets/images/profile.png""datePublished": "2024-03-10T00:00:00Z",
   "dateModified": "2024-03-10T00:00:00Z",
   "author":[{
     "@type": "Person",
@@ -179,14 +179,14 @@
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "//localhost:1313/posts/deep-learning/"
+    "@id": "/posts/deep-learning/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Jay Tech",
     "logo": {
       "@type": "ImageObject",
-      "url": "//localhost:1313/favicon.ico"
+      "url": "/favicon.ico"
     }
   }
 }
@@ -208,7 +208,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="//localhost:1313/" accesskey="h" title="Jay Tech (Alt + H)">Jay Tech</a>
+            <a href="/" accesskey="h" title="Jay Tech (Alt + H)">Jay Tech</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -234,17 +234,17 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="//localhost:1313/archives" title="Archive">
+                <a href="/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="//localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="//localhost:1313/tags/" title="Tags">
+                <a href="/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -266,7 +266,7 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="//localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="//localhost:1313/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="/">Home</a>&nbsp;»&nbsp;<a href="/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       Deep Learning
     </h1>
@@ -453,11 +453,11 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="//localhost:1313/tags/learning-note/">Learning Note</a></li>
-      <li><a href="//localhost:1313/tags/deep-learning/">Deep Learning</a></li>
+      <li><a href="/tags/learning-note/">Learning Note</a></li>
+      <li><a href="/tags/deep-learning/">Deep Learning</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="//localhost:1313/posts/fluent-python/">
+  <a class="prev" href="/posts/fluent-python/">
     <span class="title">« Prev</span>
     <br>
     <span>Fluent Python</span>
@@ -469,7 +469,7 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="//localhost:1313/">Jay Tech</a></span>
+    <span>&copy; 2024 <a href="/">Jay Tech</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
