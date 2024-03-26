@@ -1,8 +1,11 @@
-+++
-title = 'Deep Learning'
-date = 2024-03-14T10:53:27+08:00
-draft = false
-+++
+---
+title: 'Deep Learning'
+date: "2024-03-10"
+draft: false
+tags: ["Learning Note", "Deep Learning"]
+categories: ["Learning"]
+series: ["Learning Path"]
+---
 
 # 第一章 引言
 

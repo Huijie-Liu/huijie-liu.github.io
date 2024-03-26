@@ -51,7 +51,7 @@ outputs:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
-  author: Huijie Liu
+  author: ["Huijie Liu"]
   # author: ["Me", "You"] # multiple authors
 
   defaultTheme: auto
@@ -68,15 +68,16 @@ params:
   ShowPageNums: true
   ShowToc: true
   # comments: false
-  images: ["images/papermod-cover.png"]
+  images: ["assets/images/profile.png"]
 
   profileMode:
-    enabled: false
-    title: Jay Tech
-    imageUrl: "#"
-    imageTitle: my image
-    # imageWidth: 120
-    # imageHeight: 120
+    enabled: true
+    title: "Jay Tech"
+    subtitle: "👋 Hi, this is Jay. I’m documenting my learning notes in this blog."
+    # imageUrl: "#" # optional
+    # imageTitle: "Jay" # optional
+    # imageWidth: 120 # custom size
+    # imageHeight: 120 # custom size
     buttons:
       - name: Archives
         url: archives

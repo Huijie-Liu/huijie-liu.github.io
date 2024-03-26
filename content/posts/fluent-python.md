@@ -1,7 +1,12 @@
-+++
-title = 'Fluent Python'
-date = 2024-03-15T16:56:26+08:00
-+++
+---
+title: 'Fluent Python'
+date: "2024-03-12"
+draft: false
+tags: ["Learning Note", "Python"]
+categories: ["Learning"]
+series: ["Learning Path"]
+---
+
 # Fluent Python
 
 Owner: Huijie Liu
