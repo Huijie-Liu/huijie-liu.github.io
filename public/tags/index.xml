@@ -11,8 +11,22 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 12 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 27 Mar 2024 13:30:42 +0800</lastBuildDate>
     <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Proxy</title>
+      <link>/tags/proxy/</link>
+      <pubDate>Wed, 27 Mar 2024 13:30:42 +0800</pubDate>
+      <guid>/tags/proxy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Shell</title>
+      <link>/tags/shell/</link>
+      <pubDate>Wed, 27 Mar 2024 13:30:42 +0800</pubDate>
+      <guid>/tags/shell/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Learning Note</title>
       <link>/tags/learning-note/</link>
