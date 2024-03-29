@@ -1,6 +1,6 @@
 ---
 title: 'Deep Learning'
-date: "2024-03-10"
+date: "2024-01-10"
 draft: false
 tags: ["Learning Note", "Deep Learning"]
 categories: ["Learning"]

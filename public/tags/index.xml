@@ -11,8 +11,29 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 27 Mar 2024 13:30:42 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 28 Mar 2024 13:30:42 +0800</lastBuildDate>
     <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Computer Vision</title>
+      <link>/tags/computer-vision/</link>
+      <pubDate>Thu, 28 Mar 2024 13:30:42 +0800</pubDate>
+      <guid>/tags/computer-vision/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Deep Learning</title>
+      <link>/tags/deep-learning/</link>
+      <pubDate>Thu, 28 Mar 2024 13:30:42 +0800</pubDate>
+      <guid>/tags/deep-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Learning Note</title>
+      <link>/tags/learning-note/</link>
+      <pubDate>Thu, 28 Mar 2024 13:30:42 +0800</pubDate>
+      <guid>/tags/learning-note/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Proxy</title>
       <link>/tags/proxy/</link>
@@ -28,24 +49,10 @@
       <description></description>
     </item>
     <item>
-      <title>Learning Note</title>
-      <link>/tags/learning-note/</link>
-      <pubDate>Tue, 12 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>/tags/learning-note/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Python</title>
       <link>/tags/python/</link>
-      <pubDate>Tue, 12 Mar 2024 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 12 Feb 2024 00:00:00 +0000</pubDate>
       <guid>/tags/python/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Deep Learning</title>
-      <link>/tags/deep-learning/</link>
-      <pubDate>Sun, 10 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>/tags/deep-learning/</guid>
       <description></description>
     </item>
   </channel>

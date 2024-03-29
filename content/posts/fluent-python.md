@@ -1,6 +1,6 @@
 ---
 title: 'Fluent Python'
-date: "2024-03-12"
+date: "2024-02-12"
 draft: false
 tags: ["Learning Note", "Python"]
 categories: ["Learning"]
