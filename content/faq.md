@@ -60,7 +60,7 @@ ShowToc: false
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="/assets/js/apikey.js"></script>
+    <script src="apikey.js"></script>
 </head>
 <div id="chat">
   <div id="responses"></div>
