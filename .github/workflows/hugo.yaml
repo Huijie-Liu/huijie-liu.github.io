@@ -60,6 +60,7 @@ jobs:
           hugo \
             --gc \
             --baseURL "${{ steps.pages.outputs.base_url }}/"     
+          touch assests/js/apikey.js 
           echo "window.API_KEY = '${{ secrets.OPENAIAPIKEY }}';" > assests/js/apikey.js     
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
