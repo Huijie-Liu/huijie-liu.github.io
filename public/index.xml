@@ -26,7 +26,7 @@ K-lite: Learning transferable visual models with external knowledge, NeurIPS 202
 improved interpretability STAIR（Learning Sparse Text and Image Representation in Grounded Tokens）： 将图像和文本映射到高维稀疏嵌入空间； 每个维度的值是一个非负标量，表示与该维度对应的词或标记的权重； 提供了更好的性能和更清晰地识别图像和文本之间的对应关系； STAIR: Learning Sparse Text and Image Representation in Grounded Tokens, 2023</description>
     </item>
     <item>
-      <title>各种奇怪的代理到底是什么？</title>
+      <title>About proxy</title>
       <link>/posts/proxy/</link>
       <pubDate>Wed, 27 Mar 2024 13:30:42 +0800</pubDate>
       <guid>/posts/proxy/</guid>
