@@ -59,7 +59,8 @@ jobs:
         run: |
           hugo \
             --gc \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"     
+            --baseURL "${{ steps.pages.outputs.base_url }}/"   
+          mkdir -p assets/js  
           touch assets/js/apikey.js 
           echo "window.API_KEY = '${{ secrets.OPENAIAPIKEY }}';" > assets/js/apikey.js     
       - name: Upload artifact
