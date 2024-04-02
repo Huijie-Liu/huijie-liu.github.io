@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on Jay Tech</title>
-    <link>/posts/</link>
+    <link>//localhost:1313/posts/</link>
     <description>Recent content in Posts on Jay Tech</description>
     <image>
       <title>Jay Tech</title>
-      <url>/assets/images/profile.png</url>
-      <link>/assets/images/profile.png</link>
+      <url>//localhost:1313/assets/images/profile.png</url>
+      <link>//localhost:1313/assets/images/profile.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 28 Mar 2024 13:30:42 +0800</lastBuildDate>
-    <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Recent Advances in Vision Foundation Models</title>
-      <link>/posts/recent-advances-in-vision-foundation-models.assets/</link>
+      <link>//localhost:1313/posts/recent-advances-in-vision-foundation-models.assets/</link>
       <pubDate>Thu, 28 Mar 2024 13:30:42 +0800</pubDate>
-      <guid>/posts/recent-advances-in-vision-foundation-models.assets/</guid>
+      <guid>//localhost:1313/posts/recent-advances-in-vision-foundation-models.assets/</guid>
       <description>原文链接
 Q1: how to learn image representations? Overview 改进 CLIP 数据层面：Data scaling up 模型层面：Model design image side FLIP（Scaling CLIP training via masking）：是一种改进的训练方法，用于提高 CLIP模型的训练效率。FLIP 的核心思想是在训练过程中随机遮挡图像的部分区域，只对可见的区域进行编码。
 Scaling language-image pre-training via masking, CVPR 2023
@@ -27,9 +27,9 @@ improved interpretability STAIR（Learning Sparse Text and Image Representation 
     </item>
     <item>
       <title>About proxy</title>
-      <link>/posts/proxy/</link>
+      <link>//localhost:1313/posts/proxy/</link>
       <pubDate>Wed, 27 Mar 2024 13:30:42 +0800</pubDate>
-      <guid>/posts/proxy/</guid>
+      <guid>//localhost:1313/posts/proxy/</guid>
       <description>正向代理 正向代理是客户端和服务器中间的服务器，为了从原始服务器取得内容，客户端向代理服务器发送一个请求并指定目标（原始服务器）， 然后代理服务器向原始服务器转发请求并将获得的内容返回给客户端。
 举个例子，比如正常情况下我没法办上youtube，但是我有个aws的机器，它不受GFW的限制，能够访问youtube，我也能正常访问那个aws的机器， 那么我通过发送请求给aws的机器，让他转发我的请求给youtube，然后把youtube返回的数据给我，我就能通过aws的机器作为跳板访问GFW， 那个aws的机器也就是代理服务器的角色，并且这种方式就是正向代理。
 总结一下，正向代理就是我想访问一台机器，但是被墙了访问不到，我需要一台机器作为跳板转发我的请求。
@@ -47,9 +47,9 @@ ssh -R &amp;lt;local port&amp;gt;:&amp;lt;remote host&amp;gt;:&amp;lt;remote por
     </item>
     <item>
       <title>Fluent Python</title>
-      <link>/posts/fluent-python/</link>
+      <link>//localhost:1313/posts/fluent-python/</link>
       <pubDate>Mon, 12 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>/posts/fluent-python/</guid>
+      <guid>//localhost:1313/posts/fluent-python/</guid>
       <description>Fluent Python Owner: Huijie Liu Tags: Ongoing, Study Note
 数据结构 序列构成的数组 Python 标准库用 C 实现了丰富的序列类型，列举如下。
 容器序列 list、tuple 和 collections.deque 这些序列能存放不同类型的数据。 扁平序列 str、bytes、bytearray、memoryview 和 array.array，这类序列只能容纳一种类型。 容器序列存放的是它们所包含的任意类型的对象的引用，而扁平序列里存放的是值而不是 引用。换句话说，扁平序列其实是一段连续的内存空间。由此可见扁平序列其实更加紧 凑，但是它里面只能存放诸如字符、字节和数值这种基础类型。
@@ -61,9 +61,9 @@ ssh -R &amp;lt;local port&amp;gt;:&amp;lt;remote host&amp;gt;:&amp;lt;remote por
     </item>
     <item>
       <title>Deep Learning</title>
-      <link>/posts/deep-learning/</link>
+      <link>//localhost:1313/posts/deep-learning/</link>
       <pubDate>Wed, 10 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>/posts/deep-learning/</guid>
+      <guid>//localhost:1313/posts/deep-learning/</guid>
       <description>第一章 引言 一些前置概念：
 深度学习（deep learning）：让计算机从经验中学习，根据层次化的概念体系理解世界。深度学习通过其他较简单的表示来表达复杂表示，解决了表示学习中的核心问题。
 知识库（knowledge base）：将知识用形式化的语言进行硬编码，使用逻辑推理规则来自动地理解这些形式化语言的声明。

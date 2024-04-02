@@ -2,64 +2,64 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/categories/</loc>
+    <loc>//localhost:1313/categories/</loc>
     <lastmod>2024-03-28T13:30:42+08:00</lastmod>
   </url><url>
-    <loc>/tags/computer-vision/</loc>
+    <loc>//localhost:1313/tags/computer-vision/</loc>
     <lastmod>2024-03-28T13:30:42+08:00</lastmod>
   </url><url>
-    <loc>/tags/deep-learning/</loc>
+    <loc>//localhost:1313/tags/deep-learning/</loc>
     <lastmod>2024-03-28T13:30:42+08:00</lastmod>
   </url><url>
-    <loc>/</loc>
+    <loc>//localhost:1313/</loc>
     <lastmod>2024-03-28T13:30:42+08:00</lastmod>
   </url><url>
-    <loc>/categories/learning/</loc>
+    <loc>//localhost:1313/categories/learning/</loc>
     <lastmod>2024-03-28T13:30:42+08:00</lastmod>
   </url><url>
-    <loc>/tags/learning-note/</loc>
+    <loc>//localhost:1313/tags/learning-note/</loc>
     <lastmod>2024-03-28T13:30:42+08:00</lastmod>
   </url><url>
-    <loc>/series/learning-path/</loc>
+    <loc>//localhost:1313/series/learning-path/</loc>
     <lastmod>2024-03-28T13:30:42+08:00</lastmod>
   </url><url>
-    <loc>/posts/</loc>
+    <loc>//localhost:1313/posts/</loc>
     <lastmod>2024-03-28T13:30:42+08:00</lastmod>
   </url><url>
-    <loc>/posts/recent-advances-in-vision-foundation-models.assets/</loc>
+    <loc>//localhost:1313/posts/recent-advances-in-vision-foundation-models.assets/</loc>
     <lastmod>2024-03-28T13:30:42+08:00</lastmod>
   </url><url>
-    <loc>/series/</loc>
+    <loc>//localhost:1313/series/</loc>
     <lastmod>2024-03-28T13:30:42+08:00</lastmod>
   </url><url>
-    <loc>/tags/</loc>
+    <loc>//localhost:1313/tags/</loc>
     <lastmod>2024-03-28T13:30:42+08:00</lastmod>
   </url><url>
-    <loc>/posts/proxy/</loc>
+    <loc>//localhost:1313/posts/proxy/</loc>
     <lastmod>2024-03-27T13:30:42+08:00</lastmod>
   </url><url>
-    <loc>/tags/proxy/</loc>
+    <loc>//localhost:1313/tags/proxy/</loc>
     <lastmod>2024-03-27T13:30:42+08:00</lastmod>
   </url><url>
-    <loc>/tags/shell/</loc>
+    <loc>//localhost:1313/tags/shell/</loc>
     <lastmod>2024-03-27T13:30:42+08:00</lastmod>
   </url><url>
-    <loc>/categories/tools/</loc>
+    <loc>//localhost:1313/categories/tools/</loc>
     <lastmod>2024-03-27T13:30:42+08:00</lastmod>
   </url><url>
-    <loc>/posts/fluent-python/</loc>
+    <loc>//localhost:1313/posts/fluent-python/</loc>
     <lastmod>2024-02-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/python/</loc>
+    <loc>//localhost:1313/tags/python/</loc>
     <lastmod>2024-02-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/deep-learning/</loc>
+    <loc>//localhost:1313/posts/deep-learning/</loc>
     <lastmod>2024-01-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/archives/</loc>
+    <loc>//localhost:1313/archives/</loc>
   </url><url>
-    <loc>/faq/</loc>
+    <loc>//localhost:1313/faq/</loc>
   </url><url>
-    <loc>/search/</loc>
+    <loc>//localhost:1313/search/</loc>
   </url>
 </urlset>

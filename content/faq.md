@@ -72,7 +72,8 @@ ShowToc: false
         }
     });
 
-    const openaiApiKey = decrypt("vn0FqvOKF;4nm:kE[LlgZ8:W6EoenIMDerp<Dosp]o\X9qRekZf");
+    const openaiApiKey = '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';
+    // const openaiApiKey = decrypt("vn0FqvOKF;4nm:kE[LlgZ8:W6EoenIMDerp<Dosp]o\X9qRekZf");
     const assistantId = 'asst_fQYHhCKqDBguL9bQOVJ6zOHc';
 
     async function createThread() {

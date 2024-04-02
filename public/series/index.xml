@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Series on Jay Tech</title>
-    <link>/series/</link>
+    <link>//localhost:1313/series/</link>
     <description>Recent content in Series on Jay Tech</description>
     <image>
       <title>Jay Tech</title>
-      <url>/assets/images/profile.png</url>
-      <link>/assets/images/profile.png</link>
+      <url>//localhost:1313/assets/images/profile.png</url>
+      <link>//localhost:1313/assets/images/profile.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 28 Mar 2024 13:30:42 +0800</lastBuildDate>
-    <atom:link href="/series/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/series/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Learning Path</title>
-      <link>/series/learning-path/</link>
+      <link>//localhost:1313/series/learning-path/</link>
       <pubDate>Thu, 28 Mar 2024 13:30:42 +0800</pubDate>
-      <guid>/series/learning-path/</guid>
+      <guid>//localhost:1313/series/learning-path/</guid>
       <description></description>
     </item>
   </channel>
