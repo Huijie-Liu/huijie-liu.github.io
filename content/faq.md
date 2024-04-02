@@ -60,7 +60,7 @@ ShowToc: false
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="apikey.js"></script>
+    <script src="/assets/js/apikey.js"></script>
 </head>
 <div id="chat">
   <div id="responses"></div>
@@ -77,7 +77,7 @@ ShowToc: false
         }
     });
 
-    const openaiApiKey = window.OPENAIAPIKEY;
+    const openaiApiKey = window.API_KEY;
     const assistantId = 'asst_fQYHhCKqDBguL9bQOVJ6zOHc';
 
     async function createThread() {

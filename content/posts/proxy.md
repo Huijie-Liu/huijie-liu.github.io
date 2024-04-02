@@ -1,5 +1,5 @@
 +++
-title = '各种奇怪的代理到底是什么？'
+title = 'About proxy'
 date = 2024-03-27T13:30:42+08:00
 draft = false
 tags = ["Shell", "Proxy"]
