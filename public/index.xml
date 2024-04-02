@@ -88,5 +88,12 @@ ssh -R &amp;lt;local port&amp;gt;:&amp;lt;remote host&amp;gt;:&amp;lt;remote por
 无监督学习算法 无监督算法只处理“特征”，不操作监督信号。监督和无监督算法之间的区别没有规范严格的定义，因为没有客观的判断来区分监督者提供的值是特征还是目标。通俗地说，无监督学习的大多数尝试是指从不需要人为注释的样本的分布中抽取信息。
 第三章 深度前馈网络 介绍 深度前馈网络（deep feedforward network），也叫作前馈神经网络（feedforward neural net-work）或者多层感知机（multilayer perceptron，MLP）。“这种模型被称为前向（feedforward）的，是因为信息流过x的函数，流经用于定义f的中间计算过程，最终到达输出y。在模型的输出和模型本身之间没有反馈（feedback）连接。当前馈神经网络被扩展成包含反馈连接时，它们被称为循环神经网络。</description>
     </item>
+    <item>
+      <title>FAQ</title>
+      <link>/faq/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/faq/</guid>
+      <description>faq</description>
+    </item>
   </channel>
 </rss>
