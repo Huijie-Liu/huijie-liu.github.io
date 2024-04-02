@@ -57,11 +57,6 @@ ShowToc: false
   }
 </style>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <script src="apikey.js"></script>
-</head>
 <div id="chat">
   <div id="responses"></div>
   <div id="loadingIndicator" style="display: none;">Loading...</div>
@@ -77,7 +72,7 @@ ShowToc: false
         }
     });
 
-    const openaiApiKey = window.API_KEY;
+    const openaiApiKey = decrypt("vn0FqvOKF;4nm:kE[LlgZ8:W6EoenIMDerp<Dosp]o\X9qRekZf");
     const assistantId = 'asst_fQYHhCKqDBguL9bQOVJ6zOHc';
 
     async function createThread() {
@@ -179,4 +174,6 @@ ShowToc: false
             loadingIndicator.style.display = 'none'; // 隐藏加载提示
         }, 5000); // Adjust the timeout as needed
     }
+
+function decrypt(c) { return c.split('').map(ch => String.fromCharCode(((ch.charCodeAt(0) - 3) % 256) * 2 / 2 + 1 / 2)).join(''); }
 </script>
