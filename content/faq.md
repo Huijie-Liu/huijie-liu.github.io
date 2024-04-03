@@ -62,6 +62,7 @@ ShowToc: false
   <div id="loadingIndicator" style="display: none;">Loading...</div>
   <input type="text" id="userInput" placeholder="Ask a question">
   <button id="sendButton" onclick="ask()">Send</button>
+  <input type="hidden" id="threadId">
 </div>
 
 <script>
@@ -72,109 +73,56 @@ ShowToc: false
         }
     });
 
-    const openaiApiKey = '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';
-    // const openaiApiKey = decrypt("vn0FqvOKF;4nm:kE[LlgZ8:W6EoenIMDerp<Dosp]o\X9qRekZf");
-    const assistantId = 'asst_fQYHhCKqDBguL9bQOVJ6zOHc';
-
-    async function createThread() {
-        const threadResponse = await fetch('https://api.openai.com/v1/threads', {
-                method: 'POST',
-                headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${openaiApiKey}`,
-                'OpenAI-Beta': 'assistants=v1'
-                }
-            });
-
-        const threadData = await threadResponse.json();
-        return threadData.id;
-    }
-
-    async function addMessageToThread(threadId, message) {
-        const response = await fetch(`https://api.openai.com/v1/threads/${threadId}/messages`, {
-            method: 'POST',
-            headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${openaiApiKey}`,
-            'OpenAI-Beta': 'assistants=v1'
-            },
-            body: JSON.stringify({
-            role: 'user',
-            content: message
-            })
-        });
-
-        const data = await response.json();
-        return data;
-    }
-
-    async function createRun(threadId) {
-        const response = await fetch(`https://api.openai.com/v1/threads/${threadId}/runs`, {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${openaiApiKey}`,
-                'Content-Type': 'application/json',
-                'OpenAI-Beta': 'assistants=v1'
-            },
-            body: JSON.stringify({
-                assistant_id: assistantId
-            })
-        });
-
-        const data = await response.json();
-        return data.id;
-    }
-
-    async function getMessages(threadId) {
-        const response = await fetch(`https://api.openai.com/v1/threads/${threadId}/messages`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${openaiApiKey}`,
-                'OpenAI-Beta': 'assistants=v1'
-            }
-        });
-
-        const data = await response.json();
-        return data.data;
-    }
-
     async function ask() {
         const responses = document.getElementById('responses');
         const message = document.getElementById('userInput').value;
+        const threadIdInput = document.getElementById('threadId'); // 假设有一个隐藏的输入框用于存储 threadId
 
         if (!message.trim()) return;
         loadingIndicator.style.display = 'block';
 
-        const threadId = await createThread();
-        // console.log('Thread ID:', threadId);
-
-        const messageResponse = await addMessageToThread(threadId, message);
-        // console.log('Response:', messageResponse)
-
-        const runId = await createRun(threadId);
-        // console.log('Run ID:', runId);
-
-        // Wait for the run to complete and get the assistant's messages
-        setTimeout(async () => {
-            const messages = await getMessages(threadId);
-            // console.log('messages', messages)
-            if (Array.isArray(messages) && messages.length > 0) {
-                const assistantMessage = messages.find(msg => msg.role === 'assistant')?.content[0]?.text?.value;;
-                if (assistantMessage) {
-                    responses.innerHTML += `<div class="message user-message"><strong>You:</strong> ${message}</div>`;
-                    responses.innerHTML += `<div class="message assistant-message"><strong>Assistant:</strong> ${assistantMessage}</div>`;
-                } else {
-                    console.error('No assistant message found');
-                }
-            } else {
-                console.error('No messages returned from the thread');
+        try {
+            // 准备请求体，如果有 threadId，则一起发送
+            const requestBody = { message: message };
+            if (threadIdInput.value) {
+                requestBody.threadId = threadIdInput.value;
             }
-            document.getElementById('userInput').value = ''; // 清空输入框
-            responses.scrollTop = responses.scrollHeight; // 滚动到底部
-            loadingIndicator.style.display = 'none'; // 隐藏加载提示
-        }, 5000); // Adjust the timeout as needed
-    }
 
-function decrypt(c) { return c.split('').map(ch => String.fromCharCode(((ch.charCodeAt(0) - 3) % 256) * 2 / 2 + 1 / 2)).join(''); }
+            // 发送请求到 Cloud Function
+            const response = await fetch('https://us-central1-jay-cloud-405910.cloudfunctions.net/openai_assistant', {
+                method: 'POST',
+                headers: {
+                    'Accept': '*/*', // 期望接收任何类型的响应
+                    'Accept-Encoding': 'gzip, deflate, br', // 可接受的内容编码
+                    'Connection': 'keep-alive', // 保持长连接
+                    'Content-Type': 'application/json', // 发送的数据类型为 JSON
+                    'User-Agent': 'Mozilla/5.0' // 设置 User-Agent
+                },
+                body: JSON.stringify(requestBody)
+            });
+
+            // 解析响应数据
+            const data = await response.json();
+            const assistantMessage = data.message;
+            document.getElementById('threadId').value = data.thread_id;
+
+            if (assistantMessage) {
+                responses.innerHTML += `<div class="message user-message"><strong>You:</strong> ${message}</div>`;
+                responses.innerHTML += `<div class="message assistant-message"><strong>Assistant:</strong> ${assistantMessage}</div>`;
+            } else {
+                console.error('No assistant message found');
+            }
+
+            // 如果响应中包含 threadId，则保存它以供后续使用
+            if (data.threadId) {
+                threadIdInput.value = data.threadId;
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+
+        document.getElementById('userInput').value = ''; // 清空输入框
+        responses.scrollTop = responses.scrollHeight; // 滚动到底部
+        loadingIndicator.style.display = 'none'; // 隐藏加载提示
+    }
 </script>
