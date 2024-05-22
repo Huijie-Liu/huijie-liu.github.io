@@ -1,5 +1,5 @@
 ---
-title: 'Fluent Python'
+title: "Fluent Python"
 date: "2024-02-12"
 draft: false
 tags: ["Learning Note", "Python"]
@@ -19,9 +19,9 @@ Tags: Ongoing, Study Note
 Python 标准库用 C 实现了丰富的序列类型，列举如下。
 
 - 容器序列
-list、tuple 和 collections.deque 这些序列能存放不同类型的数据。
+  list、tuple 和 collections.deque 这些序列能存放不同类型的数据。
 - 扁平序列
-str、bytes、bytearray、memoryview 和 array.array，这类序列只能容纳一种类型。
+  str、bytes、bytearray、memoryview 和 array.array，这类序列只能容纳一种类型。
 
 容器序列存放的是它们所包含的任意类型的对象的**引用**，而扁平序列里存放的是**值**而不是
 引用。换句话说，扁平序列其实是一段**连续的内存空间**。由此可见扁平序列其实更加紧
@@ -30,9 +30,9 @@ str、bytes、bytearray、memoryview 和 array.array，这类序列只能容纳�
 序列类型还能按照能否被修改来分类。
 
 - 可变序列
-list、bytearray、array.array、collections.deque 和 memoryview。
+  list、bytearray、array.array、collections.deque 和 memoryview。
 - 不可变序列
-tuple、str 和 bytes。
+  tuple、str 和 bytes。
 
 ## 字典和集合
 
@@ -43,7 +43,7 @@ tuple、str 和 bytes。
 
 </aside>
 
-如果一个对象是可散列的，那么在这个对象的生命周期中，它的散列值是不变的，而且这个对象需要实现 __hash__() 方法。另外可散列对象还要有 __eq__() 方法，这样才能跟其他键做比较。如果两个可散列对象是相等的，那么它们的散列值一定是一样的。一般来讲用户自定义的类型的对象都是可散列的。
+如果一个对象是可散列的，那么在这个对象的生命周期中，它的散列值是不变的，而且这个对象需要实现 **hash**() 方法。另外可散列对象还要有 **eq**() 方法，这样才能跟其他键做比较。如果两个可散列对象是相等的，那么它们的散列值一定是一样的。一般来讲用户自定义的类型的对象都是可散列的。
 
 ## 文本和字节序列
 
@@ -74,12 +74,11 @@ tuple、str 和 bytes。
 
 除了 **doc**，函数对象还有很多属性。使用 **dir** 函数可以探知所有属性:
 
-![Untitled](Untitled.png)
+![Untitled](Untitled.png#center)
 
-![Untitled](Untitled%201.png)
+![Untitled](Untitled%201.png#center)
 
-> 调用函数时使用 * 和 **“展开”可迭代对象
-> 
+> 调用函数时使用 \* 和 \*\*“展开”可迭代对象
 
 ### 函数注解
 
@@ -100,7 +99,7 @@ tuple、str 和 bytes。
 
 闭包指延伸了作用域的函数，能访问定义体之外定义的非全局变量。闭包是一种函数，它会保留定义函数时存在的**自由变量的绑定**，这样调用函数时， 虽然定义作用域不可用了，但是仍能使用那些绑定。
 
-![averager 的闭包延伸到那个函数的作用域之外，包含自由变量 series 的绑定](Untitled%202.png)
+![averager 的闭包延伸到那个函数的作用域之外，包含自由变量 series 的绑定](Untitled%202.png#center)
 
 averager 的闭包延伸到那个函数的作用域之外，包含自由变量 series 的绑定
 
@@ -123,7 +122,7 @@ averager 的闭包延伸到那个函数的作用域之外，包含自由变量 s
 
 == 运算符比较两个对象的值(对象中保存的数据)，而 is 比较对象的标识（即引用）。
 
-a == b是语法糖，等同于a.__eq__(b)。继承自object的__eq__ 方法比较两个对象的 ID，结果与 is 一样。但是多数内置类型使用更有意义的方式覆盖了__eq__ 方法，会考虑对象属性的值。
+a == b是语法糖，等同于a.**eq**(b)。继承自object的**eq** 方法比较两个对象的 ID，结果与 is 一样。但是多数内置类型使用更有意义的方式覆盖了**eq** 方法，会考虑对象属性的值。
 
 ### 元组的相对不可变性
 
@@ -149,3 +148,4 @@ a == b是语法糖，等同于a.__eq__(b)。继承自object的__eq__ 方法比�
 - 弱引用不会增加对象的引用数量。引用的目标对象称为所指对象(referent)。因此弱引用不会妨碍所指对象被当作垃圾回收。
 
 ## 符合Python风格的对象
+
