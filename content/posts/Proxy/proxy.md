@@ -79,3 +79,4 @@ ssh -D <local port> <SSH Server>
 我们可以直接使用localhost:7001 来作为正常的 SOCKS 代理来使用，直接在浏览器上设置即可。 在 SSH Client 端无法访问的网站现在也都可以正常浏览。 而这里需要值得注意的是，此时 SSH 所包护的范围只包括从浏览器端（SSH Client 端）到 SSH Server 端的连接，并不包含从 SSH Server 端 到目标网站的连接。 如果后半截连接的安全不能得到充分的保证的话，这种方式仍不是合适的解决方案。
 
 这个时候还可以在本机将SOCKS代理转成HTTP代理。 比如在本地安装[polipo](http://www.pps.univ-paris-diderot.fr/~jch/software/polipo/)，修改polipo.conf文件，把SOCKS代理填上127.0.0.1:7001，然后 `export http_proxy="127.0.0.1:8123" && export https_proxy="127.0.0.1:8123"` 就在本地的8123端口起了一个http代理。
+
