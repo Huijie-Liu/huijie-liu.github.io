@@ -74,9 +74,9 @@ Python 标准库用 C 实现了丰富的序列类型，列举如下。
 
 除了 **doc**，函数对象还有很多属性。使用 **dir** 函数可以探知所有属性:
 
-![Untitled](Untitled.png#center)
+![Untitled](.assets/Untitled.png#center)
 
-![Untitled](Untitled%201.png#center)
+![Untitled](.assets/Untitled%201.png#center)
 
 > 调用函数时使用 \* 和 \*\*“展开”可迭代对象
 
@@ -99,7 +99,7 @@ Python 标准库用 C 实现了丰富的序列类型，列举如下。
 
 闭包指延伸了作用域的函数，能访问定义体之外定义的非全局变量。闭包是一种函数，它会保留定义函数时存在的**自由变量的绑定**，这样调用函数时， 虽然定义作用域不可用了，但是仍能使用那些绑定。
 
-![averager 的闭包延伸到那个函数的作用域之外，包含自由变量 series 的绑定](Untitled%202.png#center)
+![averager 的闭包延伸到那个函数的作用域之外，包含自由变量 series 的绑定](.assets/Untitled%202.png#center)
 
 averager 的闭包延伸到那个函数的作用域之外，包含自由变量 series 的绑定
 
@@ -148,4 +148,3 @@ a == b是语法糖，等同于a.**eq**(b)。继承自object的**eq** 方法比�
 - 弱引用不会增加对象的引用数量。引用的目标对象称为所指对象(referent)。因此弱引用不会妨碍所指对象被当作垃圾回收。
 
 ## 符合Python风格的对象
-
