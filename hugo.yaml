@@ -95,10 +95,13 @@ params:
 
   socialIcons:
     - name: github
-      title: View Source on Github
+      title: View my profile on Github
       url: "https://github.com/Huijie-Liu"
+    - name: spotify
+      title: My spotify profile
+      url: "https://open.spotify.com/user/8tsoedhe3qdlvi0ovenu5y1uu?si=e4d96cb0121b4d25"
     - name: X
-      title: Share PaperMod on X/Twitter
+      title: My X/Twitter
       url: "https://twitter.com/luhuijiao666"
 
   # editPost:
