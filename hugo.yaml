@@ -56,8 +56,7 @@ params:
   # author: ["Me", "You"] # multiple authors
 
   defaultTheme: auto
-  # disableThemeToggle: true
-  # ShowShareButtons: true
+  ShowShareButtons: false
   ShowReadingTime: true
   # disableSpecial1stPost: true
   displayFullLangName: true
@@ -68,7 +67,7 @@ params:
   ShowAllPagesInArchive: true
   ShowPageNums: true
   ShowToc: true
-  # comments: false
+  comments: true
   images: ["assets/images/profile.png"]
 
   profileMode:
@@ -176,6 +175,8 @@ markup:
 #     privacyEnhanced: true
 
 services:
+  disqus:
+    shortname: jay-tech
   instagram:
     disableInlineCSS: true
   twitter:
