@@ -92,22 +92,19 @@ params:
     Content: >
       👋 Welcome to Jay's tech blogs!
       Hi, this is Jay. I’m documenting my learning notes in this blog.
-      
+
   socialIcons:
     - name: github
       title: View Source on Github
       url: "https://github.com/Huijie-Liu"
-    - name: Discord
-      title: Join discord community
-      url: "https://discord.gg/ahpmTvhVmp"
     - name: X
       title: Share PaperMod on X/Twitter
       url: "https://twitter.com/luhuijiao666"
 
   # editPost:
-    # URL: "https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite/content"
-    # Text: "Suggest Changes" # edit text
-    # appendFilePath: true # to append file path to Edit link
+  # URL: "https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite/content"
+  # Text: "Suggest Changes" # edit text
+  # appendFilePath: true # to append file path to Edit link
 
   # label:
   # iconSVG: '<svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" fill="currentColor"><path d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>'
@@ -121,12 +118,12 @@ params:
 
   assets:
     disableHLJS: true
-  #     favicon: "<link / abs url>"
-  #     favicon16x16: "<link / abs url>"
-  #     favicon32x32: "<link / abs url>"
-  #     apple_touch_icon: "<link / abs url>"
-  #     safari_pinned_tab: "<link / abs url>"
-  
+    #     favicon: "<link / abs url>"
+    #     favicon16x16: "<link / abs url>"
+    #     favicon32x32: "<link / abs url>"
+    #     apple_touch_icon: "<link / abs url>"
+    #     safari_pinned_tab: "<link / abs url>"
+
     favicon: "/favicon.ico"
     favicon16x16: "/favicon-16x16.png"
     favicon32x32: "/favicon-32x32.png"
@@ -182,3 +179,4 @@ services:
     disableInlineCSS: true
   twitter:
     disableInlineCSS: true
+
