@@ -11,8 +11,25 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 28 Mar 2024 13:30:42 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 23 May 2024 20:31:53 +0800</lastBuildDate>
     <atom:link href="/tags/computer-vision/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>3DGS Tutorial</title>
+      <link>/posts/3dgs/</link>
+      <pubDate>Thu, 23 May 2024 20:31:53 +0800</pubDate>
+      <guid>/posts/3dgs/</guid>
+      <description>3DGS 基本思想 3D高斯分布可以通过它们的各向异性协方差矩阵、位置和透明度等参数来有效地表示复杂场景。由于这些参数是通过机器学习方法进行训练的，渲染阶段无需进行大量处理。因此，它可以利用基于瓦片的光栅化器实现快速渲染，从而在性能上有显著的提升。 创新点 Point-Based Rendering：点基渲染直接将三维空间中的点渲染为图像。 Tiled Rasterization：分块光栅化的基本思想是将屏幕划分为多个小块（Tiles），然后在每个小块内进行相关计算和处理（可微分）。这种方法能够显著减少内存流量，从而提高渲染效率。 Spherical Harmonics：球谐函数是一种在球面上表示函数的方法，特别适用于描述球形表面的光照和阴影效果。 基本流程 收集数据
+图像
+视频-&amp;gt;ffmpeg截取视频帧
+ffmpeg -i &amp;lt;VIDEO_PATH&amp;gt; -qscale:v 1 -qmin 1 -vf fps=2 %04d.jpg 输出如下
+📦 $FOLDER_PATH ┣ 📂 input ┃ ┣ 📜 000000.jpg ┃ ┣ 📜 000001.jpg ┃ ┣ 📜 ... 获取相机位姿
+COLMAP：开源Structure-from-Motion (SfM) 软件，输入images，输出相机位姿
+原论文使用的是自带的convert.py，自动调用COLMAP并转换成需要的格式
+桌面软件：RealityCapture, Metashape
+移动app：Polycam, Record3D（利用了雷达）
+输出如下：
+📦 $FOLDER_PATH ┣ 📂 (input) ┣ 📂 (distorted) ┣ 📂 images ┣ 📂 sparse ┃ ┣ 📂 0 ┃ ┃ ┣ 📜 points3D.</description>
+    </item>
     <item>
       <title>Recent Advances in Vision Foundation Models</title>
       <link>/posts/recent-advances-in-vision-foundation-models.assets/</link>

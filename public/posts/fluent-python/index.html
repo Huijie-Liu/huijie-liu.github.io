@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -16,16 +16,16 @@
 文本和字节序列 把函数视作对象 💡 可以把函数赋值给变量、传给 其他函数、存储在数据结构中，以及访问函数的属性，供框架和一些工具使用。 一等函数 在 Python 中，函数是一等对象。编程语言理论家把“**一等对象”**定义为满足下述条件的程 序实体:
 在运行时创建 能赋值给变量或数据结构中的元素 能作为参数传给函数 能作为函数的返回结果 在 Python 中，整数、字符串和字典都是一等对象。">
 <meta name="author" content="Huijie Liu">
-<link rel="canonical" href="//localhost:1313/posts/fluent-python/">
+<link rel="canonical" href="/posts/fluent-python/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
-<link rel="icon" href="//localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="//localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="//localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="//localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="//localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="//localhost:1313/posts/fluent-python/">
+<link rel="alternate" hreflang="en" href="/posts/fluent-python/">
 <noscript>
     <style>
         #theme-toggle,
@@ -72,8 +72,8 @@
 文本和字节序列 把函数视作对象 💡 可以把函数赋值给变量、传给 其他函数、存储在数据结构中，以及访问函数的属性，供框架和一些工具使用。 一等函数 在 Python 中，函数是一等对象。编程语言理论家把“**一等对象”**定义为满足下述条件的程 序实体:
 在运行时创建 能赋值给变量或数据结构中的元素 能作为参数传给函数 能作为函数的返回结果 在 Python 中，整数、字符串和字典都是一等对象。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="//localhost:1313/posts/fluent-python/" />
-<meta property="og:image" content="//localhost:1313/assets/images/profile.png" />
+<meta property="og:url" content="/posts/fluent-python/" />
+<meta property="og:image" content="/assets/images/profile.png" />
 <meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-02-12T13:30:42+08:00" />
 <meta property="article:modified_time" content="2024-02-12T13:30:42+08:00" />
@@ -81,7 +81,7 @@
 
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="//localhost:1313/assets/images/profile.png" />
+<meta name="twitter:image" content="/assets/images/profile.png" />
 <meta name="twitter:title" content="Fluent Python"/>
 <meta name="twitter:description" content="Fluent Python Owner: Huijie Liu Tags: Ongoing, Study Note
 数据结构 序列构成的数组 Python 标准库用 C 实现了丰富的序列类型，列举如下。
@@ -102,13 +102,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "//localhost:1313/posts/"
-    }, 
+      "item": "/posts/"
+    }
     {
       "@type": "ListItem",
-      "position":  2 ,
+      "position":  1 ,
       "name": "Fluent Python",
-      "item": "//localhost:1313/posts/fluent-python/"
+      "item": "/posts/fluent-python/"
     }
   ]
 }
@@ -126,7 +126,7 @@
   "articleBody": "Fluent Python Owner: Huijie Liu Tags: Ongoing, Study Note\n数据结构 序列构成的数组 Python 标准库用 C 实现了丰富的序列类型，列举如下。\n容器序列 list、tuple 和 collections.deque 这些序列能存放不同类型的数据。 扁平序列 str、bytes、bytearray、memoryview 和 array.array，这类序列只能容纳一种类型。 容器序列存放的是它们所包含的任意类型的对象的引用，而扁平序列里存放的是值而不是 引用。换句话说，扁平序列其实是一段连续的内存空间。由此可见扁平序列其实更加紧 凑，但是它里面只能存放诸如字符、字节和数值这种基础类型。\n序列类型还能按照能否被修改来分类。\n可变序列 list、bytearray、array.array、collections.deque 和 memoryview。 不可变序列 tuple、str 和 bytes。 字典和集合 💡 dict 类型是 Python 语言的基石。模块的命名空间、 实例的属性和函数的关键字参数中都可以看到字典的身影。跟它有关的内置函数都在 __builtins__.__dict__ 模块中。 正是因为字典至关重要，Python 对它的实现做了高度优化，而散列表则是字典类型性能出 众的根本原因。集合(set)的实现其实也依赖于散列表。\n如果一个对象是可散列的，那么在这个对象的生命周期中，它的散列值是不变的，而且这个对象需要实现 hash() 方法。另外可散列对象还要有 eq() 方法，这样才能跟其他键做比较。如果两个可散列对象是相等的，那么它们的散列值一定是一样的。一般来讲用户自定义的类型的对象都是可散列的。\n文本和字节序列 把函数视作对象 💡 可以把函数赋值给变量、传给 其他函数、存储在数据结构中，以及访问函数的属性，供框架和一些工具使用。 一等函数 在 Python 中，函数是一等对象。编程语言理论家把“**一等对象”**定义为满足下述条件的程 序实体:\n在运行时创建 能赋值给变量或数据结构中的元素 能作为参数传给函数 能作为函数的返回结果 在 Python 中，整数、字符串和字典都是一等对象。\n高阶函数 接受函数为参数，或者把函数作为结果返回的函数是高阶函数。函数式语言通常会提供 map、filter 和 reduce 三个高阶函数。\n函数内省 除了 doc，函数对象还有很多属性。使用 dir 函数可以探知所有属性:\n调用函数时使用 * 和 **“展开”可迭代对象\n函数注解 函数声明中的各个参数可以在 : 之后增加注解表达式。如果参数有默认值，注解放在参数名和 = 号之间。如果想注解返回值，在 ) 和函数声明末尾的 : 之间添加 -\u003e 和一个表达式。 那个表达式可以是任何类型。\n函数装饰器和闭包 函数装饰器用于在源码中**“标记”**函数，以某种方式增强函数的行为。\n装饰器基础 装饰器是可调用的对象，其参数是另一个函数。装饰器可能会处理被装饰的函数，然后把它返回，或者将其替换成另一个函数或可调用对象。\n特性1，能把被装饰的函数替换成其他函数。 特性2，装饰器在加载模块时立即执行。（被装饰的函数定义之后立即运行） 闭包 闭包指延伸了作用域的函数，能访问定义体之外定义的非全局变量。闭包是一种函数，它会保留定义函数时存在的自由变量的绑定，这样调用函数时， 虽然定义作用域不可用了，但是仍能使用那些绑定。\naverager 的闭包延伸到那个函数的作用域之外，包含自由变量 series 的绑定\n在 averager 函数中，series 是自由变量，指未在本地作用域中绑定的变量。\nnonlocal 声明：它的作用是把变量标记为自由变量， 即使在函数中为变量赋予新值了，也会变成自由变量。\n面向对象惯用法 对象引用、可变性和垃圾回收 💡 - 每个 Python 对象都有标识、类型和值。只有对象的值会不时变化。 - 变量保存的是引用，这一点对 Python 编程有很多实际的影响。 - 对象的引用数量归零后，对象会被立即销毁。 在==和is之间选择 == 运算符比较两个对象的值(对象中保存的数据)，而 is 比较对象的标识（即引用）。\na == b是语法糖，等同于a.eq(b)。继承自object的eq 方法比较两个对象的 ID，结果与 is 一样。但是多数内置类型使用更有意义的方式覆盖了eq 方法，会考虑对象属性的值。\n元组的相对不可变性 元组与多数 Python 集合(列表、字典、集，等等)一样，保存的是对象的引用。如果引用的元素是可变的，即便元组本身不可变，元素依然可变。\n深复制和浅复制 浅复制：即复制了最外层容器，副本中的元素是源容器中元素的引用 深复制：即副本不共享内部对象的引用 函数的参数作为引用时 共享传参：函数的各个形式参数获得实参中各个引用的副本。也就是说，函数内部的形参是实参的别名。因此，函数可能会修改作为参数传入的可变对象，但是无法修改那些对象的 标识(即不能把一个对象替换成另一个对象)。\n💡 默认值在定义函数时计算(通常在加载模块时)，因此默认值变成了函数对象的属性。因此，如果默认值是可变对象，而且修改了它的值，那么后续的函数调用都会受到影响。 del、垃圾回收和弱引用 垃圾回收使用的主要算法是引用计数，当引用计数归零时，对象立即就被销毁。 弱引用不会增加对象的引用数量。引用的目标对象称为所指对象(referent)。因此弱引用不会妨碍所指对象被当作垃圾回收。 符合Python风格的对象 ",
   "wordCount" : "160",
   "inLanguage": "en",
-  "image": "//localhost:1313/assets/images/profile.png""datePublished": "2024-02-12T13:30:42+08:00",
+  "image": "/assets/images/profile.png""datePublished": "2024-02-12T13:30:42+08:00",
   "dateModified": "2024-02-12T13:30:42+08:00",
   "author":[{
     "@type": "Person",
@@ -134,14 +134,14 @@
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "//localhost:1313/posts/fluent-python/"
+    "@id": "/posts/fluent-python/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Jay Tech",
     "logo": {
       "@type": "ImageObject",
-      "url": "//localhost:1313/favicon.ico"
+      "url": "/favicon.ico"
     }
   }
 }
@@ -163,7 +163,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="//localhost:1313/" accesskey="h" title="Jay Tech (Alt + H)">Jay Tech</a>
+            <a href="/" accesskey="h" title="Jay Tech (Alt + H)">Jay Tech</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -189,22 +189,22 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="//localhost:1313/archives" title="Archive">
+                <a href="/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="//localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="//localhost:1313/tags/" title="Tags">
+                <a href="/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="//localhost:1313/faq/" title="FAQ">
+                <a href="/faq/" title="FAQ">
                     <span>FAQ</span>
                 </a>
             </li>
@@ -215,7 +215,7 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="//localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="//localhost:1313/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="/">Home</a>&nbsp;»&nbsp;<a href="/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       Fluent Python
     </h1>
@@ -395,11 +395,11 @@ tuple、str 和 bytes。</li>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="//localhost:1313/tags/learning-note/">Learning Note</a></li>
-      <li><a href="//localhost:1313/tags/python/">Python</a></li>
+      <li><a href="/tags/learning-note/">Learning Note</a></li>
+      <li><a href="/tags/python/">Python</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="//localhost:1313/posts/proxy/">
+  <a class="prev" href="/posts/proxy/">
     <span class="title">« Prev</span>
     <br>
     <span>About proxy</span>
@@ -431,7 +431,7 @@ tuple、str 和 bytes。</li>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="//localhost:1313/">Jay Tech</a></span>
+    <span>&copy; 2024 <a href="/">Jay Tech</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

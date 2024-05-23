@@ -166,6 +166,28 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">3DGS Tutorial
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>3DGS 基本思想 3D高斯分布可以通过它们的各向异性协方差矩阵、位置和透明度等参数来有效地表示复杂场景。由于这些参数是通过机器学习方法进行训练的，渲染阶段无需进行大量处理。因此，它可以利用基于瓦片的光栅化器实现快速渲染，从而在性能上有显著的提升。 创新点 Point-Based Rendering：点基渲染直接将三维空间中的点渲染为图像。 Tiled Rasterization：分块光栅化的基本思想是将屏幕划分为多个小块（Tiles），然后在每个小块内进行相关计算和处理（可微分）。这种方法能够显著减少内存流量，从而提高渲染效率。 Spherical Harmonics：球谐函数是一种在球面上表示函数的方法，特别适用于描述球形表面的光照和阴影效果。 基本流程 收集数据
+图像
+视频-&gt;ffmpeg截取视频帧
+ffmpeg -i &lt;VIDEO_PATH&gt; -qscale:v 1 -qmin 1 -vf fps=2 %04d.jpg 输出如下
+📦 $FOLDER_PATH ┣ 📂 input ┃ ┣ 📜 000000.jpg ┃ ┣ 📜 000001.jpg ┃ ┣ 📜 ... 获取相机位姿
+COLMAP：开源Structure-from-Motion (SfM) 软件，输入images，输出相机位姿
+原论文使用的是自带的convert.py，自动调用COLMAP并转换成需要的格式
+桌面软件：RealityCapture, Metashape
+移动app：Polycam, Record3D（利用了雷达）
+输出如下：
+📦 $FOLDER_PATH ┣ 📂 (input) ┣ 📂 (distorted) ┣ 📂 images ┣ 📂 sparse ┃ ┣ 📂 0 ┃ ┃ ┣ 📜 points3D....</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-05-23 20:31:53 +0800 CST'>May 23, 2024</span>&nbsp;·&nbsp;10 min&nbsp;·&nbsp;Huijie Liu</footer>
+  <a class="entry-link" aria-label="post link to 3DGS Tutorial" href="/posts/3dgs/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Recent Advances in Vision Foundation Models
     </h2>
   </header>
@@ -219,12 +241,12 @@ ssh -R &lt;local port&gt;:&lt;remote host&gt;:&lt;remote port&gt; &lt;SSH hostna
 数据结构 序列构成的数组 Python 标准库用 C 实现了丰富的序列类型，列举如下。
 容器序列 list、tuple 和 collections.deque 这些序列能存放不同类型的数据。 扁平序列 str、bytes、bytearray、memoryview 和 array.array，这类序列只能容纳一种类型。 容器序列存放的是它们所包含的任意类型的对象的引用，而扁平序列里存放的是值而不是 引用。换句话说，扁平序列其实是一段连续的内存空间。由此可见扁平序列其实更加紧 凑，但是它里面只能存放诸如字符、字节和数值这种基础类型。
 序列类型还能按照能否被修改来分类。
-可变序列 list、bytearray、array.array、collections.deque 和 memoryview。 不可变序列 tuple、str 和 bytes。 字典和集合 💡 **dict** 类型是 Python 语言的基石。模块的命名空间、 实例的属性和函数的关键字参数中都可以看到字典的身影。跟它有关的内置函数都在 __builtins__.__dict__ 模块中。 正是因为字典至关重要，Python 对它的实现做了高度优化，而散列表则是字典类型性能出 众的根本原因。集合(set)的实现其实也依赖于散列表。
+可变序列 list、bytearray、array.array、collections.deque 和 memoryview。 不可变序列 tuple、str 和 bytes。 字典和集合 💡 dict 类型是 Python 语言的基石。模块的命名空间、 实例的属性和函数的关键字参数中都可以看到字典的身影。跟它有关的内置函数都在 __builtins__.__dict__ 模块中。 正是因为字典至关重要，Python 对它的实现做了高度优化，而散列表则是字典类型性能出 众的根本原因。集合(set)的实现其实也依赖于散列表。
 如果一个对象是可散列的，那么在这个对象的生命周期中，它的散列值是不变的，而且这个对象需要实现 hash() 方法。另外可散列对象还要有 eq() 方法，这样才能跟其他键做比较。如果两个可散列对象是相等的，那么它们的散列值一定是一样的。一般来讲用户自定义的类型的对象都是可散列的。
 文本和字节序列 把函数视作对象 💡 可以把函数赋值给变量、传给 其他函数、存储在数据结构中，以及访问函数的属性，供框架和一些工具使用。 一等函数 在 Python 中，函数是一等对象。编程语言理论家把“**一等对象”**定义为满足下述条件的程 序实体:
 在运行时创建 能赋值给变量或数据结构中的元素 能作为参数传给函数 能作为函数的返回结果 在 Python 中，整数、字符串和字典都是一等对象。...</p>
   </div>
-  <footer class="entry-footer"><span title='2024-02-12 00:00:00 +0000 UTC'>February 12, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Huijie Liu</footer>
+  <footer class="entry-footer"><span title='2024-02-12 13:30:42 +0800 CST'>February 12, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Huijie Liu</footer>
   <a class="entry-link" aria-label="post link to Fluent Python" href="/posts/fluent-python/"></a>
 </article>
     </main>

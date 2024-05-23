@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Deep Learning on Jay Tech</title>
-    <link>/tags/deep-learning/</link>
-    <description>Recent content in Deep Learning on Jay Tech</description>
+    <title>3DGS on Jay Tech</title>
+    <link>/tags/3dgs/</link>
+    <description>Recent content in 3DGS on Jay Tech</description>
     <image>
       <title>Jay Tech</title>
       <url>/assets/images/profile.png</url>
@@ -12,7 +12,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 23 May 2024 20:31:53 +0800</lastBuildDate>
-    <atom:link href="/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/3dgs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>3DGS Tutorial</title>
       <link>/posts/3dgs/</link>
@@ -29,21 +29,6 @@ COLMAP：开源Structure-from-Motion (SfM) 软件，输入images，输出相机�
 移动app：Polycam, Record3D（利用了雷达）
 输出如下：
 📦 $FOLDER_PATH ┣ 📂 (input) ┣ 📂 (distorted) ┣ 📂 images ┣ 📂 sparse ┃ ┣ 📂 0 ┃ ┃ ┣ 📜 points3D.</description>
-    </item>
-    <item>
-      <title>Recent Advances in Vision Foundation Models</title>
-      <link>/posts/recent-advances-in-vision-foundation-models.assets/</link>
-      <pubDate>Thu, 28 Mar 2024 13:30:42 +0800</pubDate>
-      <guid>/posts/recent-advances-in-vision-foundation-models.assets/</guid>
-      <description>原文链接
-Q1: how to learn image representations? Overview 改进 CLIP 数据层面：Data scaling up 模型层面：Model design image side
-FLIP（Scaling CLIP training via masking）：是一种改进的训练方法，用于提高 CLIP模型的训练效率。FLIP 的核心思想是在训练过程中随机遮挡图像的部分区域，只对可见的区域进行编码。
-Scaling language-image pre-training via masking, CVPR 2023
-language side
-K-Lite: 将外部知识融入到对比学习预训练中，在 K-Lite 中，实体的维基百科定义（knowledge）可以与原始的图像替代文本（alt-text）一起自然地用于对比预训练。
-K-lite: Learning transferable visual models with external knowledge, NeurIPS 2022
-improved interpretability
-STAIR（Learning Sparse Text and Image Representation in Grounded Tokens）： 将图像和文本映射到高维稀疏嵌入空间； 每个维度的值是一个非负标量，表示与该维度对应的词或标记的权重； 提供了更好的性能和更清晰地识别图像和文本之间的对应关系； STAIR: Learning Sparse Text and Image Representation in Grounded Tokens, 2023</description>
     </item>
   </channel>
 </rss>
