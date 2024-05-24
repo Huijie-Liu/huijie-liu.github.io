@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Python on Jay Tech</title>
-    <link>//localhost:1313/tags/python/</link>
+    <link>/tags/python/</link>
     <description>Recent content in Python on Jay Tech</description>
     <image>
       <title>Jay Tech</title>
-      <url>//localhost:1313/assets/images/profile.png</url>
-      <link>//localhost:1313/assets/images/profile.png</link>
+      <url>/assets/images/profile.png</url>
+      <link>/assets/images/profile.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 12 Feb 2024 13:30:42 +0800</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fluent Python</title>
-      <link>//localhost:1313/posts/fluent-python/</link>
+      <link>/posts/fluent-python/</link>
       <pubDate>Mon, 12 Feb 2024 13:30:42 +0800</pubDate>
-      <guid>//localhost:1313/posts/fluent-python/</guid>
+      <guid>/posts/fluent-python/</guid>
       <description>Fluent Python Owner: Huijie Liu Tags: Ongoing, Study Note
 数据结构 序列构成的数组 Python 标准库用 C 实现了丰富的序列类型，列举如下。
 容器序列 list、tuple 和 collections.deque 这些序列能存放不同类型的数据。 扁平序列 str、bytes、bytearray、memoryview 和 array.array，这类序列只能容纳一种类型。 容器序列存放的是它们所包含的任意类型的对象的引用，而扁平序列里存放的是值而不是 引用。换句话说，扁平序列其实是一段连续的内存空间。由此可见扁平序列其实更加紧 凑，但是它里面只能存放诸如字符、字节和数值这种基础类型。

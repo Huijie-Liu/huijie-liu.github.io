@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tools on Jay Tech</title>
-    <link>//localhost:1313/categories/tools/</link>
+    <link>/categories/tools/</link>
     <description>Recent content in Tools on Jay Tech</description>
     <image>
       <title>Jay Tech</title>
-      <url>//localhost:1313/assets/images/profile.png</url>
-      <link>//localhost:1313/assets/images/profile.png</link>
+      <url>/assets/images/profile.png</url>
+      <link>/assets/images/profile.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 27 Mar 2024 13:30:42 +0800</lastBuildDate>
-    <atom:link href="//localhost:1313/categories/tools/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About proxy</title>
-      <link>//localhost:1313/posts/proxy/</link>
+      <link>/posts/proxy/</link>
       <pubDate>Wed, 27 Mar 2024 13:30:42 +0800</pubDate>
-      <guid>//localhost:1313/posts/proxy/</guid>
+      <guid>/posts/proxy/</guid>
       <description>正向代理 正向代理是客户端和服务器中间的服务器，为了从原始服务器取得内容，客户端向代理服务器发送一个请求并指定目标（原始服务器）， 然后代理服务器向原始服务器转发请求并将获得的内容返回给客户端。
 举个例子，比如正常情况下我没法办上youtube，但是我有个aws的机器，它不受GFW的限制，能够访问youtube，我也能正常访问那个aws的机器， 那么我通过发送请求给aws的机器，让他转发我的请求给youtube，然后把youtube返回的数据给我，我就能通过aws的机器作为跳板访问GFW， 那个aws的机器也就是代理服务器的角色，并且这种方式就是正向代理。
 总结一下，正向代理就是我想访问一台机器，但是被墙了访问不到，我需要一台机器作为跳板转发我的请求。
