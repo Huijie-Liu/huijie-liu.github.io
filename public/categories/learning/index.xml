@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Learning on Jay Tech</title>
-    <link>/categories/learning/</link>
+    <link>//localhost:1313/categories/learning/</link>
     <description>Recent content in Learning on Jay Tech</description>
     <image>
       <title>Jay Tech</title>
-      <url>/assets/images/profile.png</url>
-      <link>/assets/images/profile.png</link>
+      <url>//localhost:1313/assets/images/profile.png</url>
+      <link>//localhost:1313/assets/images/profile.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 23 May 2024 20:31:53 +0800</lastBuildDate>
-    <atom:link href="/categories/learning/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/categories/learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>3DGS Tutorial</title>
-      <link>/posts/3dgs/</link>
+      <link>//localhost:1313/posts/3dgs/</link>
       <pubDate>Thu, 23 May 2024 20:31:53 +0800</pubDate>
-      <guid>/posts/3dgs/</guid>
+      <guid>//localhost:1313/posts/3dgs/</guid>
       <description>3DGS 基本思想 3D高斯分布可以通过它们的各向异性协方差矩阵、位置和透明度等参数来有效地表示复杂场景。由于这些参数是通过机器学习方法进行训练的，渲染阶段无需进行大量处理。因此，它可以利用基于瓦片的光栅化器实现快速渲染，从而在性能上有显著的提升。 创新点 Point-Based Rendering：点基渲染直接将三维空间中的点渲染为图像。 Tiled Rasterization：分块光栅化的基本思想是将屏幕划分为多个小块（Tiles），然后在每个小块内进行相关计算和处理（可微分）。这种方法能够显著减少内存流量，从而提高渲染效率。 Spherical Harmonics：球谐函数是一种在球面上表示函数的方法，特别适用于描述球形表面的光照和阴影效果。 基本流程 收集数据
 图像
 视频-&amp;gt;ffmpeg截取视频帧
@@ -32,9 +32,9 @@ COLMAP：开源Structure-from-Motion (SfM) 软件，输入images，输出相机�
     </item>
     <item>
       <title>Recent Advances in Vision Foundation Models</title>
-      <link>/posts/recent-advances-in-vision-foundation-models.assets/</link>
+      <link>//localhost:1313/posts/recent-advances-in-vision-foundation-models.assets/</link>
       <pubDate>Thu, 28 Mar 2024 13:30:42 +0800</pubDate>
-      <guid>/posts/recent-advances-in-vision-foundation-models.assets/</guid>
+      <guid>//localhost:1313/posts/recent-advances-in-vision-foundation-models.assets/</guid>
       <description>原文链接
 Q1: how to learn image representations? Overview 改进 CLIP 数据层面：Data scaling up 模型层面：Model design image side
 FLIP（Scaling CLIP training via masking）：是一种改进的训练方法，用于提高 CLIP模型的训练效率。FLIP 的核心思想是在训练过程中随机遮挡图像的部分区域，只对可见的区域进行编码。
@@ -47,9 +47,9 @@ STAIR（Learning Sparse Text and Image Representation in Grounded Tokens）： �
     </item>
     <item>
       <title>Fluent Python</title>
-      <link>/posts/fluent-python/</link>
+      <link>//localhost:1313/posts/fluent-python/</link>
       <pubDate>Mon, 12 Feb 2024 13:30:42 +0800</pubDate>
-      <guid>/posts/fluent-python/</guid>
+      <guid>//localhost:1313/posts/fluent-python/</guid>
       <description>Fluent Python Owner: Huijie Liu Tags: Ongoing, Study Note
 数据结构 序列构成的数组 Python 标准库用 C 实现了丰富的序列类型，列举如下。
 容器序列 list、tuple 和 collections.deque 这些序列能存放不同类型的数据。 扁平序列 str、bytes、bytearray、memoryview 和 array.array，这类序列只能容纳一种类型。 容器序列存放的是它们所包含的任意类型的对象的引用，而扁平序列里存放的是值而不是 引用。换句话说，扁平序列其实是一段连续的内存空间。由此可见扁平序列其实更加紧 凑，但是它里面只能存放诸如字符、字节和数值这种基础类型。
