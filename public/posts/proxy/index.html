@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -22,16 +22,16 @@ A是一台在我家的机器macbook air，它可以访问taobao，也就是服�
 远端转发 ssh远端转发的命令为：
 ssh -R &lt;local port&gt;:&lt;remote host&gt;:&lt;remote port&gt; &lt;SSH hostname&gt; 由于本身B是可以访问A的，但是A访问不到B，现在要想服务器A访问到B，也就是在家能连上公司的机器。">
 <meta name="author" content="Huijie Liu">
-<link rel="canonical" href="/posts/proxy/">
+<link rel="canonical" href="//localhost:1313/posts/proxy/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
-<link rel="icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="mask-icon" href="/safari-pinned-tab.svg">
+<link rel="icon" href="//localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="//localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="//localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="//localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="//localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="/posts/proxy/">
+<link rel="alternate" hreflang="en" href="//localhost:1313/posts/proxy/">
 <noscript>
     <style>
         #theme-toggle,
@@ -68,7 +68,30 @@ ssh -R &lt;local port&gt;:&lt;remote host&gt;:&lt;remote port&gt; &lt;SSH hostna
         }
 
     </style>
-</noscript><meta property="og:title" content="About proxy" />
+</noscript>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
+></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [
+        ["\\[", "\\]"],
+        ["$$", "$$"],
+      ], 
+      inlineMath: [
+        ["\\(", "\\)"],
+        ["$", "$"],
+      ], 
+    },
+  };
+</script>
+
+
+
+<meta property="og:title" content="About proxy" />
 <meta property="og:description" content="正向代理 正向代理是客户端和服务器中间的服务器，为了从原始服务器取得内容，客户端向代理服务器发送一个请求并指定目标（原始服务器）， 然后代理服务器向原始服务器转发请求并将获得的内容返回给客户端。
 举个例子，比如正常情况下我没法办上youtube，但是我有个aws的机器，它不受GFW的限制，能够访问youtube，我也能正常访问那个aws的机器， 那么我通过发送请求给aws的机器，让他转发我的请求给youtube，然后把youtube返回的数据给我，我就能通过aws的机器作为跳板访问GFW， 那个aws的机器也就是代理服务器的角色，并且这种方式就是正向代理。
 总结一下，正向代理就是我想访问一台机器，但是被墙了访问不到，我需要一台机器作为跳板转发我的请求。
@@ -84,15 +107,15 @@ A是一台在我家的机器macbook air，它可以访问taobao，也就是服�
 远端转发 ssh远端转发的命令为：
 ssh -R &lt;local port&gt;:&lt;remote host&gt;:&lt;remote port&gt; &lt;SSH hostname&gt; 由于本身B是可以访问A的，但是A访问不到B，现在要想服务器A访问到B，也就是在家能连上公司的机器。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/proxy/" />
-<meta property="og:image" content="/assets/images/profile.png" />
+<meta property="og:url" content="//localhost:1313/posts/proxy/" />
+<meta property="og:image" content="//localhost:1313/assets/images/profile.png" />
 <meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-03-27T13:30:42+08:00" />
 <meta property="article:modified_time" content="2024-03-27T13:30:42+08:00" />
 
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="/assets/images/profile.png" />
+<meta name="twitter:image" content="//localhost:1313/assets/images/profile.png" />
 <meta name="twitter:title" content="About proxy"/>
 <meta name="twitter:description" content="正向代理 正向代理是客户端和服务器中间的服务器，为了从原始服务器取得内容，客户端向代理服务器发送一个请求并指定目标（原始服务器）， 然后代理服务器向原始服务器转发请求并将获得的内容返回给客户端。
 举个例子，比如正常情况下我没法办上youtube，但是我有个aws的机器，它不受GFW的限制，能够访问youtube，我也能正常访问那个aws的机器， 那么我通过发送请求给aws的机器，让他转发我的请求给youtube，然后把youtube返回的数据给我，我就能通过aws的机器作为跳板访问GFW， 那个aws的机器也就是代理服务器的角色，并且这种方式就是正向代理。
@@ -119,13 +142,13 @@ ssh -R &lt;local port&gt;:&lt;remote host&gt;:&lt;remote port&gt; &lt;SSH hostna
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "/posts/"
-    }
+      "item": "//localhost:1313/posts/"
+    }, 
     {
       "@type": "ListItem",
-      "position":  1 ,
+      "position":  2 ,
       "name": "About proxy",
-      "item": "/posts/proxy/"
+      "item": "//localhost:1313/posts/proxy/"
     }
   ]
 }
@@ -143,7 +166,7 @@ ssh -R &lt;local port&gt;:&lt;remote host&gt;:&lt;remote port&gt; &lt;SSH hostna
   "articleBody": "正向代理 正向代理是客户端和服务器中间的服务器，为了从原始服务器取得内容，客户端向代理服务器发送一个请求并指定目标（原始服务器）， 然后代理服务器向原始服务器转发请求并将获得的内容返回给客户端。\n举个例子，比如正常情况下我没法办上youtube，但是我有个aws的机器，它不受GFW的限制，能够访问youtube，我也能正常访问那个aws的机器， 那么我通过发送请求给aws的机器，让他转发我的请求给youtube，然后把youtube返回的数据给我，我就能通过aws的机器作为跳板访问GFW， 那个aws的机器也就是代理服务器的角色，并且这种方式就是正向代理。\n总结一下，正向代理就是我想访问一台机器，但是被墙了访问不到，我需要一台机器作为跳板转发我的请求。\n反向代理 于正向代理不同，反向代理更多的是为了保护原始服务器。 对于客户端而言，反向代理中的代理服务器就是原始服务器，客户端并不需要知道有这个代理的角色存在， 因此客户端也不需要一些额外的设置，比如正向代理中制定代理服务器是谁。\n比如在原始服务器A上配置防火墙，使得只有服务器B能够访问A，并且通过B服务器转发A的数据实现于外界的通信。这样对于客户端，它只需要和B交互， 从而隐藏了服务器A，B服务器也就是反向代理服务器。由于有代理服务器的存在，对于后面的原始服务器来说，也就多了一层做负载均衡的服务器。\n透明代理 还有一种代理方式叫做透明代理，比如公司的机器不能上qq，这个就是透明代理，它在内网和外网之间捕捉用户的请求，过滤一部分请求。\nSSH端口转发 有一种很简单的方式就能做到代理功能，那就是SSH本身提供的端口转发功能。 要想理解清楚SSH端口转发，首先必须记住这样几个原则：\nSSH简单的理解就是2台机器之间安全的数据通道，它包括ssh的client和ssh的server2个角色，这样的一条通道也就是ssh隧道(ssh tunneling) SSH 端口转发自然需要 SSH 连接，而 SSH 连接是有方向的，从 SSH Client 到 SSH Server 我们的应用的请求也是有方向的，一般是客户端向服务器端发出请求 一旦这2个方向相同，我们称为ssh的本地转发(-L)，不同则为远端转发(-R) 命令一般是跑在ssh client的机器上的 本地转发 ssh本地转发命令为：\nssh -L :: 这条命令可以翻译成：从本地的端口发出请求，通过这台机器作为跳板转发请求到的端口。 是相对而言的，比如是127.0.0.1的话，就是本身。 所以一般如果是127.0.0.1的话，跳板机或者代理服务器就是目标服务器。\n举个例子：\nA是一台在我家的机器macbook air，它可以访问taobao，也就是服务器C B是一台在公司的机器imac，由于在公司的内网，所以在家的A访问不到B C是taobao的服务器，公司不让上taobao，所以服务器B访问不了C 现在要想在让B服务器能访问C的80端口，由于防火墙这条路本身是走不通的，但是由于B能访问A，A能访问C，所以能把A作为代理服务器实现这一要求。\n在服务器B和服务器A之间建立ssh隧道，在SSH端口转发中，由于服务器B能连接到服务器A，并且请求是从服务器B发出，所以B既是ssh的client，也是请求的客户端 所以此时应该在B上去运行ssh的本地转发命令: ssh -L 8080:HOST_C:80 HOST_A\n远端转发 ssh远端转发的命令为：\nssh -R :: 由于本身B是可以访问A的，但是A访问不到B，现在要想服务器A访问到B，也就是在家能连上公司的机器。\n服务器B能连上A，所以B应该是ssh的client，此时请求是由A发起的，所以A是请求客户端，方向不同，所以是远端转发。 因此在B上运行命令: ssh -R 2222:127.0.0.1:22 HOST_A ,这里127.0.0.1是因为通过A服务器转发的目的服务器就是A本身。 这样在A上的2222端口就映射到了B的22端口。\n动态转发 不管是本地转发还是远端转发，都需要一个具体的应用服务器的地址和端口号，要想访问其他机器的内容就得绑定很多条这样的转发命令， 通过动态转发就能省去这一个应用服务器的信息。\nssh -D 当我们在一个不安全的 WiFi 环境下上网，用 SSH 动态转发来保护我们的网页浏览等信息无疑是十分必要的。 比如在本机运行： sh -D 7001 这样就相当于通过创建了一个SOCKS代理。\n我们可以直接使用localhost:7001 来作为正常的 SOCKS 代理来使用，直接在浏览器上设置即可。 在 SSH Client 端无法访问的网站现在也都可以正常浏览。 而这里需要值得注意的是，此时 SSH 所包护的范围只包括从浏览器端（SSH Client 端）到 SSH Server 端的连接，并不包含从 SSH Server 端 到目标网站的连接。 如果后半截连接的安全不能得到充分的保证的话，这种方式仍不是合适的解决方案。\n这个时候还可以在本机将SOCKS代理转成HTTP代理。 比如在本地安装polipo，修改polipo.conf文件，把SOCKS代理填上127.0.0.1:7001，然后 export http_proxy=\"127.0.0.1:8123\" \u0026\u0026 export https_proxy=\"127.0.0.1:8123\" 就在本地的8123端口起了一个http代理。\n",
   "wordCount" : "129",
   "inLanguage": "en",
-  "image": "/assets/images/profile.png""datePublished": "2024-03-27T13:30:42+08:00",
+  "image": "//localhost:1313/assets/images/profile.png""datePublished": "2024-03-27T13:30:42+08:00",
   "dateModified": "2024-03-27T13:30:42+08:00",
   "author":[{
     "@type": "Person",
@@ -151,14 +174,14 @@ ssh -R &lt;local port&gt;:&lt;remote host&gt;:&lt;remote port&gt; &lt;SSH hostna
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "/posts/proxy/"
+    "@id": "//localhost:1313/posts/proxy/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Jay Tech",
     "logo": {
       "@type": "ImageObject",
-      "url": "/favicon.ico"
+      "url": "//localhost:1313/favicon.ico"
     }
   }
 }
@@ -180,7 +203,7 @@ ssh -R &lt;local port&gt;:&lt;remote host&gt;:&lt;remote port&gt; &lt;SSH hostna
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="/" accesskey="h" title="Jay Tech (Alt + H)">Jay Tech</a>
+            <a href="//localhost:1313/" accesskey="h" title="Jay Tech (Alt + H)">Jay Tech</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -206,22 +229,22 @@ ssh -R &lt;local port&gt;:&lt;remote host&gt;:&lt;remote port&gt; &lt;SSH hostna
         </div>
         <ul id="menu">
             <li>
-                <a href="/archives" title="Archive">
+                <a href="//localhost:1313/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="//localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="/tags/" title="Tags">
+                <a href="//localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="/faq/" title="FAQ">
+                <a href="//localhost:1313/faq/" title="FAQ">
                     <span>FAQ</span>
                 </a>
             </li>
@@ -232,7 +255,7 @@ ssh -R &lt;local port&gt;:&lt;remote host&gt;:&lt;remote port&gt; &lt;SSH hostna
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="/">Home</a>&nbsp;»&nbsp;<a href="/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="//localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="//localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       About proxy
     </h1>
@@ -316,16 +339,16 @@ ssh -R &lt;local port&gt;:&lt;remote host&gt;:&lt;remote port&gt; &lt;SSH hostna
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="/tags/shell/">Shell</a></li>
-      <li><a href="/tags/proxy/">Proxy</a></li>
+      <li><a href="//localhost:1313/tags/shell/">Shell</a></li>
+      <li><a href="//localhost:1313/tags/proxy/">Proxy</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="/posts/recent-advances-in-vision-foundation-models.assets/">
+  <a class="prev" href="//localhost:1313/posts/recent-advances-in-vision-foundation-models.assets/">
     <span class="title">« Prev</span>
     <br>
     <span>Recent Advances in Vision Foundation Models</span>
   </a>
-  <a class="next" href="/posts/fluent-python/">
+  <a class="next" href="//localhost:1313/posts/fluent-python/">
     <span class="title">Next »</span>
     <br>
     <span>Fluent Python</span>
@@ -357,7 +380,7 @@ ssh -R &lt;local port&gt;:&lt;remote host&gt;:&lt;remote port&gt; &lt;SSH hostna
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="/">Jay Tech</a></span>
+    <span>&copy; 2024 <a href="//localhost:1313/">Jay Tech</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

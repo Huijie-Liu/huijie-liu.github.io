@@ -55,6 +55,8 @@ params:
   author: ["Huijie Liu"]
   # author: ["Me", "You"] # multiple authors
 
+  math: true
+
   defaultTheme: auto
   ShowShareButtons: false
   ShowReadingTime: true
@@ -146,6 +148,20 @@ params:
 
 markup:
   goldmark:
+    extensions:
+      passthrough:
+        delimiters:
+          block:
+            - - \[
+              - \]
+            - - $$
+              - $$
+          inline:
+            - - \(
+              - \)
+            - - $
+              - $
+        enable: true
     renderer:
       unsafe: true
   highlight:
@@ -181,4 +197,3 @@ services:
     disableInlineCSS: true
   twitter:
     disableInlineCSS: true
-

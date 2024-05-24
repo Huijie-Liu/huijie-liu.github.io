@@ -11,7 +11,7 @@ series = ["Learning Path"]
 
 - 基本思想
   - 3D高斯分布可以通过它们的各向异性协方差矩阵、位置和透明度等参数来有效地表示复杂场景。由于这些参数是通过机器学习方法进行训练的，渲染阶段无需进行大量处理。因此，它可以利用基于瓦片的光栅化器实现快速渲染，从而在性能上有显著的提升。
-  - ![img](<./assets/(null)>)
+  - ![img](<./assets/(null)#center>)
 - 创新点
   - **Point-Based Rendering**：点基渲染直接将三维空间中的点渲染为图像。
   - **Tiled Rasterization**：分块光栅化的基本思想是将屏幕划分为多个小块（Tiles），然后在每个小块内进行相关计算和处理（可微分）。这种方法能够显著减少内存流量，从而提高渲染效率。
@@ -100,7 +100,7 @@ series = ["Learning Path"]
     - $$\begin{aligned}&C(p)=\\&=\sum_{i=1}^Nc_i(1-\exp(-\sigma_i\delta_i))T_i=\\&=\sum_{i=1}^Nc_i(1-\exp(-\sigma_i\delta_i))\exp(-\sum_{j=1}^{i-1}\sigma_j\delta_j)=&(1)\\&=\sum_{i=1}^Nc_i\underbrace{(1-\exp(-\sigma_i\delta_i))}_{\alpha_i}\prod_{j=1}^{i-1}\underbrace{\exp(-\sigma_j\delta_j)}_{1-\alpha_j}=\\&=\sum_{i=1}^Nc_i\alpha_i\underbrace{\prod_{j=1}^{i-1}(1-\alpha_j)}_{transmittance}&(2)\end{aligned}$$
   - 3DGS
 
-    - $$C(p)=\sum_{i\in N}c_if_i^{2D}(p)\underbrace{\prod_{j=1}^{i-1}(1-f_j^{2D}(p))}_{transmittance}\quad(3$$
+    - $$C(p)=\sum_{i\in N}c_if_i^{2D}(p)\underbrace{\prod_{j=1}^{i-1}(1-f_j^{2D}(p))}_{transmittance}\quad(3)$$
 
     - ![img](<./assets/(null)-20240523202652029.(null)#center>)
 
@@ -130,20 +130,20 @@ series = ["Learning Path"]
 
 一个三维高斯分布由以下参数化：
 
-- **均值** $$\mu \in \mathbb{R}^3$$：三维空间中的位置。
-- **协方差** $$\Sigma \in \mathbb{R}^{3 \times 3}$$：描述高斯分布的形状和方向。
-- **颜色** $$c \in \mathbb{R}^3$$：颜色向量，通常表示为 RGB 值。
-- **不透明度** $$o \in \mathbb{R}$$：描述高斯分布的透明度。
+- **均值** $\mu \in \mathbb{R}^3$：三维空间中的位置。
+- **协方差** $\Sigma \in \mathbb{R}^{3 \times 3}$：描述高斯分布的形状和方向。
+- **颜色** $c \in \mathbb{R}^3$：颜色向量，通常表示为 RGB 值。
+- **不透明度** $o \in \mathbb{R}$：描述高斯分布的透明度。
 
 #### **高斯分布的投影（3D->2D）**
 
 1. 世界坐标系转->相机坐标系
 
-   1. 渲染相机由其外参 $$T_{cw} $$描述，它将点从世界坐标系转换到相机坐标系，以及其内参（焦距 $$f_x, f_y $$和相机平面主点 $$(c_x, c_y)$$）。我们使用投影矩阵 P 将相机空间的转换到标准化剪辑空间。
+   1. 渲染相机由其外参 $T_{cw} $描述，它将点从世界坐标系转换到相机坐标系，以及其内参（焦距 $f_x, f_y $和相机平面主点 $(c_x, c_y)$）。我们使用投影矩阵 P 将相机空间的转换到标准化剪辑空间。
 
    2. $$T_{cw} = \begin{bmatrix} R_{cw} & t_{cw} \\ 0 & 1 \end{bmatrix} \in SE(3), \quad P = \begin{bmatrix} \frac{2f_x}{w} & 0 & 0 & 0 \\ 0 & \frac{2f_y}{h} & 0 & 0 \\ 0 & 0 & \frac{f+n}{f-n} & \frac{-2fn}{f-n} \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
 
-   3. 其中 w, h 是输出图像的宽度和高度，n, f 是近剪裁平面和远剪裁平面。我们通过标准透视投影将三维均值 \mu 投影到像素空间。我们将均值 \mu 转换为相机坐标系中的 $$t \in \mathbb{R}^4$$，在标准化设备坐标中的 $$t' \in \mathbb{R}^4$$，以及在像素坐标中的 $$\mu' \in \mathbb{R}^2$$。
+   3. 其中 w, h 是输出图像的宽度和高度，n, f 是近剪裁平面和远剪裁平面。我们通过标准透视投影将三维均值 \mu 投影到像素空间。我们将均值 \mu 转换为相机坐标系中的 $t \in \mathbb{R}^4$，在标准化设备坐标中的 $t' \in \mathbb{R}^4$，以及在像素坐标中的 $\mu' \in \mathbb{R}^2$。
 
    4. $$t = T_{cw} \begin{bmatrix} \mu \\ 1 \end{bmatrix}^T, \quad t' = Pt, \quad \mu' = \left[ \begin{array}{c} (w \cdot \frac{t'_x}{t'_w} + 1)/2 + c_x \\ (h \cdot \frac{t'_y}{t'_w} + 1)/2 + c_y \end{array} \right]$$
 
@@ -151,23 +151,23 @@ series = ["Learning Path"]
 
 2. 三维高斯->二维高斯
 
-   1. 透视投影一个三维高斯分布并不会产生二维高斯分布。我们使用一阶泰勒展开近似在相机坐标系中的 t 处的投影。具体来说，我们计算仿射变换矩阵 $$J \in \mathbb{R}^{2 \times 3} $$如下：
+   1. 透视投影一个三维高斯分布并不会产生二维高斯分布。我们使用一阶泰勒展开近似在相机坐标系中的 t 处的投影。具体来说，我们计算仿射变换矩阵 $J \in \mathbb{R}^{2 \times 3} $如下：
 
    2. $$J = \begin{bmatrix} \frac{f_x}{t_z} & 0 & -\frac{f_x \cdot t_x}{t_z^2} \\ 0 & \frac{f_y}{t_z} & -\frac{f_y \cdot t_y}{t_z^2} \end{bmatrix}$$
 
-   3. 二维协方差矩阵 $$\Sigma' \in \mathbb{R}^{2 \times 2}$$ 由下式给出：
+   3. 二维协方差矩阵 $\Sigma' \in \mathbb{R}^{2 \times 2}$ 由下式给出：
 
-   4. $$\Sigma' = JR_{cw} \Sigma R_{cw}^T J^T$$
+   4. $\Sigma' = JR_{cw} \Sigma R_{cw}^T J^T$
 
-   5. 最后，我们用尺度 $$s \in \mathbb{R}^3$$ 和旋转四元数 $$q \in \mathbb{R}^4$$ 来参数化三维协方差$$ \Sigma$$ 。我们首先将四元数 $$q = (x, y, z, w) $$转换为旋转矩阵：
+   5. 最后，我们用尺度 $s \in \mathbb{R}^3$ 和旋转四元数 $q \in \mathbb{R}^4$ 来参数化三维协方差$ \Sigma$ 。我们首先将四元数 $q = (x, y, z, w) $转换为旋转矩阵：
 
    6. $$R = \begin{bmatrix} 1 - 2(y^2 + z^2) & 2(xy - wz) & 2(xz + wy) \\ 2(xy + wz) & 1 - 2(x^2 + z^2) & 2(yz - wx) \\ 2(xz - wy) & 2(yz + wx) & 1 - 2(x^2 + y^2) \end{bmatrix}$$
 
-   7. 三维协方差$$ \Sigma $$由下式给出：
+   7. 三维协方差$ \Sigma $由下式给出：
 
    8. $$\Sigma = RS S^T R^T$$
 
-   9. 其中 $$S = \text{diag}(s) \in \mathbb{R}^{3 \times 3}$$。
+   9. 其中 $S = \text{diag}(s) \in \mathbb{R}^{3 \times 3}$。
 
 #### 高斯分布的深度合成（alpha-blending 计算像素点颜色）
 
@@ -175,39 +175,39 @@ series = ["Learning Path"]
 
 - 步骤
 
-  - 栅格化每个瓦片中排序后的高斯分布。对于像素 $$i$$ 的颜色，让 $$n$$ 索引涉及该像素的 $$N$$ 个高斯分布：
+  - 栅格化每个瓦片中排序后的高斯分布。对于像素 $i$ 的颜色，让 $n$ 索引涉及该像素的 $N$ 个高斯分布：
 
   - $$C_i = \sum_{n \leq N} c_n \cdot \alpha_n \cdot T_n， 其中 T_n = \prod_{m < n} (1 - \alpha_m)。$$
 
-  - 我们用二维协方差 $$\Sigma' \in \mathbb{R}^{2 \times 2}$$ 和不透明度参数计算 $$\alpha$$：
+  - 我们用二维协方差 $\Sigma' \in \mathbb{R}^{2 \times 2}$ 和不透明度参数计算 $\alpha$：
 
   - $$\alpha_n = o_n \cdot \exp(-\sigma_n)， \quad \sigma_n = \frac{1}{2} \Delta_n^T \Sigma'^{-1} \Delta_n，$$
 
-  - 其中 $$\Delta \in \mathbb{R}^2$$ 是像素中心与二维高斯分布中心 $$\mu' \in \mathbb{R}^2$$ 之间的偏移量。我们在从前到后的过程中计算 $$T_n$$。
+  - 其中 $\Delta \in \mathbb{R}^2$ 是像素中心与二维高斯分布中心 $\mu' \in \mathbb{R}^2$ 之间的偏移量。我们在从前到后的过程中计算 $T_n$。
 
 - 公式解释
 
   - **颜色计算公式**：
 
-    1.  $$C_i = \sum_{n \leq N} c_n \cdot \alpha_n \cdot T_n$$，其中 $$T_n = \prod_{m < n} (1 - \alpha_m)$$。
+    1.  $C_i = \sum_{n \leq N} c_n \cdot \alpha_n \cdot T_n$，其中 $T_n = \prod_{m < n} (1 - \alpha_m)$。
 
-    2.  $$c_n$$：第 $$n$$ 个高斯分布的颜色。
-    3.  $$\alpha_n$$：第 $$n$$ 个高斯分布的累积不透明度。
-    4.  $$T_n$$：前 $$n-1$$ 个高斯分布的不透明度积的乘积，表示第 $$n$$ 个高斯分布的可见度。
+    2.  $c_n$：第 $n$ 个高斯分布的颜色。
+    3.  $\alpha_n$：第 $n$ 个高斯分布的累积不透明度。
+    4.  $T_n$：前 $n-1$ 个高斯分布的不透明度积的乘积，表示第 $n$ 个高斯分布的可见度。
 
   - **不透明度计算**：
 
-    1.  $$\alpha_n = o_n \cdot \exp(-\sigma_n)$$
+    1.  $\alpha_n = o_n \cdot \exp(-\sigma_n)$
 
-    2.  $$o_n$$：第 $$n$$ 个高斯分布的初始不透明度。
-    3.  $$\sigma_n$$：偏移量的平方距离乘以协方差矩阵的逆。
+    2.  $o_n$：第 $n$ 个高斯分布的初始不透明度。
+    3.  $\sigma_n$：偏移量的平方距离乘以协方差矩阵的逆。
 
   - **偏移量计算**：
 
     1.  $$\sigma_n = \frac{1}{2} \Delta_n^T \Sigma'^{-1} \Delta_n$$
 
-    2.  $$\Delta_n$$：像素中心与高斯分布中心之间的偏移量。
-    3.  $$\Sigma'^{-1}$$：二维协方差矩阵的逆。
+    2.  $\Delta_n$：像素中心与高斯分布中心之间的偏移量。
+    3.  $\Sigma'^{-1}$：二维协方差矩阵的逆。
 
 ### 优化：概述
 
@@ -247,7 +247,7 @@ series = ["Learning Path"]
 
 ### 优化：实现细节（反向传播计算梯度）
 
-给定标量损失 $$\mathcal{L}$$ 相对于输出图像每个像素的梯度，我们使用标准链式法则将梯度向后传播到原始输入参数。
+给定标量损失 $\mathcal{L}$ 相对于输出图像每个像素的梯度，我们使用标准链式法则将梯度向后传播到原始输入参数。
 
 - Frobenius 内积
 
@@ -259,7 +259,7 @@ series = ["Learning Path"]
 
   - $$\begin{aligned}    \langle X, Y \rangle &= \langle Y, X \rangle, \\    \langle X, Y \rangle &= \langle X^T, Y^T \rangle, \\    \langle X, YZ \rangle &= \langle Y^T X, Z \rangle = \langle X Z^T, Y \rangle, \\    \langle X, Y + Z \rangle &= \langle X, Y \rangle + \langle X, Z \rangle. \end{aligned}$$
 
-  - 假设我们有一个标量函数 $$f$$ 使 $$X\in \mathbb{R}^{m \times n}$$，且 $$X = A$$，其中 $$A \in \mathbb{R}^{m \times p}$$ 和 $$Y \in \mathbb{R}^{p \times n}$$。我们可以写出 $$f$$ 相对于任意标量 $$x \in \mathbb{R}$$ 的梯度：
+  - 假设我们有一个标量函数 $f$ 使 $X\in \mathbb{R}^{m \times n}$，且 $X = A$，其中 $A \in \mathbb{R}^{m \times p}$ 和 $Y \in \mathbb{R}^{p \times n}$。我们可以写出 $f$ 相对于任意标量 $x \in \mathbb{R}$ 的梯度：
 
   - $$\frac{\partial f}{\partial x} = \left\langle \frac{\partial f}{\partial X}, \frac{\partial X}{\partial x} \right\rangle,$$
 
@@ -267,41 +267,41 @@ series = ["Learning Path"]
 
   - $$\partial f = \left\langle \frac{\partial f}{\partial X}, \partial X \right\rangle.$$
 
-  - 这里，$$\frac{\partial f}{\partial x} \in \mathbb{R}$$，$$\frac{\partial f}{\partial X} \in \mathbb{R}^{m \times n}$$，和 $$\frac{\partial X}{\partial x} \in \mathbb{R}^{m \times n}$$。
+  - 这里，$\frac{\partial f}{\partial x} \in \mathbb{R}$，$\frac{\partial f}{\partial X} \in \mathbb{R}^{m \times n}$，和 $\frac{\partial X}{\partial x} \in \mathbb{R}^{m \times n}$。
 
-  - 在这种情况下，继续使用链式法则非常简单。设 $$G = \frac{\partial f}{\partial X$$，我们有：
+  - 在这种情况下，继续使用链式法则非常简单。设 $G = \frac{\partial f}{\partial X$，我们有：
 
   - $$\begin{aligned}    \frac{\partial f}{\partial x} &= \left\langle G, \frac{\partial (AY)}{\partial x} \right\rangle \\    &= \left\langle G, \frac{\partial A}{\partial x} Y \right\rangle + \left\langle G, A \frac{\partial Y}{\partial x} \right\rangle \\    &= \left\langle G Y^T, \frac{\partial A}{\partial x} \right\rangle + \left\langle A^T G, \frac{\partial Y}{\partial x} \right\rangle. \end{aligned}$$
 
-  - 从这里，我们可以得到 $$f$$ 相对于 $$A$$ 和 $$Y$$ 的梯度的元素：
+  - 从这里，我们可以得到 $f$ 相对于 $A$ 和 $Y$ 的梯度的元素：
 
   - $$\frac{\partial f}{\partial A} = G Y^T \in \mathbb{R}^{m \times p}, \quad \frac{\partial f}{\partial Y} = A^T G \in \mathbb{R}^{p \times n}.$$
 
 #### 高斯分布深度合成的梯度计算
 
-我们从将像素 $$i$$ 的损失梯度向后传播到贡献该像素的高斯分布开始。具体来说，对于像素 $$i$$ 贡献的高斯分布 $$i$$，我们计算颜色 $$\frac{\partial \mathcal{L}}{\partial c_n} \in \mathbb{R^3}$$、不透明度 $$\frac{\partial \mathcal{L}}{\partial o_n} \in \mathbb{R}$$、二维均值 $$\frac{\partial \mathcal{L}}{\partial \mu_n'} \in \mathbb{R}^2$$ 和二维协方差 $$\frac{\partial \mathcal{L}}{\partial \Sigma_n'} \in \mathbb{R}^{2 \times 2}$$ 的梯度。
+我们从将像素 $i$ 的损失梯度向后传播到贡献该像素的高斯分布开始。具体来说，对于像素 $i$ 贡献的高斯分布 $i$，我们计算颜色 $\frac{\partial \mathcal{L}}{\partial c_n} \in \mathbb{R^3}$、不透明度 $\frac{\partial \mathcal{L}}{\partial o_n} \in \mathbb{R}$、二维均值 $\frac{\partial \mathcal{L}}{\partial \mu_n'} \in \mathbb{R}^2$ 和二维协方差 $\frac{\partial \mathcal{L}}{\partial \Sigma_n'} \in \mathbb{R}^{2 \times 2}$ 的梯度。
 
-1. 对于每个通道 $$k$$的颜色，我们有：
+1. 对于每个通道 $k$的颜色，我们有：
 
    1. $$\frac{\partial C_i(k)}{\partial c_n(k)} = \alpha_n \cdot T_n$$
 
-   2. 我们保存正向传播过程中计算的最终 $$T_N$$ 值，并在反向传播过程中计算下一个 $$T_{n-1}$$ 值：
+   2. 我们保存正向传播过程中计算的最终 $T_N$ 值，并在反向传播过程中计算下一个 $T_{n-1}$ 值：
 
    3. $$T_{n-1} = \frac{T_n}{1 - \alpha_{n-1}}$$
 
-   4. 对于每个通道 $$k$$上 $$\alpha$$ 的梯度，我们有标量梯度：
+   4. 对于每个通道 $k$上 $\alpha$ 的梯度，我们有标量梯度：
 
    5. $$\frac{\partial C_i(k)}{\partial \alpha_n} = c_n(k) \cdot T_n - \frac{S_n(k)}{1 - \alpha_n}$$
 
    6. 其中，$$S_n = \sum_{m>n} c_m \alpha_m T_m$$
 
-   7. 我们可以在反向传播过程中计算 $$S_{n-1}$$：
+   7. 我们可以在反向传播过程中计算 $S_{n-1}$：
 
    8. $$S_N(k) = 0$$
 
    9. $$S_{n-1}(k) = c_n(k)\alpha_n T_n + S_n(k)$$
 
-2. 对于不透明度$$o$$和 $$\sigma$$：
+2. 对于不透明度$o$和 $\sigma$：
 
    1. 我们有标量梯度：
 
@@ -315,11 +315,11 @@ series = ["Learning Path"]
 
 4. 对于二维协方差：
 
-   1. 我们令 $$Y = \Sigma_n'^{-1}$$，其雅可比矩阵从 $$\sigma_n$$ 直接得出：
+   1. 我们令 $Y = \Sigma_n'^{-1}$，其雅可比矩阵从 $\sigma_n$ 直接得出：
 
    2. $$\frac{\partial \sigma_n}{\partial Y} = \frac{1}{2} \Delta_n \Delta_n^T \in \mathbb{R}^{2 \times 2}$$
 
-   3. 为了继续通过 $$Y \in \mathbb{R}^{2 \times 2}$$ 进行反向传播，我们令 $$G = \frac{\partial \sigma_n}{\partial Y}$$ 并写出相对于标量变量 $$x$$ 的梯度：
+   3. 为了继续通过 $Y \in \mathbb{R}^{2 \times 2}$ 进行反向传播，我们令 $G = \frac{\partial \sigma_n}{\partial Y}$ 并写出相对于标量变量 $x$ 的梯度：
 
    4. $$\frac{\partial \sigma_n}{\partial x} = \langle G, \frac{\partial Y}{\partial x} \rangle$$
 
@@ -327,51 +327,51 @@ series = ["Learning Path"]
 
    6. $$\begin{aligned}\frac{\partial \sigma_n}{\partial x} = \langle G, -Y \frac{\partial \Sigma_n'^{-1}}{\partial x} Y \rangle \\ = \langle -Y^T G Y^T, \frac{\partial \Sigma_n'}{\partial x} \rangle \end{aligned}$$
 
-   7. 因此，相对于 $$\Sigma_n$$ 的梯度为：
+   7. 因此，相对于 $\Sigma_n$ 的梯度为：
 
    8. $$\frac{\partial \sigma_n}{\partial \Sigma_n'} = -\frac{1}{2} \Sigma_n'^{-1} \Delta_n \Delta_n^T \Sigma_n'^{-1}$$
 
 #### 高斯分布投影的梯度计算（2D->3D）
 
-给定损失函数 $$\mathcal{L}$$ 相对于投影后的二维均值 $$\mu$$ 和协方差 $$\Sigma$$ 的梯度，我们可以继续反向传播单个高斯分布的三维均值 $$\m$$ 和协方差 $$\Sigm$$ 的梯度。在此，我们一次只处理一个高斯分布，因此省略下标 𝑛，并通过$$\begin{array}{l}\frac{\partial\mathcal{L}}{\partial\mu'}\in\mathbb{R}^2，\frac{\partial\mathcal{L}}{\partial\Sigma'}\in\mathbb{R}^{2\times2}\end{array}$$计算梯度$$\begin{array}{l}\frac{\partial\mathcal{L}}{\partial\mu}\in\mathbb{R}^3，\frac{\partial\mathcal{L}}{\partial\Sigma}\in\mathbb{R}^{3\times3}\end{array}$$
+给定损失函数 $\mathcal{L}$ 相对于投影后的二维均值 $\mu$ 和协方差 $\Sigma$ 的梯度，我们可以继续反向传播单个高斯分布的三维均值 $\m$ 和协方差 $\Sigm$ 的梯度。在此，我们一次只处理一个高斯分布，因此省略下标 𝑛，并通过$\begin{array}{l}\frac{\partial\mathcal{L}}{\partial\mu'}\in\mathbb{R}^2，\frac{\partial\mathcal{L}}{\partial\Sigma'}\in\mathbb{R}^{2\times2}\end{array}$计算梯度$\begin{array}{l}\frac{\partial\mathcal{L}}{\partial\mu}\in\mathbb{R}^3，\frac{\partial\mathcal{L}}{\partial\Sigma}\in\mathbb{R}^{3\times3}\end{array}$
 
-1. 计算二维均值 $$\mu$$ 对相机坐标 $$t \in \mathbb{R}^4$$ 和二维协方差 $$\Sigma'$$ 对三维协方差 $$\Sigma$$ 及相机坐标 $$t$$的梯度贡献。
+1. 计算二维均值 $\mu$ 对相机坐标 $t \in \mathbb{R}^4$ 和二维协方差 $\Sigma'$ 对三维协方差 $\Sigma$ 及相机坐标 $t$的梯度贡献。
 
-   1. > 注意，$$\mu$$ 和 $$\Sigma$$ 都对 $$t$$ 的梯度有贡献
+   1. > 注意，$\mu$ 和 $\Sigma$ 都对 $t$ 的梯度有贡献
 
    2. $$\frac{\partial\mathcal{L}}{\partial t_i}=\frac{\partial\mathcal{L}_{\mu^{\prime}}}{\partial t_i}+\frac{\partial\mathcal{L}_{\Sigma^{\prime}}}{\partial t_i}=\frac{\partial\mathcal{L}}{\partial\mu^{\prime}}\frac{\partial\mu^{\prime}}{\partial t_i}+\langle\frac{\partial\mathcal{L}}{\partial\Sigma^{\prime}},\frac{\partial\Sigma^{\prime}}{\partial t_i}\rangle$$
 
-   3. 对于二维均值 $$\mu$$，我们有：
+   3. 对于二维均值 $\mu$，我们有：
 
       - $$\frac{\partial\mathcal{L}_{\mu^{\prime}}}{\partial t}=\frac12P^\top\begin{bmatrix}w/t_w&0&0&-w\cdot t_x/t_w^2\\0&h/t_w&0&-w\cdot t_y/t_w^2\end{bmatrix}^\top\frac{\partial\mathcal{L}}{\partial\mu^{\prime}}$$
 
-   4. 对于二维协方差 $$\Sigma'$$ 对 $$\Sigma$$ 和 $$t$$ 的梯度贡献，$$\Sigma'=T\Sigma T^\top$$。设 $$G = \frac{\partial \mathcal{L}}{\partial \Sigma'}$$，我们有：
+   4. 对于二维协方差 $\Sigma'$ 对 $\Sigma$ 和 $t$ 的梯度贡献，$\Sigma'=T\Sigma T^\top$。设 $G = \frac{\partial \mathcal{L}}{\partial \Sigma'}$，我们有：
 
-      - $$\begin{aligned}\partial\mathcal{L}_{\Sigma^{\prime}}&=\langle G,\partial\Sigma^{\prime}\rangle\\&=\langle G,(\partial T)\Sigma T^\top+T(\partial\Sigma)T^\top+T\Sigma(\partial T^\top)\rangle\\&=\langle GT\Sigma^\top,\partial T\rangle+\langle T^\top GT,\partial\Sigma\rangle+\langle G^\top T\Sigma,\partial T\rangle\\&=\langle GT\Sigma^\top+G^\top T\Sigma,\partial T\rangle+\langle T^\top GT,\partial\Sigma\rangle.\end{aligned}$$
+      - $\begin{aligned}\partial\mathcal{L}_{\Sigma^{\prime}}&=\langle G,\partial\Sigma^{\prime}\rangle\\&=\langle G,(\partial T)\Sigma T^\top+T(\partial\Sigma)T^\top+T\Sigma(\partial T^\top)\rangle\\&=\langle GT\Sigma^\top,\partial T\rangle+\langle T^\top GT,\partial\Sigma\rangle+\langle G^\top T\Sigma,\partial T\rangle\\&=\langle GT\Sigma^\top+G^\top T\Sigma,\partial T\rangle+\langle T^\top GT,\partial\Sigma\rangle.\end{aligned}$
 
 2. 计算相对于协方差矩阵 Σ 的梯度，
 
    1. $$\frac{\partial \mathcal{L}}{\partial \Sigma} = T^T \frac{\partial \mathcal{L}}{\partial \Sigma'} T$$
 
-   2. 我们继续通过 $$T = J R_{cw} \in \mathbb{R}^{2 \times 3}$$ 传播梯度，对于 $$J$$ 的梯度，令：
+   2. 我们继续通过 $T = J R_{cw} \in \mathbb{R}^{2 \times 3}$ 传播梯度，对于 $J$ 的梯度，令：
 
    3. $$\partial\mathcal{L}=\langle\frac{\partial\mathcal{L}}{\partial T},(\partial J)R_{\mathrm{cw}}\rangle=\langle\frac{\partial\mathcal{L}}{\partial T}R_{\mathrm{cw}}^\top,\partial J\rangle,\quad\mathrm{where~}\frac{\partial\mathcal{L}}{\partial T}=\frac{\partial\mathcal{L}}{\partial\Sigma^{\prime}}T\Sigma^\top+\frac{\partial\mathcal{L}}{\partial\Sigma^{\prime}}^\top T\Sigma$$
 
-   4. 我们继续通过 $$J$$ 对相机坐标 $$t \in \mathbb{R}^4$$ 的贡献进行反向传播：
+   4. 我们继续通过 $J$ 对相机坐标 $t \in \mathbb{R}^4$ 的贡献进行反向传播：
 
-   5. $$\frac{\partial J}{\partial t_x}=\begin{bmatrix}0&0&-f_x/t_z^2\\0&0&0\end{bmatrix},\quad\frac{\partial J}{\partial t_y}=\begin{bmatrix}0&0&0\\0&0&-f_y/t_z^2\end{bmatrix},\quad\frac{\partial J}{\partial t_z}=\begin{bmatrix}-f_x/t_z^2&0&2f_xt_x/t_z^3\\0&-f_y/t_z^2&2f_yt_y/t_z^3\end{bmatrix},\quad\frac{\partial J}{\partial t_w}=\mathbf{0}^{2\times3}$$
+   5. $\frac{\partial J}{\partial t_x}=\begin{bmatrix}0&0&-f_x/t_z^2\\0&0&0\end{bmatrix},\quad\frac{\partial J}{\partial t_y}=\begin{bmatrix}0&0&0\\0&0&-f_y/t_z^2\end{bmatrix},\quad\frac{\partial J}{\partial t_z}=\begin{bmatrix}-f_x/t_z^2&0&2f_xt_x/t_z^3\\0&-f_y/t_z^2&2f_yt_y/t_z^3\end{bmatrix},\quad\frac{\partial J}{\partial t_w}=\mathbf{0}^{2\times3}$
 
-   6. 我们现在可以将两个梯度 $$\frac{\partial \mathcal{L_{\mu'}}}{\partial t}$$ 和 $$\frac{\partial \mathcal{L_{\Sigma'}}}{\partial t}$$ 合并为 $$G = \frac{\partial \mathcal{L}}{\partial t}$$ 并计算相对于三维均值 $$\mu$$和视图矩阵 $$T_{cw}$$ 的全梯度。且有$$t=T_\text{cw}q,\text{ where }q=\begin{bmatrix}\mu&1\end{bmatrix}^\top$$
+   6. 我们现在可以将两个梯度 $\frac{\partial \mathcal{L_{\mu'}}}{\partial t}$ 和 $\frac{\partial \mathcal{L_{\Sigma'}}}{\partial t}$ 合并为 $G = \frac{\partial \mathcal{L}}{\partial t}$ 并计算相对于三维均值 $\mu$和视图矩阵 $T_{cw}$ 的全梯度。且有$t=T_\text{cw}q,\text{ where }q=\begin{bmatrix}\mu&1\end{bmatrix}^\top$
 
    7. $$\begin{aligned}\partial\mathcal{L}&=\langle G,\partial t\rangle=\langle G,\partial(T_\text{cw}q)\rangle\\&=\langle Gq^\top,\partial T_{\mathrm{cw}}\rangle+\langle T_{\mathrm{cw}}^\top G,\partial q\rangle\end{aligned}$$
 
-   8. 相对于 $$\mu$$ 和 $$T_{cw}$$ 的梯度：
+   8. 相对于 $\mu$ 和 $T_{cw}$ 的梯度：
 
    9. $$\frac{\partial\mathcal{L}}{\partial T_{\mathrm{cw}}}=\frac{\partial\mathcal{L}}{\partial t}q^\top\in\mathbb{R}^{4\times4},\quad\frac{\partial\mathcal{L}}{\partial\mu}=R_{\mathrm{cw}}^\top\begin{bmatrix}\frac{\partial\mathcal{L}}{\partial t_x}&\frac{\partial\mathcal{L}}{\partial t_y}&\frac{\partial\mathcal{L}}{\partial t_z}\end{bmatrix}^\top\in\mathbb{R}^3$$
 
 3. 尺度和旋转梯度
 
-   1. 现在我们有 $$\Sigma = M M^3$$ 和 $$\frac{\partial \mathcal{L}}{\partial \Sigma} $$。设 $$G = \frac{\partial \mathcal{L}}{\partial \Sigma}$$，我们有：
+   1. 现在我们有 $\Sigma = M M^3$ 和 $\frac{\partial \mathcal{L}}{\partial \Sigma} $。设 $G = \frac{\partial \mathcal{L}}{\partial \Sigma}$，我们有：
 
    2. $$\begin{aligned}\partial\mathcal{L}&=\langle G,\partial\Sigma\rangle\\&=\langle G,(\partial M)M^\top+M(\partial M^\top)\rangle\\&=\langle GM+G^\top M,\partial M\rangle\end{aligned}$$
 
@@ -379,7 +379,7 @@ series = ["Learning Path"]
 
    4. $$\frac{\partial \mathcal{L}}{\partial M} = \frac{\partial \mathcal{L}}{\partial \Sigma} M + \frac{\partial \mathcal{L}}{\partial \Sigma}^T M $$
 
-   5. 现在我们有 $$M = R $$，并且 $$G = \frac{\partial \mathcal{L}}{\partial M}$$，所以：
+   5. 现在我们有 $M = R $，并且 $G = \frac{\partial \mathcal{L}}{\partial M}$，所以：
 
    6. $$\begin{aligned}\partial\mathcal{L}&=\langle G,\partial M\rangle\\&=\langle G,(\partial R)S\rangle+\langle G,R(\partial S)\rangle\\&=\langle GS^\top,\partial R\rangle+\langle R^\top G,\partial S\rangle\end{aligned}$$
 
@@ -387,19 +387,17 @@ series = ["Learning Path"]
 
    8. $$\frac{\partial \mathcal{L}}{\partial R} = \frac{\partial \mathcal{L}}{\partial M} S^T, \quad \frac{\partial \mathcal{L}}{\partial S} = R^T \frac{\partial \mathcal{L}}{\partial M} $$
 
-   9. 旋转矩阵 $$R$$ 关于四元数参数 $$q = (w, x, y, z)$$ 的雅可比矩阵是：
+   9. 旋转矩阵 $R$ 关于四元数参数 $q = (w, x, y, z)$ 的雅可比矩阵是：
 
    10. $$\frac{\partial R}{\partial w} = 2 \begin{bmatrix} 0 & -z & y \\ z & 0 & -x \\ -y & x & 0 \end{bmatrix}, \quad \frac{\partial R}{\partial x} = 2 \begin{bmatrix} 0 & y & z \\ y & -2x & -w \\ z & w & -2x \end{bmatrix}$$
 
    11. $$\frac{\partial R}{\partial y} = 2 \begin{bmatrix} -2y & x & w \\ x & 0 & z \\ w & z & -2y \end{bmatrix}, \quad \frac{\partial R}{\partial z} = 2 \begin{bmatrix} -2z & -w & x \\ w & -2z & y \\ x & y & 0 \end{bmatrix}$$
 
-   12. 尺度矩阵 $$S$$ 关于尺度参数 $$s = (s_x, s_y, s_z)$$ 的雅可比矩阵是：
+   12. 尺度矩阵 $S$ 关于尺度参数 $s = (s_x, s_y, s_z)$ 的雅可比矩阵是：
 
    13. $$\frac{\partial S}{\partial s_j} = \delta_{ij}$$
 
-   14.
-
-   15. 其中选择相应的对角元素 $$\frac{\partial \mathcal{L}}{\partial S}$$。
+   14. 其中选择相应的对角元素 $\frac{\partial \mathcal{L}}{\partial S}$。
 
 ### EX：球谐函数
 
@@ -409,9 +407,9 @@ series = ["Learning Path"]
 
 - **球谐函数（Spherical Harmonics, SH）**
 
-  - 球谐函数被用来表示视角依赖的颜色，这样可以更好地处理非朗伯反射（如金属表面的镜面反射）。具体来说，通过限制自由度 $$\ell_{\text{max}}$$，每个颜色（红、绿、蓝）可以表示为前$$ \ell\_{\text{max}}$$ 个球谐函数的线性组合。
+  - 球谐函数被用来表示视角依赖的颜色，这样可以更好地处理非朗伯反射（如金属表面的镜面反射）。具体来说，通过限制自由度 $\ell_{\text{max}}$，每个颜色（红、绿、蓝）可以表示为前$ \ell\_{\text{max}}$ 个球谐函数的线性组合。
 
-  - 球谐函数是一组定义在球面上的特殊函数，通过选择正整数 $$\ell$$ 和 $$-\ell \leq m \leq \ell$$ 的一对 $$(\ell, m)$$，可以从一个通用公式中导出这些函数。
+  - 球谐函数是一组定义在球面上的特殊函数，通过选择正整数 $\ell$ 和 $-\ell \leq m \leq \ell$ 的一对 $(\ell, m)$，可以从一个通用公式中导出这些函数。
 
 - **公式解释**
 
@@ -421,35 +419,35 @@ series = ["Learning Path"]
 
   - 其中：
 
-  - $$\ell $$和 m 是整数，$$\ell \geq 0，-\ell \leq m \leq \ell$$。
-  - $$\theta$$ 是极角（通常在0到$$\pi$$之间），$$\phi$$ 是方位角（通常在0到$$2\pi$$之间）。
-  - $$P_\ell^m$$ 是缔合勒让德多项式（Associated Legendre Polynomials）。
+  - $\ell $和 m 是整数，$\ell \geq 0，-\ell \leq m \leq \ell$。
+  - $\theta$ 是极角（通常在0到$\pi$之间），$\phi$ 是方位角（通常在0到$2\pi$之间）。
+  - $P_\ell^m$ 是缔合勒让德多项式（Associated Legendre Polynomials）。
   - **球谐函数的性质**
     - **正交性**： 球谐函数是正交的，这意味着在球面上的任意两个不同的球谐函数在积分意义下相互独立。
     - **归一化**： 球谐函数是归一化的，因此可以形成球面上函数空间的正交基。
-    - **简化**： 对于小的$$\ell $$值，球谐函数公式会显著简化。例如，当 $$\ell $$ = 0 时，球谐函数是一个常数，当 $$\ell $$ = 1 时，球谐函数也是相对简单的形式。
+    - **简化**： 对于小的$\ell $值，球谐函数公式会显著简化。例如，当 $\ell $ = 0 时，球谐函数是一个常数，当 $\ell $ = 1 时，球谐函数也是相对简单的形式。
 
 - **颜色表示**
 
   - 对于每个三维高斯点，我们希望学习正确的系数，使得从某个方向看该三维点时，它传达的颜色最接近真实颜色。这是通过以下步骤实现的：
 
   - **选择最大自由度**：
-    1.  选择一个适当的$$ \ell\_{\text{max}}$$ 值，以限制球谐函数的数量。
+    1.  选择一个适当的$ \ell\_{\text{max}}$ 值，以限制球谐函数的数量。
   - **线性组合**：
-    1.  每种颜色（红、绿、蓝）都表示为前$$ \ell\_{\text{max}} $$个球谐函数的线性组合。对于每个三维高斯点，学习这些线性组合的系数。
+    1.  每种颜色（红、绿、蓝）都表示为前$ \ell\_{\text{max}} $个球谐函数的线性组合。对于每个三维高斯点，学习这些线性组合的系数。
   - **视角依赖的颜色计算**：
     1.  给定一个观察方向，使用球谐函数和学习到的系数计算该方向上的颜色。
 
 - **示例**
 
-  - 假设我们选择 $$\ell_{\text{max}}=2$$，则有 5 个球谐函数（$$\ell $$= 0, 1, 2 对应的各个 m 值）。我们需要为每个颜色学习 5 个系数。假设对于某个高斯点，这些系数为 $$c_{r,i}, c_{g,i}, c_{b,i}$$（红、绿、蓝）。
+  - 假设我们选择 $\ell_{\text{max}}=2$，则有 5 个球谐函数（$\ell $= 0, 1, 2 对应的各个 m 值）。我们需要为每个颜色学习 5 个系数。假设对于某个高斯点，这些系数为 $c_{r,i}, c_{g,i}, c_{b,i}$（红、绿、蓝）。
 
-  - 对于一个特定的观察方向 $$(\theta, \phi)$$，我们可以计算该方向上的颜色：
+  - 对于一个特定的观察方向 $(\theta, \phi)$，我们可以计算该方向上的颜色：
 
   - $$\text{Color}(\theta, \phi) = \left( \sum_{i=1}^5 c_{r,i} Y_i(\theta, \phi), \sum_{i=1}^5 c_{g,i} Y_i(\theta, \phi), \sum_{i=1}^5 c_{b,i} Y_i(\theta, \phi) \right)$$
 
 - **总结**
-  - 球谐函数提供了一种有效的方法来表示视角依赖的颜色，使得模型能够处理非朗伯反射效果。在具体实现中，通过选择适当的 $$\ell_{\text{max}}$$，并学习每个颜色的球谐函数系数，可以实现高质量的渲染效果。球谐函数的正交性和归一化性质保证了这种表示的数学稳健性和计算效率。
+  - 球谐函数提供了一种有效的方法来表示视角依赖的颜色，使得模型能够处理非朗伯反射效果。在具体实现中，通过选择适当的 $\ell_{\text{max}}$，并学习每个颜色的球谐函数系数，可以实现高质量的渲染效果。球谐函数的正交性和归一化性质保证了这种表示的数学稳健性和计算效率。
 
 ## 资源消耗
 
@@ -471,9 +469,9 @@ series = ["Learning Path"]
 
 > 1个顶点约0.25KB
 >
-> - 高斯核均值信息$$\mu$$：x, y, z 位置信息
-> - 协方差矩阵$$\Sigma$$：3x3矩阵，表示高斯核的缩放+旋转
-> - 透明度$$\alpha$$
+> - 高斯核均值信息$\mu$：x, y, z 位置信息
+> - 协方差矩阵$\Sigma$：3x3矩阵，表示高斯核的缩放+旋转
+> - 透明度$\alpha$
 > - SH球谐函数颜色信息：48个（只用到前4阶）
 
 ### 渲染（快）
@@ -558,11 +556,11 @@ series = ["Learning Path"]
 ### 动态和变形
 
 > - 拓展的参数列表
->   - **在时间** $$ t$$的 3D 位置：$$[x(t), y(t), z(t)]^\top \in \mathbb{R}^3 $$
->   - **在时间** $$ t$$的 3D 旋转，由四元数表示：$$[q_x(t), q_y(t), q_z(t), q_w(t)]^\top \in \mathbb{R}^4 $$
->   - **缩放因子**：$$[s_x, s_y, s_z]^\top \in \mathbb{R}^3 $$
->   - **表示颜色的球谐系数，具有自由度 k**：$$h \in \mathbb{R}^{3 \times (k + 1)^2} $$
->   - **不透明度**：$$o \in \mathbb{R} $$
+>   - **在时间** $ t$的 3D 位置：$[x(t), y(t), z(t)]^\top \in \mathbb{R}^3 $
+>   - **在时间** $ t$的 3D 旋转，由四元数表示：$[q_x(t), q_y(t), q_z(t), q_w(t)]^\top \in \mathbb{R}^4 $
+>   - **缩放因子**：$[s_x, s_y, s_z]^\top \in \mathbb{R}^3 $
+>   - **表示颜色的球谐系数，具有自由度 k**：$h \in \mathbb{R}^{3 \times (k + 1)^2} $
+>   - **不透明度**：$o \in \mathbb{R} $
 
 - 动态场景追踪
 
@@ -632,7 +630,7 @@ series = ["Learning Path"]
 
 1. 3DGS概述
    1. ⭐️ [3D Gaussian Splatting原理速通（一）～（四）](https://www.bilibili.com/video/BV11e411n79b/?vd_source=896adf0655b4e4dfce84eb5e469215df)（29 min watch）
-   2. [⭐️ Gaussian Splatting is pretty cool!](https://aras-p.info/blog/2023/09/05/Gaussian-Splatting-is-pretty-cool/)（10 min read）
+   2. ⭐️ [Gaussian Splatting is pretty cool!](https://aras-p.info/blog/2023/09/05/Gaussian-Splatting-is-pretty-cool/)（10 min read）
    3. ⭐️ [Understanding and Exploring 3D Gaussian Splatting: A Comprehensive Overview](https://logessiva.medium.com/understanding-and-exploring-3d-gaussian-splatting-a-comprehensive-overview-b4004f28ef1c)（9 min read）
    4. [3DGS 官方 Tutorial](https://3dgstutorial.github.io/) （2 hours watch）
    5. [NeRF坑浮沉记3D Gaussian Splatting入门](https://zhuanlan.zhihu.com/p/661569671)（5 min read）
@@ -643,4 +641,3 @@ series = ["Learning Path"]
    3. [NumByNum 3D Gaussian Splatting Reviewed](https://medium.com/@AriaLeeNotAriel/numbynum-3d-gaussian-splatting-for-real-time-radiance-field-rendering-kerbl-et-al-60c0b25e5544)（29 min read）
    4. [EWA Splatting](https://www.cs.umd.edu/~zwicker/publications/EWASplatting-TVCG02.pdf) （30+ min read）
 3. 研究现状
-
