@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>3DGS on Jay Tech</title>
-    <link>//localhost:1313/tags/3dgs/</link>
+    <link>/tags/3dgs/</link>
     <description>Recent content in 3DGS on Jay Tech</description>
     <image>
       <title>Jay Tech</title>
-      <url>//localhost:1313/assets/images/profile.png</url>
-      <link>//localhost:1313/assets/images/profile.png</link>
+      <url>/assets/images/profile.png</url>
+      <link>/assets/images/profile.png</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.123.8</generator>
     <language>en</language>
     <lastBuildDate>Thu, 23 May 2024 20:31:53 +0800</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/3dgs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/3dgs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>3DGS Tutorial</title>
-      <link>//localhost:1313/posts/3dgs/</link>
+      <link>/posts/3dgs/</link>
       <pubDate>Thu, 23 May 2024 20:31:53 +0800</pubDate>
-      <guid>//localhost:1313/posts/3dgs/</guid>
+      <guid>/posts/3dgs/</guid>
       <description>3DGS 基本思想 3D高斯分布可以通过它们的各向异性协方差矩阵、位置和透明度等参数来有效地表示复杂场景。由于这些参数是通过机器学习方法进行训练的，渲染阶段无需进行大量处理。因此，它可以利用基于瓦片的光栅化器实现快速渲染，从而在性能上有显著的提升。 创新点 Point-Based Rendering：点基渲染直接将三维空间中的点渲染为图像。 Tiled Rasterization：分块光栅化的基本思想是将屏幕划分为多个小块（Tiles），然后在每个小块内进行相关计算和处理（可微分）。这种方法能够显著减少内存流量，从而提高渲染效率。 Spherical Harmonics：球谐函数是一种在球面上表示函数的方法，特别适用于描述球形表面的光照和阴影效果。 基本流程 收集数据
 图像
 视频-&amp;gt;ffmpeg截取视频帧
