@@ -484,44 +484,6 @@ series = ["Learning Path"]
 
 > 由于mac不支持3DGS源代码提供的SIMR viewer，因此目前采用的是基于WebGL的方式（[SuperSplat](https://playcanvas.com/supersplat/editor)，[Three.js](https://projects.markkellogg.org/threejs/demo_gaussian_splats_3d.php)），如果在windows平台上通过官方渲染程序运行应该会更快。
 
-## 代码分析
-
-## 局限性
-
-尽管高斯分布渲染（Gaussian Splatting）在整体上取得了出色的结果和令人印象深刻的渲染速度，但这种表示方法的简单性也带来了一些代价。以下是主要的局限性和需要考虑的问题：
-
-### 密集化启发式
-
-在优化过程中，引入了各种密集化启发式，以防止模型出现“破损”的高斯点（如过大、过长或冗余的点）。这些密集化措施对于保持模型的稳定性和一致性至关重要。如果没有这些措施，模型可能会在优化过程中产生问题。
-
-- **过大或过长的高斯点**：如果高斯点的尺寸过大或过长，可能会导致渲染结果失真。
-- **冗余的高斯点**：过多的冗余点会增加计算复杂度，而不会显著提高渲染质量。
-
-这些问题在处理超出新视角渲染任务范围的其他任务时可能会进一步放大。
-
-### 离散表示的选择
-
-选择离散表示而非连续表示意味着丧失了多层感知机（MLP）的归纳偏置。在 NeRFs 中，MLP 执行隐式插值，平滑处理视角之间的可能不一致性，而三维高斯点对这些不一致性更加敏感，导致上述问题的出现。
-
-- **MLP** **的插值和平滑**：在 NeRF 中，MLP 可以通过插值和平滑减少视角之间的差异。
-- **三维高斯点的敏感性**：三维高斯点在处理这些不一致性时更容易出现问题，导致渲染结果不如 NeRF 平滑。
-
-### 继承的伪影问题
-
-高斯分布渲染继承了一些 NeRF 中存在的已知伪影，这些伪影源于共享的图像形成模型。例如：
-
-- **在较少或未见区域的较低质量**：在训练数据中较少或未出现的区域，渲染质量可能较低。
-- **靠近图像平面的浮动伪影**：在靠近图像平面的区域，可能会出现浮动伪影。
-
-这些问题在高斯分布渲染和 NeRF 中都是存在的，源于它们使用的相似图像形成模型。
-
-### 检查点文件大小
-
-检查点文件的大小是另一个需要考虑的属性。尽管新视角渲染尚未被部署到边缘设备，但从磁盘空间的角度来看，三维点的数量和流行的 NeRF MLP 架构占用了相同数量级的磁盘空间，平均而言，高斯分布渲染的文件大小比 NeRF 略大几倍。
-
-- **磁盘空间占用**：高斯分布渲染由于三维点的数量较多，文件大小略大于 NeRF。
-- **部署考虑**：虽然目前部署到边缘设备的需求不大，但未来可能需要考虑文件大小对部署的影响。
-
 # 数据集
 
 | 数据集名称      | 描述                                                                                                                                  | 来源                                                        |
@@ -622,9 +584,77 @@ series = ["Learning Path"]
 
 ### SLAM
 
-### Mesh 提取
+- GS-SLAM
+- [SplaTAM: Splat, Track & Map 3D Gaussians for Dense RGB-D SLAM](https://www.semanticscholar.org/paper/SplaTAM%3A-Splat%2C-Track-%26-Map-3D-Gaussians-for-Dense-Keetha-Karhade/a6c92dd8c537bc4a0c91cef8558e4a4f25416091)
+- [Gaussian Splatting SLAM](https://www.semanticscholar.org/paper/Gaussian-Splatting-SLAM-Matsuki-Murai/ec7e33597160535af56f046b8d6914ff49c66e1a)
+- [Gaussian-SLAM: Photo-realistic Dense SLAM with Gaussian Splatting](https://www.semanticscholar.org/paper/Gaussian-SLAM%3A-Photo-realistic-Dense-SLAM-with-Yugay-Li/cf9e9390752f659a32659b0441b805ed08a0c093)
+
+### Mesh 提取 + 物理
+
+通过在 3D 高斯中添加更多参数 核速度、应变和其他物理特性可以被建模。
+
+- [PhysGaussian: Physics-Integrated 3D Gaussians for Generative Dynamics](https://www.semanticscholar.org/paper/PhysGaussian%3A-Physics-Integrated-3D-Gaussians-for-Xie-Zong/a40e254265cbe20a746e72c3fa766e370398b740)
+- [MD-Splatting: Learning Metric Deformation from 4D Gaussians in Highly Deformable Scenes](https://www.semanticscholar.org/paper/MD-Splatting%3A-Learning-Metric-Deformation-from-4D-Duisterhof-Mandi/09929556fdf26d769ad8751c372d65b0ba3c6682)
 
 ### 可编辑性
+
+- [GaussianEditor: Swift and Controllable 3D Editing with Gaussian Splatting](https://www.semanticscholar.org/paper/GaussianEditor%3A-Swift-and-Controllable-3D-Editing-Chen-Chen/bbc6531afdfe41fe8664002a80d9d73a07a080d2)
+- [Point'n Move: Interactive Scene Object Manipulation on Gaussian Splatting Radiance Fields](https://www.semanticscholar.org/paper/Point'n-Move%3A-Interactive-Scene-Object-Manipulation-Huang-Yu/c12e2dcf2b07252b9729b4a19ec61d46002a3c94)
+- [Gaussian Grouping: Segment and Edit Anything in 3D Scenes](https://www.semanticscholar.org/paper/Gaussian-Grouping%3A-Segment-and-Edit-Anything-in-3D-Ye-Danelljan/5f7867681c6287cc4f4e7fb5260af8067b52b3d9)
+- [Segment Any 3D Gaussians](https://www.semanticscholar.org/paper/Segment-Any-3D-Gaussians-Cen-Fang/9c21993421d05bd908ac8498aae134aa2aeb43e3)
+- [Feature 3DGS: Supercharging 3D Gaussian Splatting to Enable Distilled Feature Fields](https://www.semanticscholar.org/paper/Feature-3DGS%3A-Supercharging-3D-Gaussian-Splatting-Zhou-Chang/fcdb4cc5202140f41b0181fbbee1b321af4df7ad)
+
+# 对比
+
+![img](./assets/(null)-6994408.)
+
+# 总结
+
+## 发展方向
+
+- **交互探索**：实时3D重建技术允许实时交互探索3D场景或模型，并提供即时反馈。
+- **动态渲染**：实现动态场景中移动物体或变化环境的实时渲染，增强真实感和沉浸感。
+- **模拟与培训**：在汽车、航空航天和医学等领域的模拟和训练环境中提供逼真的视觉反馈。
+- **AR****/****VR****体验**：支持沉浸式AR和VR体验的实时渲染，使用户能够实时与虚拟物体或环境互动。
+- **技术优势**：提高了计算机图形学、可视化、模拟和沉浸式技术中各应用的效率、互动性和真实性。
+
+高斯散点技术（Gaussian Splatting）在处理动态场景、交互式对象操作、3D分割和场景编辑方面有着广泛的潜在应用和未来发展方向。该技术具有广泛而深远的应用前景，分布在多个领域，包括计算机生成图像（CGI）、虚拟现实/增强现实（VR/AR）、机器人技术、电影与动画、汽车设计、零售、环境研究和航空航天应用等。然而，重要的是要注意到，高斯散点在实现照片级真实性方面可能不及其他方法，比如NeRF（神经辐射场）。
+
+## 局限性
+
+尽管高斯分布渲染（Gaussian Splatting）在整体上取得了出色的结果和令人印象深刻的渲染速度，但这种表示方法的简单性也带来了一些代价。以下是主要的局限性和需要考虑的问题：
+
+### 密集化启发式
+
+在优化过程中，引入了各种密集化启发式，以防止模型出现“破损”的高斯点（如过大、过长或冗余的点）。这些密集化措施对于保持模型的稳定性和一致性至关重要。如果没有这些措施，模型可能会在优化过程中产生问题。
+
+- **过大或过长的高斯点**：如果高斯点的尺寸过大或过长，可能会导致渲染结果失真。
+- **冗余的高斯点**：过多的冗余点会增加计算复杂度，而不会显著提高渲染质量。
+
+这些问题在处理超出新视角渲染任务范围的其他任务时可能会进一步放大。
+
+### 离散表示的选择
+
+选择离散表示而非连续表示意味着丧失了多层感知机（MLP）的归纳偏置。在 NeRFs 中，MLP 执行隐式插值，平滑处理视角之间的可能不一致性，而三维高斯点对这些不一致性更加敏感，导致上述问题的出现。
+
+- **MLP** **的插值和平滑**：在 NeRF 中，MLP 可以通过插值和平滑减少视角之间的差异。
+- **三维高斯点的敏感性**：三维高斯点在处理这些不一致性时更容易出现问题，导致渲染结果不如 NeRF 平滑。
+
+### 继承的伪影问题
+
+高斯分布渲染继承了一些 NeRF 中存在的已知伪影，这些伪影源于共享的图像形成模型。例如：
+
+- **在较少或未见区域的较低质量**：在训练数据中较少或未出现的区域，渲染质量可能较低。
+- **靠近图像平面的浮动伪影**：在靠近图像平面的区域，可能会出现浮动伪影。
+
+这些问题在高斯分布渲染和 NeRF 中都是存在的，源于它们使用的相似图像形成模型。
+
+### 检查点文件大小
+
+检查点文件的大小是另一个需要考虑的属性。尽管新视角渲染尚未被部署到边缘设备，但从磁盘空间的角度来看，三维点的数量和流行的 NeRF MLP 架构占用了相同数量级的磁盘空间，平均而言，高斯分布渲染的文件大小比 NeRF 略大几倍。
+
+- **磁盘空间占用**：高斯分布渲染由于三维点的数量较多，文件大小略大于 NeRF。
+- **部署考虑**：虽然目前部署到边缘设备的需求不大，但未来可能需要考虑文件大小对部署的影响。
 
 # 参考资料
 
