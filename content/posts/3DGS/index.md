@@ -670,4 +670,3 @@ series = ["Learning Path"]
    2. [Mathematical Supplement for the gsplat Library](https://arxiv.org/pdf/2312.02121)（30 min read）
    3. [NumByNum 3D Gaussian Splatting Reviewed](https://medium.com/@AriaLeeNotAriel/numbynum-3d-gaussian-splatting-for-real-time-radiance-field-rendering-kerbl-et-al-60c0b25e5544)（29 min read）
    4. [EWA Splatting](https://www.cs.umd.edu/~zwicker/publications/EWASplatting-TVCG02.pdf) （30+ min read）
-3. 研究现状
