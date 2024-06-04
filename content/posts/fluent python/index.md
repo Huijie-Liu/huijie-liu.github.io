@@ -1,8 +1,8 @@
 +++
-title = "Fluent Python"
+title = "《流畅的Python》Notes"
 date = 2024-02-12T13:30:42+08:00
 draft = false
-tags = ["Learning Note", "Python"]
+tags = ["Python"]
 categories = ["Learning"]
 series = ["Learning Path"]
 +++

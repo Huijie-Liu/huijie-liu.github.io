@@ -2,7 +2,7 @@
 title = 'Recent Advances in Vision Foundation Models'
 date = 2024-03-28T13:30:42+08:00
 draft = false
-tags = ["Learning Note", "Deep Learning", "Computer Vision"]
+tags = ["Deep Learning", "Computer Vision"]
 categories = ["Learning"]
 series = ["Learning Path"]
 
@@ -475,4 +475,3 @@ LLM + 各种工具
 - ![img](<./assets/(null)-20240401103439972.(null)#center>)
 
 - ![img](<./assets/(null)-20240401103440030.(null)#center>)
-
