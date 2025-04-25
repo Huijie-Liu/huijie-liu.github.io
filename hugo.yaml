@@ -1,9 +1,10 @@
 # If your site is in 'https', then make sure your base url isn't written using 'http' otherwise your sitemap would
 # contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
 # baseURL: "https://github.com/Huijie-Liu/huijie-liu.github.io"
-baseURL: ""
+baseURL: "https://huijie-liu.github.io/"
 title: Jay Tech
-paginate: 5
+pagination:
+  pagerSize: 10
 theme: [PaperMod]
 
 enableInlineShortcodes: true
@@ -51,7 +52,7 @@ outputs:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
+  description: "Jay's tech blogs"
   author: ["Huijie Liu"]
   # author: ["Me", "You"] # multiple authors
 
@@ -101,7 +102,7 @@ params:
       url: "https://open.spotify.com/user/8tsoedhe3qdlvi0ovenu5y1uu?si=e4d96cb0121b4d25"
     - name: X
       title: My X/Twitter
-      url: "https://twitter.com/luhuijiao666"
+      url: "https://x.com/luhuijiao666"
 
   # editPost:
   # URL: "https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite/content"
@@ -148,20 +149,6 @@ params:
 
 markup:
   goldmark:
-    extensions:
-      passthrough:
-        delimiters:
-          block:
-            - - \[
-              - \]
-            - - $$
-              - $$
-          inline:
-            - - \(
-              - \)
-            - - $
-              - $
-        enable: true
     renderer:
       unsafe: true
   highlight:
@@ -177,7 +164,7 @@ markup:
 #     disabled: false
 #     simple: true
 
-#   twitter:
+#   s:
 #     disabled: false
 #     enableDNT: true
 #     simple: true
@@ -195,5 +182,5 @@ services:
     shortname: jay-tech
   instagram:
     disableInlineCSS: true
-  twitter:
+  x:
     disableInlineCSS: true
