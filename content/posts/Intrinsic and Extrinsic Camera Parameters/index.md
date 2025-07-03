@@ -2,6 +2,7 @@
 title = '相机的外参和内参'
 date = 2024-06-03T20:31:53+08:00
 draft = false
+description = "详细讲解计算机视觉中相机的内参和外参概念，包括相机标定、坐标转换、投影矩阵等核心知识点。"
 tags = ["Learning Note", "Graphics", "Computer Vision"]
 categories = ["Learning"]
 series = ["Learning Path"]

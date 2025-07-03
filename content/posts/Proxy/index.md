@@ -2,6 +2,7 @@
 title = '正向代理与反向代理'
 date = 2024-03-27T13:30:42+08:00
 draft = false
+description = "全面介绍正向代理和反向代理的概念、区别和应用场景，包括 SSH 端口转发的实际操作方法和配置技巧。"
 tags = ["Shell", "Proxy", "Network"]
 categories = ["Tools"]
 +++

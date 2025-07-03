@@ -2,7 +2,8 @@
 title = '稀疏卷积'
 date = 2024-06-04T10:31:53+08:00
 draft = false
-tags = ["CNN"]
+description = "深入解析稀疏卷积的原理和实现，探讨如何在处理稀疏数据（如点云、体素网格）时提高计算效率和内存利用率。"
+tags = ["CNN", "Deep Learning", "Computer Vision"]
 categories = ["Learning"]
 series = ["Learning Path"]
 +++

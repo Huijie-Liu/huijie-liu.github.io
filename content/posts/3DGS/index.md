@@ -2,6 +2,7 @@
 title = '3DGS Tutorial'
 date = 2024-05-23T20:31:53+08:00
 draft = false
+description = "深入探讨 3D 高斯分布（3D Gaussian Splatting）技术，包括基本原理、实现流程和优化方法。涵盖点基渲染、分块光栅化和球谐函数等核心概念。"
 tags = ["Learning Note", "Deep Learning", "Computer Vision", "3DGS"]
 categories = ["Learning"]
 series = ["Learning Path"]
@@ -11,7 +12,7 @@ series = ["Learning Path"]
 
 - 基本思想
   - 3D高斯分布可以通过它们的各向异性协方差矩阵、位置和透明度等参数来有效地表示复杂场景。由于这些参数是通过机器学习方法进行训练的，渲染阶段无需进行大量处理。因此，它可以利用基于瓦片的光栅化器实现快速渲染，从而在性能上有显著的提升。
-  - ![img](<./assets/(null)#center>)
+  - ![3DGS 概览](./assets/3dgs-overview.png)
 - 创新点
   - **Point-Based Rendering**：点基渲染直接将三维空间中的点渲染为图像。
   - **Tiled Rasterization**：分块光栅化的基本思想是将屏幕划分为多个小块（Tiles），然后在每个小块内进行相关计算和处理（可微分）。这种方法能够显著减少内存流量，从而提高渲染效率。
@@ -102,18 +103,18 @@ series = ["Learning Path"]
 
     - $$C(p)=\sum_{i\in N}c_if_i^{2D}(p)\underbrace{\prod_{j=1}^{i-1}(1-f_j^{2D}(p))}_{transmittance}\quad(3)$$
 
-    - ![img](<./assets/(null)-20240523202652029.(null)#center>)
+    - ![3DGS 处理流程](./assets/3dgs-process.gif)
 
 公式（3）描述了如何在一个像素中获得颜色值。要渲染整个图像，仍然需要遍历所有的H×W射线，就像在 NeRF 中一样。不过，这个过程更加轻量化：
 
-![img](<./assets/(null)-20240523202734762.(null)#center>)
+![分块光栅化](./assets/tiled-rasterization.png)
 
-![img](<./assets/(null)-20240523202731631.(null)#center>)
+![点基渲染](./assets/point-rendering.png)
 
 1. 预处理排序阶段：
    1. 每帧只需在GPU上进行一次预处理排序，使用定制的可微分CUDA 内核实现。这一步骤可以显著加速渲染过程，因为它利用了 GPU 的并行计算能力。
    2. 在这一步骤中，所有的三维点根据它们在二维图像平面上的投影位置进行排序，以便快速查找和混合。
-   3. ![img](<./assets/(null)-20240523202744678.(null)#center>)
+   3. ![球谐函数](./assets/spherical-harmonics.png)
 2. 预先投影到2D：
    1. 对于给定的相机，可以提前将每个三维点的f（p）投影到二维。在遍历像素之前完成这个步骤，这样当高斯函数混合到附近的几个像素时，不需要一遍又一遍地重新投影。
    2. 例如，假设有一个三维点（X，Y，2），在给定相机内参和外参矩阵的情况下，可以提前计算出该点在图像平面上的投影位置（2,g）。
@@ -213,7 +214,7 @@ series = ["Learning Path"]
 
 要从空间中的一堆高斯点获得高质量的图像，需要三个关键组件：良好的初始化、可微分优化和自适应密集化。这些组件可以帮助减少渲染中的尖锐伪影，使图像更平滑和真实。
 
-![img](<./assets/(null)-20240523202800392.(null)#center>)
+![COLMAP 输出](./assets/colmap-output.png)
 
 1. 初始化
 
@@ -225,7 +226,7 @@ series = ["Learning Path"]
    3. 随机初始化：
       - 在初始化时，每个3D点被视为一个球体（即各向同性的协方差矩阵）。
       - 半径的设置基于与相邻点的平均距离，以确保3D世界被适当地覆盖，没有“空洞”。
-   4. ![img](<./assets/(null)-20240523202803357.(null)#center>)
+   4. ![高斯渲染](./assets/gaussian-rendering.png)
 
 2. 可微分优化
 
@@ -243,7 +244,7 @@ series = ["Learning Path"]
       - 在具有大梯度的区域分裂点或克隆点。这些区域通常表示高变化率或复杂细节区域，因此需要更多的点来准确表示。对于克隆，创建高斯的复制体并朝着位置梯度移动。对于分裂，用两个较小的高斯替换一个大高斯，按照特定因子减小它们的尺度。
    3. 点的剪枝：
       - 移除那些α值非常低的点。如果一个点的透明度非常高，表示其对最终渲染的贡献很小，因此可以安全地移除这些点以减少计算复杂度。
-   4. ![img](<./assets/(null)-20240523202806461.(null)#center>)
+   4. ![优化过程](./assets/optimization-process.png)
 
 ### 优化：实现细节（反向传播计算梯度）
 
@@ -403,7 +404,7 @@ series = ["Learning Path"]
 
 > 球谐函数在3DGS中并不是必须的
 
-![img](<./assets/(null)-20240523202811474.(null)#center>)
+![Splatting 公式](./assets/splatting-formula.png)
 
 - **球谐函数（Spherical Harmonics, SH）**
 
@@ -509,7 +510,7 @@ series = ["Learning Path"]
 
 # 研究现状
 
-![img](<./assets/(null)-20240523202818285.(null)#center>)
+![球谐函数公式](./assets/spherical-harmonics-formula.png)
 
 ## 功能性
 
@@ -541,7 +542,7 @@ series = ["Learning Path"]
 - 文生3D
 
   - [GaussianDreamer: Fast Generation from Text to 3D Gaussians by Bridging 2D and 3D Diffusion Models（CVPR 2024）](https://taoranyi.com/gaussiandreamer/)
-    - ![img](<./assets/(null)-20240523202823069.(null)#center>)
+    - ![训练流程](./assets/training-pipeline.png)
   - [Gsgen: Text-to-3D using Gaussian Splatting（CVPR 2024）](https://gsgen3d.github.io/)
 
   - [DreamGaussian: Generative Gaussian Splatting for Efficient 3D Content Creation](https://dreamgaussian.github.io/)（ICLR 2024 Oral）
@@ -606,7 +607,7 @@ series = ["Learning Path"]
 
 # 对比
 
-![img](./assets/(null)-6994408.)
+![渲染示例](./assets/rendering-example.png)
 
 # 总结
 

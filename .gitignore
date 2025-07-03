@@ -1,6 +1,100 @@
-**/.DS_Store
-public/*
-**/.obsidian
+# Hugo default public folder
+/public/
+/resources/_gen/
 
-.vscode
+# Temporary lock file while building
+.hugo_build.lock
 
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs/
+*.log
+
+# OS generated files
+Thumbs.db
+Desktop.ini
+
+# Backup files
+*.bak
+*.backup
+
+# Obsidian
+.obsidian/
+
+# Local Netlify folder (if using Netlify)
+.netlify
+
+# Local env files
+.env
+.env.local
+.env.*.local
+
+# Hugo theme worktrees
+/themes/*/exampleSite/
+/themes/*/resources/
+
+# Generated files
+sitemap.xml.gz
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+
+# IDE specific files
+.project
+.classpath
+.settings/
