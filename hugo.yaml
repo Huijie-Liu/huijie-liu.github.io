@@ -1,22 +1,42 @@
-# If your site is in 'https', then make sure your base url isn't written using 'http' otherwise your sitemap would
-# contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
-# baseURL: "https://github.com/Huijie-Liu/huijie-liu.github.io"
+# =============================================================================
+# HUGO CONFIGURATION - Jay Tech Blog
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# 基础网站配置
+# -----------------------------------------------------------------------------
 baseURL: "https://huijie-liu.github.io/"
 title: Jay Tech
-pagination:
-  pagerSize: 10
 theme: [PaperMod]
 
+# 分页设置
+pagination:
+  pagerSize: 10
+
+# 主要内容区域
+mainsections: ["posts", "papermod"]
+
+# -----------------------------------------------------------------------------
+# Hugo 功能开关
+# -----------------------------------------------------------------------------
 enableInlineShortcodes: true
 enableRobotsTXT: true
+enableEmoji: true
+
+# 构建选项
 buildDrafts: false
 buildFuture: false
 buildExpired: false
-enableEmoji: true
+
+# 代码高亮
 pygmentsUseClasses: true
-mainsections: ["posts", "papermod"]
+
+# 分析工具
 # googleAnalytics: UA-123-45
 
+# -----------------------------------------------------------------------------
+# 性能优化配置
+# -----------------------------------------------------------------------------
 minify:
   disableXML: true
   minifyOutput: true
@@ -26,6 +46,9 @@ minify:
   disableJSON: false
   disableSVG: false
 
+# -----------------------------------------------------------------------------
+# 多语言和导航配置
+# -----------------------------------------------------------------------------
 languages:
   en:
     languageName: "English"
@@ -38,24 +61,73 @@ languages:
       main:
         - name: Archive
           url: archives
-          weight: 5
+          weight: 10
         - name: Search
           url: search/
-          weight: 10
+          weight: 20
         - name: Tags
           url: tags/
-          weight: 10
-        - name: FAQ
-          url: faq/
-          weight: 15
+          weight: 30
+        # - name: FAQ
+        #   url: faq/
+        #   weight: 40
 
+# 输出格式
 outputs:
   home:
     - HTML
     - RSS
     - JSON
 
+# -----------------------------------------------------------------------------
+# 内容渲染配置
+# -----------------------------------------------------------------------------
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+    anchorLineNos: true
+    codeFences: true
+    guessSyntax: true
+    lineNos: true
+    style: dracula
+
+# -----------------------------------------------------------------------------
+# 隐私保护配置
+# -----------------------------------------------------------------------------
+privacy:
+  vimeo:
+    disabled: false
+    simple: true
+  s:
+    disabled: false
+    enableDNT: true
+    simple: true
+  instagram:
+    disabled: false
+    simple: true
+  youtube:
+    disabled: false
+    privacyEnhanced: true
+
+# -----------------------------------------------------------------------------
+# 第三方服务配置
+# -----------------------------------------------------------------------------
+services:
+  disqus:
+    shortname: jay-tech
+  instagram:
+    disableInlineCSS: true
+  x:
+    disableInlineCSS: true
+
+# -----------------------------------------------------------------------------
+# 主题参数配置
+# -----------------------------------------------------------------------------
 params:
+  # 环境和SEO设置
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   description: "Jay's tech blogs"
   keywords:
@@ -69,9 +141,10 @@ params:
     ]
   author: ["Huijie Liu"]
   # author: ["Me", "You"] # multiple authors
+  images: ["images/profile.png"]
 
+  # 功能特性开关
   math: true
-
   defaultTheme: auto
   ShowShareButtons: false
   ShowReadingTime: true
@@ -85,28 +158,30 @@ params:
   ShowPageNums: true
   ShowToc: true
   comments: true
-  images: ["assets/images/profile.png"]
 
+  # 个人资料模式
   profileMode:
     enabled: true
     title: "Jay Tech"
-    subtitle: "👋 Hi, this is Jay. I’m documenting my learning notes in this blog."
-    # imageUrl: "#" # optional
-    # imageTitle: "Jay" # optional
-    # imageWidth: 120 # custom size
-    # imageHeight: 120 # custom size
+    subtitle: "👋 Hi, this is Jay. I'm documenting my learning notes in this blog."
+    imageUrl: "images/profile.png" # optional
+    imageTitle: "Jay" # optional
+    imageWidth: 240 # custom size
+    imageHeight: 240 # custom size
     buttons:
       - name: Archives
         url: archives
       - name: Tags
         url: tags
 
+  # 首页信息参数
   homeInfoParams:
     Title: "Jay's tech blogs"
     Content: >
       👋 Welcome to Jay's tech blogs!
-      Hi, this is Jay. I’m documenting my learning notes in this blog.
+      Hi, this is Jay. I'm documenting my learning notes in this blog.
 
+  # 社交媒体图标
   socialIcons:
     - name: github
       title: View my profile on Github
@@ -114,87 +189,28 @@ params:
     - name: spotify
       title: My spotify profile
       url: "https://open.spotify.com/user/8tsoedhe3qdlvi0ovenu5y1uu?si=e4d96cb0121b4d25"
-    - name: X
-      title: My X/Twitter
-      url: "https://x.com/luhuijiao666"
 
-  # editPost:
-  # URL: "https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite/content"
-  # Text: "Suggest Changes" # edit text
-  # appendFilePath: true # to append file path to Edit link
-
-  # label:
-  # iconSVG: '<svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" fill="currentColor"><path d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>'
-  # text: "Home"
-  # icon: icon.png
-  # iconHeight: 35
-
-  # analytics:
-  #     google:
-  #         SiteVerificationTag: "XYZabc"
-
+  # 网站资源配置
   assets:
     disableHLJS: true
-    #     favicon: "<link / abs url>"
-    #     favicon16x16: "<link / abs url>"
-    #     favicon32x32: "<link / abs url>"
-    #     apple_touch_icon: "<link / abs url>"
-    #     safari_pinned_tab: "<link / abs url>"
-
     favicon: "/favicon.ico"
     favicon16x16: "/favicon-16x16.png"
     favicon32x32: "/favicon-32x32.png"
     apple_touch_icon: "/apple-touch-icon.png"
     safari_pinned_tab: "/safari-pinned-tab.svg"
 
-  # cover:
-  #     hidden: true # hide everywhere but not in structured data
-  #     hiddenInList: true # hide on list pages and home
-  #     hiddenInSingle: true # hide on single page
+  # Google Analytics（已注释）
+  # analytics:
+  #     google:
+  #         SiteVerificationTag: "XYZabc"
 
+  # 搜索配置（已注释）
   # fuseOpts:
-  #     isCaseSensitive: false
-  #     shouldSort: true
-  #     location: 0
-  #     distance: 1000
-  #     threshold: 0.4
-  #     minMatchCharLength: 0
-  #     keys: ["title", "permalink", "summary", "content"]
+  #   isCaseSensitive: false
+  #   shouldSort: true
+  #   location: 0
+  #   distance: 1000
+  #   threshold: 0.4
+  #   minMatchCharLength: 0
+  #   keys: ["title", "permalink", "summary", "content"]
 
-markup:
-  goldmark:
-    renderer:
-      unsafe: true
-  highlight:
-    noClasses: false
-    # anchorLineNos: true
-    # codeFences: true
-    # guessSyntax: true
-    # lineNos: true
-    # style: monokai
-
-# privacy:
-#   vimeo:
-#     disabled: false
-#     simple: true
-
-#   s:
-#     disabled: false
-#     enableDNT: true
-#     simple: true
-
-#   instagram:
-#     disabled: false
-#     simple: true
-
-#   youtube:
-#     disabled: false
-#     privacyEnhanced: true
-
-services:
-  disqus:
-    shortname: jay-tech
-  instagram:
-    disableInlineCSS: true
-  x:
-    disableInlineCSS: true
